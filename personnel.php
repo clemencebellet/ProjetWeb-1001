@@ -18,19 +18,27 @@ $sql ="SELECT *
         FROM coach";
         $res = mysqli_query($db_handle,$sql);
 
-        while($data = mysqli_fetch_assoc($res))
+
+        $sql1 ="SELECT sport.Nom
+        FROM  sport, coach
+        WHERE sport.id_sport=coach.Sport"
+        ;
+        $res1 = mysqli_query($db_handle,$sql1);
+
+        while($data1 = mysqli_fetch_assoc($res)) 
         { 
             // 1 ligne de donnée
-            
+            while($data2 = mysqli_fetch_assoc($res1))
+            {echo "Voici le coach de ". $data2["Nom"]. "<br>";
 
-        echo "Nom : " . $data["Nom"] . "<br>";
-        echo "Prenom : " . $data["Prenom"] . "<br>";
-        echo "Bureau : " . $data["Bureau"] . "<br>";
-        echo "Dispo : " . $data["Dispo"] . "<br>";
-        echo "NumeroTel : " . $data["NumeroTel"] . "<br>";
-        echo "Email : " . $data["Email"] . "<br>";
-        echo "Sport : " . $data["Sport"] . "<br>";
-        echo "<br>";
+        echo "Nom : " . $data1["Nom"] . "<br>";
+        echo "Prenom : " . $data1["Prenom"] . "<br>";
+        echo "Bureau : " . $data1["Bureau"] . "<br>";
+        echo "Dispo : " . $data1["Dispo"] . "<br>";
+        echo "NumeroTel : " . $data1["NumeroTel"] . "<br>";
+        echo "Email : " . $data1["Email"] . "<br>";
+        //echo "Sport : " . $data["Sport"] . "<br>";
+        echo "<br>";}
 
     
 }
