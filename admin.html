@@ -21,6 +21,73 @@
             document.getElementById(id).style.display = 'none';
         }
     }
+
+    function isEmpty(){
+            var id = document.getElementById("id").value;
+            var nom = document.getElementById("name").value;
+            var prenom = document.getElementById("prenom").value;
+            var bureau = document.getElementById("bureau").value;
+            var dispo = document.getElementById("dispo").value;
+            var num = document.getElementById("tel").value;
+            var email = document.getElementById("email").value; 
+            var mdp = document.getElementById("mdp").value;
+            var mdp1 = document.getElementById("mdp1").value;
+            var sport = document.getElementById("sport").value;
+            var idsupp = document.getElementById("idsupp").value;
+            var cp=0; 
+
+            if( !id.replace(/\s+/, '').length ) {
+                  masquer_div("iderror");
+                  cp = (cp+1);
+             }
+             if( !nom.replace(/\s+/, '').length ) {
+                  masquer_div("nomerror");
+                  cp = (cp+1);
+             }
+             if( !prenom.replace(/\s+/, '').length ) {
+                  masquer_div("prenomerror");
+                  cp = (cp+1);
+             }
+             if( !bureau.replace(/\s+/, '').length ) {
+                  masquer_div("bureauerror");
+                  cp = (cp+1);
+             }
+             if( !dispo.replace(/\s+/, '').length ) {
+                  masquer_div("dispoerror");
+                  cp = (cp+1);
+             }
+             if( !num.replace(/\s+/, '').length ) {
+                 masquer_div("telerror");
+                  cp = (cp+1);
+             }
+             if(num.replace(/\s+/, '').length!=10) {
+                  cp = (cp+1);
+             }             
+             if( !email.replace(/\s+/, '').length ) {
+                  masquer_div("emailerror");
+                  cp = (cp+1);
+             }
+             if( !mdp.replace(/\s+/, '').length ) {
+                  masquer_div("mdperror");
+                  cp = (cp+1);
+             }
+             if( !mdp1.replace(/\s+/, '').length ) {
+                  masquer_div("mdperror1");
+                  cp = (cp+1);
+             }
+             if( !sport.replace(/\s+/, '').length ) {
+                  masquer_div("sporterror");
+                  cp = (cp+1);
+             }
+             if( !idsupp.replace(/\s+/, '').length ) {
+                  masquer_div("idsupperror");
+                  cp = (cp+1);
+             }
+             if(mdp!=mdp1) {
+                masquer_div("pasmememdp");
+                cp = (cp+1);
+             }
+         }
 </script>
 
 </head>
@@ -31,12 +98,191 @@
     </div>
     <h3 style="text-align:center">Qu'est ce que vous voulez faire ?</h3>
     <form style="text-align:center">
-        <input type="button" Value="Ajouter des coachs" onclick="masquer_div('info');">
-        <input type="button" Value="Supprimer des coachs" onclick="masquer_div('cancel');">
-        <input type="button" Value="Créer un XML" onclick="masquer_div('payante');">
-        <input type="button" Value="Informations disponibilites" onclick="masquer_div('Paiement');">
-        
-        
+        <input type="button" Value="Ajouter des coachs" onclick="masquer_div('ajoutcoach');">
+        <input type="button" Value="Supprimer des coachs" onclick="masquer_div('suppcoach');">
+        <input type="button" Value="Créer un XML" onclick="masquer_div('creerXML');">
+        <input type="button" Value="Informations disponibilites" onclick="masquer_div('infos');">
     </form>
+
+    <div  id="ajoutcoach" style="display:none;text-align: center;" >
+        <br><br>
+            <form  action="NewCoach.php" method="post" style="margin : auto; width : 180px">
+                <table>
+                    <tr>
+                        <td>
+                            ID:
+                        </td>  
+                        <td>
+                            <input type="text" name="id" id="id"> <br> 
+                        </td>
+                        <td>
+                            <div id="iderror" style="display:none;">
+                                Champ id vide !
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Nom:
+                        </td>  
+                        <td>
+                            <input type="text" name="nom" id="name"> <br> 
+                        </td>
+                        <td>
+                            <div id="nomerror" style="display:none;">
+                                Champ Nom vide !
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Prénom:
+                        </td>  
+                        <td>
+                            <input type="text"name="prenom" id="prenom"> <br> 
+                        </td>
+                        <td>
+                            <div id="prenomerror" style="display:none;">
+                                Champ Prenom vide !
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Bureau: 
+                        </td>  
+                        <td>
+                            <input type="text" name="bureau" id="bureau"> <br>
+                        </td>
+                        <td>
+                            <div id="bureauerror" style="display:none;">
+                                Champ bureau vide !
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Dispo: 
+                        </td>  
+                        <td>
+                            <input type="text" name="dispo" id="dispo"> <br>
+                        </td>
+                        <td>
+                            <div id="dispoerror" style="display:none;">
+                                Champ Dispo vide !
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Téléphone:
+                        </td>  
+                        <td>
+                            <input type="text" name="tel" id="tel"> <br> 
+                        </td>
+                        <td>
+                            <div id="telerror" style="display:none;">
+                                Champ Téléphone vide !
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Email:
+                        </td>  
+                        <td>
+                            <input type="text" name="email" id="email"> <br> 
+                        </td>
+                        <td>
+                            <div id="emailerror" style="display:none;">
+                                Champ Email vide !
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Sport:
+                        </td>  
+                        <td>
+                            <input type="text" id="sport" name="sport"> <br> 
+                        </td>
+                        <td>
+                            <div id="sporterror" style="display:none;">
+                                Champ Sport vide !
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Mdp:
+                        </td>  
+                        <td>
+                            <input type="password" name="mdp" id="mdp"> <br> 
+                        </td>
+                        <td>
+                            <div id="mdperror" style="display:none;">
+                                Champ Mdp vide !
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Mdp:
+                        </td>  
+                        <td>
+                            <input type="password" id="mdp1"> <br> 
+                        </td>
+                        <td>
+                            <div id="mdperror1" style="display:none;">
+                                Champ Mdp vide !
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="pasmememdp" style="display:none;">
+                                Mdp différents !
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>  
+                        <td>
+                            <input type="submit" onClick="isEmpty()" name="ajoutcoach" Value="ajoutcoach">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+    </div>
+
+    <div  id="suppcoach" style="display:none;text-align: center;" >
+        <br><br>
+            <form  action="NewCoach.php" method="post" style="margin : auto; width : 180px">
+                <table>
+                    <tr>
+                        <td>
+                            Saisir l'id du coach à supprimer : 
+                        </td>  
+                        <td>
+                            <input type="text" name="idsupp" id="idsupp"> <br> 
+                        </td>
+                        <td>
+                            <div id="idsupperror" style="display:none;">
+                                Champ id à supprimer vide !
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>  
+                        <td>
+                            <input type="submit" onClick="isEmpty()" name="suppcoach" Value="suppcoach">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+    </div>
+
+</body>
+</html>
    
 

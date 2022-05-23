@@ -12,7 +12,6 @@ $db_found = mysqli_select_db($db_handle,$db);
 
 if($db_found)
 {
-
     $id = $_POST["id"];
     $nom = $_POST["nom"];
     $prenom = $_POST["prenom"];
