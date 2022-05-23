@@ -28,6 +28,7 @@
             var num = document.getElementById("tel").value;
             var email = document.getElementById("email").value; 
             var mdp = document.getElementById("mdp").value;
+            var mdp1 = document.getElementById("mdp1").value;
             var cp=0; 
             
              if( !nom.replace(/\s+/, '').length ) {
@@ -56,6 +57,14 @@
              if( !mdp.replace(/\s+/, '').length ) {
                   masquer_div("mdperror");
                   cp = (cp+1);
+             }
+             if( !mdp1.replace(/\s+/, '').length ) {
+                  masquer_div("mdperror1");
+                  cp = (cp+1);
+             }
+             if(mdp!=mdp1) {
+                masquer_div("pasmememdp");
+                cp = (cp+1);
              }
          }
  </script>
@@ -207,6 +216,27 @@
                             </div>
                         </td>
                     </tr>
+                    <tr>
+                        <td>
+                            Mdp:
+                        </td>  
+                        <td>
+                            <input type="password" id="mdp1"> <br> 
+                        </td>
+                        <td>
+                            <div id="mdperror1" style="display:none;">
+                                Champ Mdp vide !
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="pasmememdp" style="display:none;">
+                                Mdp différents !
+                            </div>
+                        </td>
+                    </tr>
+
                     <tr>
                         <td></td>  
                         <td>
