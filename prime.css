@@ -55,7 +55,7 @@ h1 {
    }
 .middleup {
 
-    float: right;
+    float: middle;
     margin: 0 auto;
   
    }
@@ -91,9 +91,9 @@ h1 {
     margin: 0 auto;
   
    }
-   .leftdown {
+.leftdown {
 
-    float: right;
+    float: left;
     margin: 0 auto;
   
    }
