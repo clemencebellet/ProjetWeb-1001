@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Compte Coach</title>
+ <meta charset="utf-8"/>
+ 
+ 
+
+ 
+ <link href="SalledeSport.css" rel="stylesheet" type="text/css" />
+
+ <script type="text/javascript">
+     function masquer_div(id)
+    {
+        if (document.getElementById(id).style.display == 'none')
+        {
+            document.getElementById(id).style.display = 'block';
+        }
+        else
+        {
+            document.getElementById(id).style.display = 'none';
+        }
+    }
+</script>
+
+</head>
+<body>
+    <div id="Nav">
+        <a href="accueil.html"><img src="images/accueil.png" width="150" height="50"></a>
+        <a href="ToutParcourir.html"><img src="images/toutparcourir.png" width="150" height="50"></a>
+    </div>
+    <h3 style="text-align:center">Qu'est ce que vous voulez faire ?</h3>
+    <form style="text-align:center">
+        <input type="button" Value="Tchat Clients" onclick="masquer_div('tchat');">
+        <input type="button" Value="Informations rendez-vous" onclick="masquer_div('info');">
+        
+        
+        
+    </form>
+   
+
