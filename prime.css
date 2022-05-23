@@ -1,0 +1,114 @@
+body {
+     background-color:  white; 
+     font-family: Arial, Helvetica, sans-serif;
+ }
+
+h1 {
+     color:#003366;
+     float: center;
+     align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+
+.up {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+
+
+
+
+   }
+.muscuimg{
+    width: 250px;
+    height: 200px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    
+}
+.fitnessimg{
+    width: 250px;
+    height: 200px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    
+}
+
+.bikingimg{
+    width: 250px;
+    height: 200px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    
+}
+.rightup {
+
+    float: right;
+    margin: 0 auto;
+  
+   }
+.middleup {
+
+    float: right;
+    margin: 0 auto;
+  
+   }
+
+.leftup {
+    
+    float: left;
+    margin: 0 auto;
+
+
+
+}
+.hautPage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+
+
+
+}
+
+.down {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+
+}
+.rightdown {
+
+    float: right;
+    margin: 0 auto;
+  
+   }
+
+.cardioimg{
+    width: 250px;
+    height: 200px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    
+}
+.coursimg{
+    width: 250px;
+    height: 200px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    
+}
+.hautPage{ 
+    margin: 10px; 
+    padding-left: 10px;
+}
