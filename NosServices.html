@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Nos Services</title>
+ <meta charset="utf-8"/>
+ 
+ 
+
+ 
+ <link href="SalledeSport.css" rel="stylesheet" type="text/css" />
+
+ <script type="text/javascript">
+     function masquer_div(id)
+    {
+        if (document.getElementById(id).style.display == 'none')
+        {
+            document.getElementById(id).style.display = 'block';
+        }
+        else
+        {
+            document.getElementById(id).style.display = 'none';
+        }
+    }
+    function isEmpty(){
+            var nom = document.getElementById("name").value;
+            var prenom = document.getElementById("prenom").value;
+            var a = document.getElementById("age").value;
+            var num = document.getElementById("tel").value;
+            var email = document.getElementById("email").value; 
+            var mdp = document.getElementById("mdp").value;
+            var cp=0; 
+            
+             if( !nom.replace(/\s+/, '').length ) {
+                  masquer_div("nomerror");
+                  cp = (cp+1);
+             }
+             if( !prenom.replace(/\s+/, '').length ) {
+                  masquer_div("prenomerror");
+                  cp = (cp+1);
+             }
+             if( !a.replace(/\s+/, '').length ) {
+                  masquer_div("ageerror");
+                  cp = (cp+1);
+             }
+             if( !num.replace(/\s+/, '').length ) {
+                 masquer_div("telerror");
+                  cp = (cp+1);
+             }
+             if(num.replace(/\s+/, '').length!=10) {
+                  cp = (cp+1);
+             }             
+             if( !email.replace(/\s+/, '').length ) {
+                  masquer_div("emailerror");
+                  cp = (cp+1);
+             }
+             if( !mdp.replace(/\s+/, '').length ) {
+                  masquer_div("mdperror");
+                  cp = (cp+1);
+             }
+         }
+ </script>
+ 
+
+</head>
+<body>
+    <div id="Nav">
+        <a href="accueil.html"><img src="images/accueil.png" width="150" height="50"></a>
+        <a href="ToutParcourir.html"><img src="images/toutparcourir.png" width="150" height="50"></a>
+    </div>
+    <h1 style="text-align:center">Nos Services</h1>
+    <form style="text-align:center">
+        <input type="button" Value="Personnel de la salle de sport" onclick="masquer_div('personnel');">
+        <input type="button" Value="Horaires de la gym" onclick="masquer_div('horaire');">
+        <input type="button" Value="Règle sur l’utilisation des machines" onclick="masquer_div('règle');">
+        <input type="button" Value="Nouveaux Clients" onclick="masquer_div('newclients');">
+        <input type="button" Value="Alimentation et nutrition" onclick="masquer_div('alimentation');">
+    </form>
+
+    <div id="Aff">
+        <div  id="personnel"style="display:none;text-align: center;" >
+        
+            <iframe style="height: 400px; position:relative; top : 30px;" src='personnel.php'>
+            </iframe>
+        </div>
+        </div>
+
+        <div  id="horaire"  style="display:none;text-align: center;" >
+            
+            <h2>HORAIRES D'OUVERTURE : </h2> <br><br>
+            Lundi : 6h00-22h30 <br>
+            Mardi : 6h00-22h30 <br>
+            Mercredi : 6h00-22h30 <br>
+            Jeudi : 6h00-22h30 <br>
+            Vendredi : 6h00-22h30 <br>
+            Samedi : 9h00-19h00 <br>
+            Dimanche : 9h00-19h00 <br>
+        </div>
+
+        <div  id="règle" style="display:none">
+            <h2>Règlement intérieur</h2>
+            <p>Ensemble, nous gardons le club propre et sain <br>
+            •    Le port de chaussures de sport (propres) et de vêtements de sport appropriés est obligatoire.<br>
+            •    Placez votre serviette sur l’appareil que vous utilisez puis, pour l’hygiène de tous, nettoyez l’appareil avec les produits désinfectants mis à votre disposition. <br>
+            •    La nourriture et les récipients non refermables ne sont pas autorisés dans les espaces d’entraînement. <br>
+            •    Il est interdit de fumer, de faire usage et/ou de distribuer des substances illicites dans le club. <br>
+            •    Les animaux ne sont pas admis au club, hormis les chiens d'assistance. 
+
+            Nous respectons la vie privée et la tranquillité des autres personnes
+            •    L'utilisation d'appareils mobiles fait partie intégrante de notre société. Dans les espaces d’entraînement, il n'est pas permis de téléphoner et de prendre des photos ou des films portant atteinte à la vie privée des personnes présentes. <br>
+            •    Ne laissez pas tomber le matériel bruyamment, limitez les bruits de toutes sortes ainsi que le niveau sonore de votre musique. <br>
+            •    La violence verbale et/ou physique n’est pas tolérée dans le club. <br>
+            •    Les gestes, harcèlement, et/ou relations intimes/sexuels ne sont pas tolérés dans le club. <br>
+            •    Laissez les appareils disponibles pour les autres si vous ne les utilisez pas de manière active.<br>
+
+            Nous voulons un club sûr pour chacun<br>
+            •    Il est obligatoire de présenter l’original de la carte Basic-Fit valide pour entrer dans le club. <br>
+            •    Les enfants de moins de 16 ans ne sont pas admis dans le club. <br>
+            •    Les instructions du personnel de Basic-Fit doivent être respectées et suivies. Basic-Fit est habilité, s'il a des motifs raisonnables de le faire, à refuser temporairement ou définitivement l'accès au(x) club(s) aux personnes qui ne respecteraient pas les conditions générales et/ou le règlement intérieur. <br>
+            •    Assurez-vous de savoir comment utiliser les appareils et faire les exercices. Respectez vos limites et veillez à connaître ce dont vous êtes capable, éventuellement avec les conseils d'un spécialiste (médical). Vous êtes responsable de votre propre bien-être.<br>
+            •    N'utilisez un appareil que pour l'usage auquel il est destiné et, après l'exercice, éteignez l’appareil ou remettez le matériel à l’endroit prévu à cet effet.<br>
+            •    Les effets personnels non nécessaires à la pratique du sport tels que manteaux, sacs, casques etcetera, ne peuvent être emmenés dans les espaces d’entraînement, ils doivent être rangés dans les casiers. Nous vous conseillons de ne pas emporter d'objets de valeur et d'utiliser les casiers pour ranger vos affaires. Les casiers sont vidés tous les jours. Pour la responsabilité en cas de dommage ou de vol, nous vous renvoyons aux conditions générales en vigueur de Basic-Fit. <br>
+            •    Après la douche, séchez-vous dans la zone humide du vestiaire pour éviter les chutes et les salissures inutiles dans les vestiaires. Pour des raisons d’hygiène, il n’est pas autorisé de se raser dans les vestiaires.<br>
+
+            •    Les activités de vente et/ou de promotion ainsi que le coaching personnel ne sont pas autorisés sans l'accord préalable et écrit de Basic-Fit.<br>
+            </p>
+            
+        </div>
+        <div  id="newclients" style="display:none;text-align:center">
+            <br><br>
+            <form style="margin : auto; width : 180px">
+                <table>
+                    <tr>
+                        <td>
+                            Nom:
+                        </td>  
+                        <td>
+                            <input type="text" id="name"> <br> 
+                        </td>
+                        <td>
+                            <div id="nomerror" style="display:none;">
+                                Champ Nom vide !
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Prénom:
+                        </td>  
+                        <td>
+                            <input type="text" id="prenom"> <br> 
+                        </td>
+                        <td>
+                            <div id="prenomerror" style="display:none;">
+                                Champ Prenom vide !
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Age: 
+                        </td>  
+                        <td>
+                            <input type="text" id="age"> <br>
+                        </td>
+                        <td>
+                            <div id="ageerror" style="display:none;">
+                                Champ Age vide !
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Téléphone:
+                        </td>  
+                        <td>
+                            <input type="text" id="tel"> <br> 
+                        </td>
+                        <td>
+                            <div id="telerror" style="display:none;">
+                                Champ Téléphone vide !
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Email:
+                        </td>  
+                        <td>
+                            <input type="text" id="email"> <br> 
+                        </td>
+                        <td>
+                            <div id="emailerror" style="display:none;">
+                                Champ Email vide !
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Mdp:
+                        </td>  
+                        <td>
+                            <input type="password" id="mdp"> <br> 
+                        </td>
+                        <td>
+                            <div id="mdperror" style="display:none;">
+                                Champ Mdp vide !
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>  
+                        <td>
+                            <input type="button" onClick="isEmpty()" Value="Submit">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            </div>
+
+        <div id="alimentation" style="display:none">
+        <h3>Qu’est-ce qu’une alimentation saine lorsque tu pratiques le sport d’endurance ?</h3><br>
+        D’abord, toujours prévoir une alimentation riche en glucides. Pense à un régime contenant du pain complet, des pommes de terre, des pâtes, du riz et/ou des légumes. Fais attention aux graisses mais consomme des protéines. La viande maigre et le poisson contiennent des protéines, mais aussi le fromage et les noix. Assure-toi d’avoir une alimentation équilibrée. Car, manger des pâtes bolognaise tous les jours ce n’est pas un régime sain et… c’est surtout très ennuyeux.<br>
+
+        <h3>Avant, pendant et après le sport d’endurance</h3>
+        Lorsque tu pratiques le sport d’endurance, la fréquence des repas est aussi très importante. Si tu manges les bonnes quantités quand il faut, tu préviens les troubles gastro-intestinaux et le manque d’énergie. Prends un repas nutritif mais faible en fibres environ deux heures avant l’exercice. Attention à ne pas trop manger. Tu ne veux pas que ton taux de sucre dans le sang explose. De plus, tu peux prendre un encas après et sentir la fatigue. Ta session de sport d’endurance dure plus d’une heure et demie ? Alors recharge les batteries en glucides pendant l’entraînement. Tu peux manger par exemple une banane ou boire une boisson énergisante. De toute manière, il est important de s’hydrater durant l’effort.<br>
+
+        Tu peux en apprendre plus sur l’importance de l’hydratation pendant la pratique du sport sur ce blog.<br>
+
+        Après le sport d’endurance, tu dois recharger les batterie. Mange un repas riches en hydrates de carbone et en protéines.<br>
+        </div>
+</div>
+</body>
+</html>
