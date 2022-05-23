@@ -3,10 +3,6 @@
 <head>
  <title>Nos Services</title>
  <meta charset="utf-8"/>
- 
- 
-
- 
  <link href="SalledeSport.css" rel="stylesheet" type="text/css" />
 
  <script type="text/javascript">
@@ -136,14 +132,27 @@
         </div>
         <div  id="newclients" style="display:none;text-align:center">
             <br><br>
-            <form style="margin : auto; width : 180px">
+            <form  action="NewClient.php" method="post" style="margin : auto; width : 180px">
                 <table>
+                    <tr>
+                        <td>
+                            ID:
+                        </td>  
+                        <td>
+                            <input type="text" name="id" id="id"> <br> 
+                        </td>
+                        <td>
+                            <div id="iderror" style="display:none;">
+                                Champ id vide !
+                            </div>
+                        </td>
+                    </tr>
                     <tr>
                         <td>
                             Nom:
                         </td>  
                         <td>
-                            <input type="text" id="name"> <br> 
+                            <input type="text" name="nom" id="name"> <br> 
                         </td>
                         <td>
                             <div id="nomerror" style="display:none;">
@@ -156,7 +165,7 @@
                             Prénom:
                         </td>  
                         <td>
-                            <input type="text" id="prenom"> <br> 
+                            <input type="text"name="prenom" id="prenom"> <br> 
                         </td>
                         <td>
                             <div id="prenomerror" style="display:none;">
@@ -169,7 +178,7 @@
                             Age: 
                         </td>  
                         <td>
-                            <input type="text" id="age"> <br>
+                            <input type="text" name="age" id="age"> <br>
                         </td>
                         <td>
                             <div id="ageerror" style="display:none;">
@@ -182,7 +191,7 @@
                             Téléphone:
                         </td>  
                         <td>
-                            <input type="text" id="tel"> <br> 
+                            <input type="text" name="tel" id="tel"> <br> 
                         </td>
                         <td>
                             <div id="telerror" style="display:none;">
@@ -195,7 +204,7 @@
                             Email:
                         </td>  
                         <td>
-                            <input type="text" id="email"> <br> 
+                            <input type="text" name="email" id="email"> <br> 
                         </td>
                         <td>
                             <div id="emailerror" style="display:none;">
@@ -208,7 +217,7 @@
                             Mdp:
                         </td>  
                         <td>
-                            <input type="password" id="mdp"> <br> 
+                            <input type="password" name="mdp" id="mdp"> <br> 
                         </td>
                         <td>
                             <div id="mdperror" style="display:none;">
@@ -240,7 +249,7 @@
                     <tr>
                         <td></td>  
                         <td>
-                            <input type="button" onClick="isEmpty()" Value="Submit">
+                            <input type="submit" onClick="isEmpty()" name="valider" Value="Valider">
                         </td>
                     </tr>
                 </table>
