@@ -1,0 +1,44 @@
+body { 
+    font-family: Arial, Helvetica, sans-serif;
+    }
+    #Nav{ 
+        margin: 10px; 
+        padding-left: 10px;
+    }
+    #wrapper{ width: 1100px;
+        height : 475px; 
+        margin: 0;
+        background-color:#b4e4eb;
+        color:#003300;
+        padding-left: 10px;
+    }
+    #leftcolumn{
+        background-color:#b4e4eb;
+        color : blue;
+        float : left;
+        width : 550 px;
+        min-width: 450px;
+    }
+    #NosServices {
+        margin-left: 125px;
+    }
+    .center {
+        display: block;
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+    #rightcolumn{
+        background-color:#b5212b;
+        margin-left: 490px;
+    }
+   .contact { font-family: "Times New Roman", serif;
+    font-size: .90em;
+    font-weight:bold;
+    }
+    #footer { font-size: .60em;
+    text-align : center;
+    margin-top: 10px;
+    font-style: italic;
+    background-color:#b4e4eb;
+    }
+   
