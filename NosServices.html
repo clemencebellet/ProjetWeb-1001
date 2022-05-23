@@ -3,6 +3,10 @@
 <head>
  <title>Nos Services</title>
  <meta charset="utf-8"/>
+ 
+ 
+
+ 
  <link href="SalledeSport.css" rel="stylesheet" type="text/css" />
 
  <script type="text/javascript">
@@ -17,7 +21,45 @@
             document.getElementById(id).style.display = 'none';
         }
     }
+    function isEmpty(){
+            var nom = document.getElementById("name").value;
+            var prenom = document.getElementById("prenom").value;
+            var a = document.getElementById("age").value;
+            var num = document.getElementById("tel").value;
+            var email = document.getElementById("email").value; 
+            var mdp = document.getElementById("mdp").value;
+            var cp=0; 
+            
+             if( !nom.replace(/\s+/, '').length ) {
+                  masquer_div("nomerror");
+                  cp = (cp+1);
+             }
+             if( !prenom.replace(/\s+/, '').length ) {
+                  masquer_div("prenomerror");
+                  cp = (cp+1);
+             }
+             if( !a.replace(/\s+/, '').length ) {
+                  masquer_div("ageerror");
+                  cp = (cp+1);
+             }
+             if( !num.replace(/\s+/, '').length ) {
+                 masquer_div("telerror");
+                  cp = (cp+1);
+             }
+             if(num.replace(/\s+/, '').length!=10) {
+                  cp = (cp+1);
+             }             
+             if( !email.replace(/\s+/, '').length ) {
+                  masquer_div("emailerror");
+                  cp = (cp+1);
+             }
+             if( !mdp.replace(/\s+/, '').length ) {
+                  masquer_div("mdperror");
+                  cp = (cp+1);
+             }
+         }
  </script>
+ 
 
 </head>
 <body>
@@ -33,13 +75,18 @@
         <input type="button" Value="Nouveaux Clients" onclick="masquer_div('newclients');">
         <input type="button" Value="Alimentation et nutrition" onclick="masquer_div('alimentation');">
     </form>
+
     <div id="Aff">
-        <div style="text-align:center" id="personnel" style="display:none">
-            Afficher via la BDD
+        <div  id="personnel"style="display:none;text-align: center;" >
+        
+            <iframe style="height: 400px; position:relative; top : 30px;" src='personnel.php'>
+            </iframe>
         </div>
-        <div style="text-align:center" id="horaire" style="display:none">
-            <br><br>
-            HORAIRES D'OUVERTURE : <br><br>
+        </div>
+
+        <div  id="horaire"  style="display:none;text-align: center;" >
+            
+            <h2>HORAIRES D'OUVERTURE : </h2> <br><br>
             Lundi : 6h00-22h30 <br>
             Mardi : 6h00-22h30 <br>
             Mercredi : 6h00-22h30 <br>
@@ -48,6 +95,7 @@
             Samedi : 9h00-19h00 <br>
             Dimanche : 9h00-19h00 <br>
         </div>
+
         <div  id="règle" style="display:none">
             <h2>Règlement intérieur</h2>
             <p>Ensemble, nous gardons le club propre et sain <br>
@@ -77,8 +125,96 @@
             </p>
             
         </div>
-        <div id="newclients" style="display:none">
-        </div>
+        <div  id="newclients" style="display:none;text-align:center">
+            <br><br>
+            <form style="margin : auto; width : 180px">
+                <table>
+                    <tr>
+                        <td>
+                            Nom:
+                        </td>  
+                        <td>
+                            <input type="text" id="name"> <br> 
+                        </td>
+                        <td>
+                            <div id="nomerror" style="display:none;">
+                                Champ Nom vide !
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Prénom:
+                        </td>  
+                        <td>
+                            <input type="text" id="prenom"> <br> 
+                        </td>
+                        <td>
+                            <div id="prenomerror" style="display:none;">
+                                Champ Prenom vide !
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Age: 
+                        </td>  
+                        <td>
+                            <input type="text" id="age"> <br>
+                        </td>
+                        <td>
+                            <div id="ageerror" style="display:none;">
+                                Champ Age vide !
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Téléphone:
+                        </td>  
+                        <td>
+                            <input type="text" id="tel"> <br> 
+                        </td>
+                        <td>
+                            <div id="telerror" style="display:none;">
+                                Champ Téléphone vide !
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Email:
+                        </td>  
+                        <td>
+                            <input type="text" id="email"> <br> 
+                        </td>
+                        <td>
+                            <div id="emailerror" style="display:none;">
+                                Champ Email vide !
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Mdp:
+                        </td>  
+                        <td>
+                            <input type="password" id="mdp"> <br> 
+                        </td>
+                        <td>
+                            <div id="mdperror" style="display:none;">
+                                Champ Mdp vide !
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>  
+                        <td>
+                            <input type="button" onClick="isEmpty()" Value="Submit">
+                        </td>
+                    </tr>
+                </table>
+            </form>
         <div id="alimentation" style="display:none">
         <h3>Qu’est-ce qu’une alimentation saine lorsque tu pratiques le sport d’endurance ?</h3><br>
         D’abord, toujours prévoir une alimentation riche en glucides. Pense à un régime contenant du pain complet, des pommes de terre, des pâtes, du riz et/ou des légumes. Fais attention aux graisses mais consomme des protéines. La viande maigre et le poisson contiennent des protéines, mais aussi le fromage et les noix. Assure-toi d’avoir une alimentation équilibrée. Car, manger des pâtes bolognaise tous les jours ce n’est pas un régime sain et… c’est surtout très ennuyeux.<br>
