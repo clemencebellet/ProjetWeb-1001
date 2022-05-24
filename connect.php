@@ -20,16 +20,15 @@ $_SESSION['MdpCompte'] =$Mdp;
 
 if($db_found)
 {
-    $sql ="SELECT * FROM client WHERE EXISTS ( SELECT * WHERE Email = '$Email' AND Mdp ='$Mdp' )";
-    $sql1 ="SELECT * FROM administrateur WHERE EXISTS ( SELECT * WHERE Email = '$Email' AND Mdp ='$Mdp' )";
-    $sql2 ="SELECT * FROM coach WHERE EXISTS ( SELECT * WHERE Email = '$Email' AND Mdp ='$Mdp' )";
-
-    $res = mysqli_query($db_handle,$sql);
-    $res1 = mysqli_query($db_handle,$sql1);
-    $res2 = mysqli_query($db_handle,$sql2);
-
     if(isset($_POST["Connexion"])) {
 
+        $sql ="SELECT * FROM client WHERE EXISTS ( SELECT * WHERE Email = '$Email' AND Mdp ='$Mdp' )";
+        $sql1 ="SELECT * FROM administrateur WHERE EXISTS ( SELECT * WHERE Email = '$Email' AND Mdp ='$Mdp' )";
+        $sql2 ="SELECT * FROM coach WHERE EXISTS ( SELECT * WHERE Email = '$Email' AND Mdp ='$Mdp' )";
+
+        $res = mysqli_query($db_handle,$sql);
+        $res1 = mysqli_query($db_handle,$sql1);
+        $res2 = mysqli_query($db_handle,$sql2);
 
             if($data = mysqli_fetch_assoc($res)) 
             {
@@ -62,19 +61,42 @@ if($db_found)
                 location="coach.html";
                 </script>';
             }
-
             else
             
             {echo'<script type="text/javascript">
                 alert("Ratée");
                 location="compte.html";
                 </script>';}
-       
     }
-    
+    elseif(isset($_POST["btnPaiement"])) {
+        
+        $numcarte = isset($_POST["numerocarte"])? $_POST["numerocarte"] : "";
+        $date = isset($_POST["dateexp"])? $_POST["datexp"] : "";
+        $cvv = isset($_POST["CVV"])? $_POST["CVV"] : "";
 
+        echo $numcarte. " ". $cvv. " ". $date; 
+        $sql4 ="SELECT * FROM client WHERE EXISTS ( SELECT * WHERE NumeroCarte = '$numcarte' AND DateExpiration ='$date' AND CVV ='$cvv')";
+        $res4 = mysqli_query($db_handle,$sql4);
+
+        if($data4 = mysqli_fetch_assoc($res4))
+        {
+            echo'<script type="text/javascript">
+            alert("Paiement validé");
+            location="client.php";
+            </script>';
+        }
+        else
+        {
+            echo'<script type="text/javascript">
+            alert("Ratée");
+            location="compte.html";
+            </script>';
+        }
+   
+    }
     
 }
 
+?>
 
 

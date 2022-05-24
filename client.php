@@ -1,5 +1,13 @@
 <?php
 session_start();
+$id_session = session_id();
+$db = "webprojet";
+$site ="localhost";
+$db_id = "root"; 
+$db_mdp ="";
+
+$db_handle = mysqli_connect($site,$db_id,$db_mdp);
+$db_found = mysqli_select_db($db_handle,$db);
 
 
 $nom =$_SESSION['Nom'];
@@ -86,7 +94,7 @@ $tel=$_SESSION['Tel'];
                 </table>
             </form>
         <h2> Paiement par carte de crédit: </h2>
-            <form style="margin-left : 510px">
+            <form action="connect.php" method="post" style="margin-left : 510px">
                 <table border="1">
                     <tr>
                         <td>Nom du client:</td>
@@ -111,15 +119,15 @@ $tel=$_SESSION['Tel'];
                     </tr>
                     <tr>
                         <td>Date d'expiration :</td>
-                        <td><input type="date" name="numerocarte"></td>
+                        <td><input type="date" name="datexp"></td>
                     </tr>
                     <tr>
                         <td>Code de sécurité:</td>
-                        <td><input type="number" name="numerocarte"></td>
+                        <td><input type="number" name="CVV"></td>
                     </tr>
                     <tr>
                         <td colspan="2" align="center">
-                            <input type="submit" name="btnPaiment" value="Soumettre">
+                            <input type="submit" name="btnPaiement" value="btnPaiement">
                         </td>
                     </tr>
                 </table>
