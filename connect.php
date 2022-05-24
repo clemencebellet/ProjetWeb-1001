@@ -70,15 +70,15 @@ if($db_found)
     }
     elseif(isset($_POST["btnPaiement"])) {
         
-        $numcarte = isset($_POST["numerocarte"])? $_POST["numerocarte"] : "";
-        $date = isset($_POST["dateexp"])? $_POST["datexp"] : "";
-        $cvv = isset($_POST["CVV"])? $_POST["CVV"] : "";
+        $Numerocarte= isset($_POST["Numerocarte"])? $_POST["Numerocarte"] : "";
+        $dateexp = isset($_POST["dateexp"])? $_POST["datexp"] : "";
+        $CVV = isset($_POST["CVV"])? $_POST["CVV"] : "";
 
-        echo $numcarte. " ". $cvv. " ". $date; 
-        $sql4 ="SELECT * FROM client WHERE EXISTS ( SELECT * WHERE NumeroCarte = '$numcarte' AND DateExpiration ='$date' AND CVV ='$cvv')";
+        //echo $numcarte. " ". $cvv. " ". $date; 
+        $sql4 ="SELECT * FROM client WHERE EXISTS ( SELECT * WHERE NumeroCarte = '$Numerocarte'  AND CVV ='$CVV')";
         $res4 = mysqli_query($db_handle,$sql4);
 
-        if($data4 = mysqli_fetch_assoc($res4))
+        if($datatest=mysqli_fetch_assoc($res4))
         {
             echo'<script type="text/javascript">
             alert("Paiement validé");
@@ -88,8 +88,8 @@ if($db_found)
         else
         {
             echo'<script type="text/javascript">
-            alert("Ratée");
-            location="compte.html";
+            alert("Paiement refusé");
+            location="client.php";
             </script>';
         }
    
