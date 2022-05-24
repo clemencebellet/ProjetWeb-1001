@@ -9,6 +9,8 @@
 <body>
 
     <div class="main">
+
+        
         <div class="navbar">
             <div class="icon">
                 <h2 class="logo">Omnes</h2>
@@ -16,50 +18,69 @@
 
             <div class="menu">
                 <ul>
-                    <li><a  href="accueil.html">Accueil</a></li>
-                   
+                    <li><a href="accueil.html">HOME</a></li>
+                    <li><a href="toutparcourir.html">TOUT PARCOURIR</a></li>
+                    <li><a href="#">RENDEZ-VOUS</a></li>
+                    <li><a href="compte.html">MON COMPTE</a></li>
                 </ul>
             </div>
 
             
+             
+            <div class="search">
+                <input class="srch" type="search" name="" placeholder="Rechercher" onchange="pageRecherchee()">
+                <a href="toutparcourir.html"> <button class="btn">Search</button></a>
+            </div> 
 
         </div> 
         
 
         <div class="content">
-            <ul>
-                <li><a id="Activite" href="activiteSportives.html">Activité Sportives</a></li>
-                <br/>
-                <br/>
-                <p>Dans cette rubrique, vous pourrez trouver toutes les activités sportives de notre organisation</p>
-                <p>OMNES Sports vous propose des activités telles que la Musculation, le Fitness, le Biking et bien d'autres.</p>
-                <br/>
-                <br/>
-                <li><a id="SalledeSport" href="SalledeSport.html">Salle de sport </a></li>
-                <br/>
-                <br/>
-                <p>Toutes les informations concernant nos salles de sports sont disponibles ici!</p>
-                <p>Si vous cherchez les horaires de la gym, les coordonnées des reponsables ou encore les règles d'utilisation des machines, cliquez ici</p>
-                <br/>
-                <br/>
-                <li><a id="SalledeSport" href="sportCompet.html">Competition</a></li>
-                <br/>
-                <br/>
-                <p>Vous souhaitez pratiquer du sport en compétition ? </p>
-                <p>Vous trouverez ici toutes les catégories de sport compétitif de l'Omnes Sport</p>
-            </ul>
+            <h1> NOS <br><span>ACTIVITES</span></h1>
+            <p class="nosActivites"><img src="NosActivites.jpg" height="352.5px" width="282px"/> </p>
+            <p class="nosAct"> Dans cette rubrique, vous pourrez trouver toutes les activités sportives<br>
+                               de notre organisation. OMNES Sports vous propose des activités <br>
+                                telles que la Musculation <br>
+            </p>
+            <button class="btnnosAct"><a href="activiteSportives.html">Voir les Activites</a></button>
+
+
                 
+            
+            <h2>NOS<br><span>SALLES DE SPORT</span><br>  </h2>
+            <p class="nosSallesDeSport"><img src="NosSallesDeSport.jpg" height="282px" width="352.5px "/> </p>
+            <p class="nosSalles">Toutes les informations concernant nos salles de sports sont disponibles ici!<br>
+                                 Si vous cherchez les horaires de la gym, les coordonnées des reponsables<br>
+                                  ou encore les règles d'utilisation des machines.<br>
+            </p>
+            <button class="btnnosSalles"><a href="SalledeSport.html">Voir les Salles de Sport</a></button>
+
+
+            <h3>LES<br><span>COMPETITIONS</span><br>  </h3>
+            <p class="lesCompetitions"><img src="lesCompetitions.jpg" height="352.5px" width="282px"/> </p>
+            <p class="lesCompet"> Vous souhaitez pratiquer du sport en compétition ? <br>
+                                    Vous trouverez ici toutes les catégories de sport compétitif de l'Omnes Sport <br>
+            </p>
+            <button class="btnlesCompet"><a href="sportCompet.html">Voir les Comppetitions</a></button>
+
+           
                 
         </div>
+
+        <div class="footer">
+            <h1>NOUS CONTACTER:</h1> 
+            
+            <p> <br>Adresse mail: omnes.sport@edu.ece.fr <br>
+            Numéro de téléphone: +33768423099 <br>
+            Adresse: 37 Quai de Grenelle, 75015, PARIS </p><br> <br>
+
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.3378949789744!2d2.2842932156190012!3d48.85176677928686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6701b4f58251b%3A0x167f5a60fb94aa76!2sECE%20Paris%20Lyon!5e0!3m2!1sfr!2sfr!4v1653307387919!5m2!1sfr!2sfr" 
+                 width="250" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
     </div>
 
-    <div id="footer">
-        <br/>
-        Copyright &copy; 2022 Salle de Sport OMNES<br>
-        <a href="mailto:salle.sport@omnessports.fr">salle.sport@omnessports.fr</a><br>
-        <a href="tel:+330122334567">+33 01 22 33 45 67 </a> <br>
-        <iframe class ="maps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.363894899437!2d2.285333393541669!3d48.851270938113196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6700497ee3ec5%3A0xdd60f514adcdb346!2s37%20Quai%20de%20Grenelle%2C%2075015%20Paris!5e0!3m2!1sen!2sfr!4v1653303752151!5m2!1sen!2sfr" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>          
-    </div>
+    
 
 
  

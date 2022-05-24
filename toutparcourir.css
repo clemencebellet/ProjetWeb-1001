@@ -6,15 +6,17 @@
 /* Image de fon = main */
 .main{
     width: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(1.jpg);
+    /*background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(1.jpg);*/
     background-position: center;
     background-size: cover;
     height: 100vh;
 }
 
 .navbar{
+    background-color: rgb(244, 244, 244);
+    border-radius: 30px;
     width: 1200px;
-    height: 75px;
+    height: 150px;
     margin: auto;
 }
 
@@ -33,40 +35,35 @@
     padding-left: 20px;
     float: left;
     padding-top: 10px;
-    margin-top: 5px
+    margin-top: 40px
 }
 
 /*barre de navigation, accéder aux autres pages*/
 .menu{
     width: 400px;
     float: left;
-    height: 100px;
-    text-align: center;
-    
+    height: 70px;
 }
 
+
 /* "ul" = liste*/
- 
-.menu ul{
-    position: relative;
-    right: 200px;
+ul{
+    float: left;
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
-.menu ul li{
+ul li{
     list-style: none;
     margin-left: 62px;
-    margin-top: 27px;
-    font-size: 20px;
+    margin-top: 50px;
+    font-size: 16px;
 }
 
-.menu ul li a{
+ul li a{
     text-decoration: none;
-    color: #fff;
-    
+    color: rgb(0, 0, 0);
     font-family: Arial;
     font-weight: bold;
     transition: 0.4s ease-in-out;
@@ -75,81 +72,280 @@
 
 
 /* quand on passe la souris dessus changement de couleur*/
-.menu ul li a:hover{
+ul li a:hover{
     color: #00ff8c;
 }
 
+/* barre de recherche du menu */
+.search{
+    width: 330px;
+    float: left;
+    margin-left: 270px;
+    margin-top: 35px;
+}
 
+/*partie "barre de recherche" */
+.srch{
+    font-family: 'Times New Roman';
+    width: 200px;
+    height: 40px;
+    background: transparent;
+    border: 1px solid #002816;
+    margin-top: 13px;
+    color: rgb(0, 0, 0);
+    border-right: none;
+    font-size: 16px;
+    float: left;
+    padding: 10px;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+/* partie bouton de la barre de recherche"*/
+.btn{
+    width: 100px;
+    height: 40px;
+    background: #047562;
+    border: 2px solid #030100;
+    margin-top: 13px;
+    color: rgb(0, 0, 0);
+    font-size: 15px;
+    border-bottom-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    transition: 0.2s ease;
+    cursor: pointer;
+}
 
 /* quand on passe la souris dessus changement de couleur*/
 .btn:hover{
     color: #000;
 }
 
-.btn:focus{
-    outline: none;
+::placeholder{
+    color: rgb(0, 0, 0);
+    font-family: Arial;
+}
+
+/* Partie en vert dans la descr*/
+.content span{
+    color: #1ad39f;
+    font-size: 65px
+}
+
+.content h1{
+    
+    font-family: 'Times New Roman';
+    font-size: 50px;
+    padding-left: 20px;
+    margin-top: 100px;
+    margin-left: 600px;
+    letter-spacing: 2px;
+}
+
+/*IMAGE*/
+.content .nosActivites{
+    float: left;
+    margin-left: 250px;
+    padding-left: 20px;
+    padding-bottom: 25px;
+    font-family: Arial;
+    letter-spacing: 1.2px;
+    line-height: 30px;
+}
+
+
+.content .nosAct{
+  
+    margin-left: 600px;
+    margin-top:50px;
+    padding-left: 20px;
+    padding-bottom: 25px;
+    font-family: Arial;
+    letter-spacing: 1.2px;
+    line-height: 30px;
+}
+
+
+.btnnosAct{
+    width: 240px;
+    height: 40px;
+    background: rgb(0, 251, 138);
+    border: 3px solid #96a29d;
+    margin-top: 30px;
+    margin-left: 80px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.4s ease;
+}
+.btnnosAct:hover{
+    background: #014533;
+    color: #06ad80;
+}
+.btnnosAct a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
 }
 
 
 
-.content{
+
+
+
+
+
+
+
+
+.content h2{
+    font-family: 'Times New Roman';
+    font-size: 50px;
+    padding-left: 20px;
+    margin-top: 300px;
+    margin-left: 600px;
+    letter-spacing: 2px;
+}
+
+/*IMAGE*/
+.content .nosSallesDeSport{
+    float: left;
+    margin-left: 230px;
+    padding-left: 20px;
+    padding-bottom: 25px;
+    font-family: Arial;
+    letter-spacing: 1.2px;
+    line-height: 30px;
+}
+
+.content .nosSalles{
+    float: left;
+    margin-left: 20px;
+    margin-top:50px;
+    padding-left: 20px;
+    padding-bottom: 25px;
+    font-family: Arial;
+    letter-spacing: 1.2px;
+    line-height: 30px;
+}
+
+.btnnosSalles{
+    width: 240px;
+    height: 40px;
+    background: rgb(0, 251, 138);
+    border: 3px solid #96a29d;
+    margin-top: 30px;
+    margin-left: 80px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.4s ease;
+}
+.btnnosSalles:hover{
+   background: #014533;
+    color: #06ad80;
+}
+.btnnosSalles a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+.content h3{
+    font-family: 'Times New Roman';
+    font-size: 50px;
+    padding-left: 20px;
+    margin-top: 250px;
+    margin-left: 600px;
+    letter-spacing: 2px;
+}
+
+/*IMAGE*/
+.content .lesCompetitions{
+    float: left;
+    margin-left: 230px;
+    padding-left: 20px;
+    padding-bottom: 25px;
+    font-family: Arial;
+    letter-spacing: 1.2px;
+    line-height: 30px;
+}
+
+.content .lesCompet{
+    float: left;
+    margin-left: 80px;
+    margin-top:50px;
+    padding-left: 20px;
+    padding-bottom: 25px;
+    font-family: Arial;
+    letter-spacing: 1.2px;
+    line-height: 30px;
+}
+
+.btnlesCompet{
+    width: 240px;
+    height: 40px;
+    background: rgb(0, 251, 138);
+    border: 3px solid #96a29d;
+    margin-top: 30px;
+    margin-left: 80px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.4s ease;
+}
+.btnlesCompet:hover{
+   background: #014533;
+    color: #06ad80;
+}
+.btnlesCompet a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+
+
+
+
+/* FOOTER */
+.footer{
+    background-color: rgb(244, 244, 244);
+    clear: both;
+    padding: 70px;
+    border-radius: 30px;
     width: 1200px;
     height: auto;
     margin: auto;
-    color: #fff;
- 
- text-align: center;
- position: relative;
- right:35px;
- top:50px;
-
-}
-
-
-
-.content ul li{
-    list-style: none;
-    margin-left: 62px;
-    margin-top: 27px;
-    font-size: 20px;
-}
-
-.content ul li a{
-    text-decoration: none;
-    color: #fff;
+    color: rgb(0, 87, 61);
+    position: relative;
     font-family: Arial;
-    font-weight: bold;
-    transition: 0.4s ease-in-out;
-}
-.content ul li a:hover{
-    color: #1100ff;
-
-
-}
-
-p{
-    font-family: Arial;  
-    font-weight: italic;
-}
-#footer{
-    
-   
-    color: black;
-    clear:both;
+    letter-spacing: 1.2px;
+    line-height: 30px;
     text-align: center;
-    float: center;
-    padding : 10px;
-
 
 }
-.maps{
-    float: center;
+
+.footer h1{
+    font-family: 'Times New Roman';
+    font-size: 30px;
+    padding-left: 20px;
+    margin-top: 9%;
+    letter-spacing: 2px;
+    color: #1ad39f;
 }
 
 
 
 
-
-
-
-
+  

@@ -1,44 +1,187 @@
-body { 
-    font-family: Arial, Helvetica, sans-serif;
-    }
-    #Nav{ 
-        margin: 10px; 
-        padding-left: 10px;
-    }
-    #wrapper{ width: 1100px;
-        height : 475px; 
-        margin: 0;
-        background-color:#b4e4eb;
-        color:#003300;
-        padding-left: 10px;
-    }
-    #leftcolumn{
-        background-color:#b4e4eb;
-        color : blue;
-        float : left;
-        width : 550 px;
-        min-width: 450px;
-    }
-    #NosServices {
-        margin-left: 125px;
-    }
-    .center {
-        display: block;
-        margin-top: auto;
-        margin-bottom: auto;
-      }
-    #rightcolumn{
-        background-color:#b5212b;
-        margin-left: 490px;
-    }
-   .contact { font-family: "Times New Roman", serif;
-    font-size: .90em;
-    font-weight:bold;
-    }
-    #footer { font-size: .60em;
-    text-align : center;
-    margin-top: 10px;
-    font-style: italic;
-    background-color:#b4e4eb;
-    }
-   
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* Image de fon = main */
+.main{
+    width: 100%;
+    /*background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(1.jpg);*/
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+}
+
+.navbar{
+    background-color: rgb(244, 244, 244);
+    border-radius: 30px;
+    width: 1200px;
+    height: 150px;
+    margin: auto;
+}
+
+/* Contient le logo */
+.icon{
+    width: 200px;
+    float: left;
+    height: 70px;
+}
+
+/* TITRE OMNES EN HAUT A GAUCHE*/
+.logo{
+    color: #00ff8c;
+    font-size: 35px;
+    font-family: Arial;
+    padding-left: 20px;
+    float: left;
+    padding-top: 10px;
+    margin-top: 40px
+}
+
+/*barre de navigation, accéder aux autres pages*/
+.menu{
+    width: 400px;
+    float: left;
+    height: 70px;
+}
+
+
+/* "ul" = liste*/
+ul{
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul li{
+    list-style: none;
+    margin-left: 62px;
+    margin-top: 50px;
+    font-size: 16px;
+}
+
+ul li a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-family: Arial;
+    font-weight: bold;
+    transition: 0.4s ease-in-out;
+    /* temps animation changement de couleur ->hover */
+}
+
+
+/* quand on passe la souris dessus changement de couleur*/
+ul li a:hover{
+    color: #00ff8c;
+}
+
+/* barre de recherche du menu */
+.search{
+    width: 330px;
+    float: left;
+    margin-left: 270px;
+    margin-top: 35px;
+}
+
+/*partie "barre de recherche" */
+.srch{
+    font-family: 'Times New Roman';
+    width: 200px;
+    height: 40px;
+    background: transparent;
+    border: 1px solid #002816;
+    margin-top: 13px;
+    color: rgb(0, 0, 0);
+    border-right: none;
+    font-size: 16px;
+    float: left;
+    padding: 10px;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+/* partie bouton de la barre de recherche"*/
+.btn{
+    width: 100px;
+    height: 40px;
+    background: #047562;
+    border: 2px solid #030100;
+    margin-top: 13px;
+    color: rgb(0, 0, 0);
+    font-size: 15px;
+    border-bottom-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+
+/* quand on passe la souris dessus changement de couleur*/
+.btn:hover{
+    color: #000;
+}
+
+::placeholder{
+    color: rgb(0, 0, 0);
+    font-family: Arial;
+}
+
+
+
+.content h1{
+    
+    font-family: 'Times New Roman';
+    font-size: 50px;
+    padding-left: 20px;
+    margin-top: 100px;
+    margin-left: 600px;
+    letter-spacing: 2px;
+}
+
+/*IMAGE*/
+.content .nosActivites{
+    float: left;
+    margin-left: 250px;
+    padding-left: 20px;
+    padding-bottom: 25px;
+    font-family: Arial;
+    letter-spacing: 1.2px;
+    line-height: 30px;
+}
+
+
+.content .nosAct{
+  
+    margin-left: 600px;
+    margin-top:50px;
+    padding-left: 20px;
+    padding-bottom: 25px;
+    font-family: Arial;
+    letter-spacing: 1.2px;
+    line-height: 30px;
+}
+
+
+.btnnosAct{
+    width: 240px;
+    height: 40px;
+    background: rgb(0, 251, 138);
+    border: 3px solid #96a29d;
+    margin-top: 30px;
+    margin-left: 80px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.4s ease;
+}
+.btnnosAct:hover{
+    background: #014533;
+    color: #06ad80;
+}
+.btnnosAct a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+

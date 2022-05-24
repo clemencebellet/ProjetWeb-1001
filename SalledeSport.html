@@ -1,38 +1,86 @@
+
+
+
+
+
+<!-- début -->
+
 <!DOCTYPE html>
+<html lang="en">
 <head>
- <title>Salle de Sport OMNES</title>
- <meta charset="utf-8"/>
- <link href="SalledeSport.css" rel="stylesheet" type="text/css" />
+    <title>Tout Parcourir</title>
+    <link rel="stylesheet" href="toutparcourir.css">
 </head>
 <body>
-    <div id="Nav">
-        <a href="accueil.html"><img src="images/accueil.png" width="150" height="50"></a>
-        <a href="toutparcourir.html"><img src="images/toutparcourir.png" width="150" height="50"></a>
-    </div>
-    <h1 style="text-align:center">Salle de Sport OMNES </h1>
-    <div id="wrapper">
-        <div id="leftcolumn">
+
+    <div class="main">
+
+        
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">Omnes</h2>
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li><a href="accueil.html">HOME</a></li>
+                    <li><a href="toutparcourir.html">TOUT PARCOURIR</a></li>
+                    <li><a href="#">RENDEZ-VOUS</a></li>
+                    <li><a href="compte.html">MON COMPTE</a></li>
+                </ul>
+            </div>
+
+            
+             
+            <div class="search">
+                <input class="srch" type="search" name="" placeholder="Rechercher" onchange="pageRecherchee()">
+                <a href="toutparcourir.html"> <button class="btn">Search</button></a>
+            </div> 
+
+
+           
+          
+
+
+        </div> 
+
+        
+
+        <div class="content">
+
+            <h1> NOS <br><span>SALLE DE SPORT</span></h1>
+            <p class="nosActivites"><img src="salleDeSport.jpg" height="352.5px" width="282px"/> </p>
+            <p class="nosAct"> NOS COORDONEES : <br>
+                                - Salle : G-001 <br>
+                                - Telephone : +33 01 22 33 45 67 <br>
+                                - Email : salle.sport@omnessports.fr
+            </p>
+            <button class="btnnosAct"><a href="NosServices.html">Voir les Services</a></button>
+
+            <!--
+
             <h2>Nos coordonnées : </h2><br></p>
             Salle : G-001 <br> <br>
             Téléphone : +33 01 22 33 45 67 <br> <br>
             Email : salle.sport@omnessports.fr <br><br> <br><br>
-
-            Ajouter les coordonnées des admins !
-        
-            <div id="NosServices">
-                <a href="NosServices.html"><img src="images/nosservices.png" width="200" height="70"></a>
-            </div>
+-->
+   
         </div>
 
-        <div id="rightcolumn">
-            <img src="images/SalledeSport.jpg" alt="Image SalledeSport"  class="center"width="612" height="408"/>
+        <div class="footer">
+            <h1>NOUS CONTACTER:</h1> 
+            
+            <p> <br>Adresse mail: omnes.sport@edu.ece.fr <br>
+            Numéro de téléphone: +33768423099 <br>
+            Adresse: 37 Quai de Grenelle, 75015, PARIS </p><br> <br>
+
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.3378949789744!2d2.2842932156190012!3d48.85176677928686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6701b4f58251b%3A0x167f5a60fb94aa76!2sECE%20Paris%20Lyon!5e0!3m2!1sfr!2sfr!4v1653307387919!5m2!1sfr!2sfr" 
+                 width="250" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
-    
-        <div id="footer">
-            <br/>
-            Copyright &copy; 2022 Salle de Sport OMNES<br>
-            <a href="mailto:salle.sport@omnessports.fr">salle.sport@omnessports.fr</a><br>
-            <a href="tel:+330122334567">+33 01 22 33 45 67 </a>            
-        </div>
+
     </div>
+
+
+ 
 </body>
+</html>
