@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <head>
     <title>Nos activités sportive</title>
@@ -6,6 +7,8 @@
 </head>
 
 <body>
+    
+    <form action="activ.php" method="post">
 
     <div class="hautPage">
         <a href="accueil.html"><img src="images/accueil.png" width="150" height="50"></a>
@@ -13,20 +16,23 @@
     
     </div>
     
+    
     <div class="up">
         <div class="rightup">
-            <a href="muscu.html"><button>MUSCULATION</button></a>
+            <input type="submit" name="musculation" value="MUSCULATION">
             <br>
             <img class="muscuimg" src="images/muscu.jpeg">
             
         </div>
         <div class="middleup">
-            <a href="muscu.html"><button>FITNESS</button></a>
+
+            <input type="submit" name="fitness" value="FITNESS">
             <br>
             <img class="fitnessimg" src="images/fitness.jpeg">
         </div>
         <div class="leftup">
-            <a href="muscu.html"><button>BIKING</button></a>
+
+            <input type="submit" name="biking" value="BIKING">
             <br>
             <img class="bikingimg" src="images/biking.jpeg">
         </div>
@@ -35,19 +41,22 @@
 
     <div class="down">
         <div class="rightdown">
-            <a href="muscu.html"><button>CARDIO TRAINING</button></a>
+
+            <input type="submit" name="cardio" value="CARDIO TRAINING">
             <br>
             <img class="cardioimg" src="images/cardio.jpeg">
             
         </div>
         <div class="leftdown">
-            <a href="muscu.html"><button>COURS COLLECTIFS</button></a>
+
+            <input type="submit" name="coursCO" value="COURS COLLECTIFS">
             <br>
             <img class="coursimg" src="images/courimg.jpeg">
         </div>
     
 
     </div>
+</form>
 
 </body>
 </html>
