@@ -17,8 +17,6 @@ if($db_found)
         $sqlcoachbasket ="SELECT * FROM coach WHERE Sport =1 ";
         $resbasket = mysqli_query($db_handle,$sqlcoachbasket);
 
-       
-
         if($data = mysqli_fetch_assoc($resbasket)) 
         {
             echo $data["Nom"];
