@@ -2,7 +2,7 @@
 
 session_start();
 $id_session = session_id();
-$db = "webprojet";
+$db = "webprojetBDD2";
 $site ="localhost";
 $db_id = "root"; 
 $db_mdp ="";

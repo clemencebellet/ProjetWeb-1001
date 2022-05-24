@@ -1,7 +1,7 @@
 <?php
 
 
-$db = "webprojet";
+$db = "webprojetBDD2";
 $site ="localhost";
 $db_id = "root"; 
 $db_mdp ="";
