@@ -1,7 +1,7 @@
 <?php
 session_start();
 $id_session = session_id();
-$db = "webprojetBDD2";
+$db = "webprojet";
 $site ="localhost";
 $db_id = "root"; 
 $db_mdp ="";
