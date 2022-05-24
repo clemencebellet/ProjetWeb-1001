@@ -4,8 +4,12 @@ session_start();
 
 $nom =$_SESSION['Nom'];
 $prenom=$_SESSION['Prenom'];
+$adresse =$_SESSION['Adresse'];
+$ville =$_SESSION['Ville'];
+$codepostal =$_SESSION['CodePostal'];
+$pays =$_SESSION['Pays'];
+$studentcard =$_SESSION['CarteEtudiante'];
 $tel=$_SESSION['Tel'];
-
 
 ?> 
 
@@ -14,9 +18,6 @@ $tel=$_SESSION['Tel'];
 <head>
  <title>Compte Client</title>
  <meta charset="utf-8"/>
- 
- 
-
  
  <link href="SalledeSport.css" rel="stylesheet" type="text/css" />
 
@@ -40,6 +41,7 @@ $tel=$_SESSION['Tel'];
         <a href="accueil.html"><img src="images/accueil.png" width="150" height="50"></a>
         <a href="ToutParcourir.html"><img src="images/toutparcourir.png" width="150" height="50"></a>
     </div>
+    <h2 style="text-align:center"> Bienvenue <?php echo $prenom ?></h2>
     <h3 style="text-align:center">Qu'est ce que vous voulez faire ?</h3>
     <form  style="text-align:center">
         <input type="button" Value="Informations rendez-vous" onclick="masquer_div('info');">
@@ -50,42 +52,80 @@ $tel=$_SESSION['Tel'];
     </form>
 
     <div  id="paiement"  style="display:none;text-align: center;" >
-        <h2>Paiement par carte de crédit</h2>
-        <form action="traitementPaiement2.php" method="post">
-            <table border="1">
-                <tr>
-                    <td>Nom du client:</td>
-                    <td><?php echo $nom. " ". $prenom?></td>
-                </tr>
-                <tr>
-                    <td>Montant à payer:</td>
-                    <td><input type="number" step="0.01" name="amount"></td>
-                </tr>
-                <tr>
-                    <td>Payer par:</td>
-                    <td>
-                        <input type="radio" name="creditCard" value="MasterCard">MasterCard<br>
-                        <input type="radio" name="creditCard" value="Visa" checked>Visa<br>
-                        <input type="radio" name="creditCard" value="Amex">American Express<br>
-                        <input type="radio" name="creditCard" value="PayPal">PayPal<br>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Numéro de carte de crédit:</td>
-                    <td><input type="number" name="numerocarte"></td>
-                </tr>
-                <tr>
-                    <td colspan="2" align="center">
-                        <input type="submit" name="btnPaiment" value="Soumettre">
-                    </td>
-                </tr>
-            </table>
-        </form>
+
+        <h2>Coordonnées de paiement : </h2>
+            <form style="margin-left : 550px">
+                <table border="1">
+                    <tr>
+                        <td>Nom et prénom :</td>
+                        <td><?php echo $nom. " ". $prenom?></td>
+                    </tr>
+                        <td> Adresse :</td>
+                        <td><?php echo $adresse?></td>
+                    <tr>
+                    </tr>
+                        <td> Ville :</td>
+                        <td><?php echo $ville?></td>
+                    <tr>
+                    </tr>
+                        <td> Code postal :</td>
+                        <td><?php echo $codepostal?></td>
+                    <tr>
+                    </tr>
+                        <td> Pays:</td>
+                        <td><?php echo $pays?></td>
+                    <tr>
+                    </tr>
+                        <td> Téléphone :</td>
+                        <td><?php echo $tel?></td>
+                    <tr>
+                    </tr>
+                        <td> Carte étudiante:</td>
+                        <td><?php echo $studentcard?></td>
+                    <tr>
+                </table>
+            </form>
+        <h2> Paiement par carte de crédit: </h2>
+            <form style="margin-left : 510px">
+                <table border="1">
+                    <tr>
+                        <td>Nom du client:</td>
+                        <td><?php echo $nom. " ". $prenom?></td>
+                    </tr>
+                    <tr>
+                        <td>Montant à payer:</td>
+                        <td><input type="number" step="0.01" name="amount"></td>
+                    </tr>
+                    <tr>
+                        <td>Payer par:</td>
+                        <td>
+                            <input type="radio" name="creditCard" value="MasterCard">MasterCard<br>
+                            <input type="radio" name="creditCard" value="Visa" checked>Visa<br>
+                            <input type="radio" name="creditCard" value="Amex">American Express<br>
+                            <input type="radio" name="creditCard" value="PayPal">PayPal<br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Numéro de carte de crédit:</td>
+                        <td><input type="number" name="numerocarte"></td>
+                    </tr>
+                    <tr>
+                        <td>Date d'expiration :</td>
+                        <td><input type="date" name="numerocarte"></td>
+                    </tr>
+                    <tr>
+                        <td>Code de sécurité:</td>
+                        <td><input type="number" name="numerocarte"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
+                            <input type="submit" name="btnPaiment" value="Soumettre">
+                        </td>
+                    </tr>
+                </table>
+            </form>
     </div>
     
-<h2> Bienvenue <?php echo $prenom ?>;
-    
-    </h1>
 </body>
 </html>
 

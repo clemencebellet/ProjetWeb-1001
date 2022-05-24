@@ -40,6 +40,11 @@ if($db_found)
 
                 $_SESSION['Nom'] =$data["Nom"];
                 $_SESSION['Prenom'] =$data["Prenom"];
+                $_SESSION['Adresse'] =$data["Adresse"];
+                $_SESSION['Ville'] =$data["Ville"];
+                $_SESSION['CodePostal'] =$data["CodePostal"];
+                $_SESSION['Pays'] =$data["Pays"];
+                $_SESSION['CarteEtudiante'] =$data["CarteEtudiante"];
                 $_SESSION['Tel'] =$data["Tel"];
                 
             }
