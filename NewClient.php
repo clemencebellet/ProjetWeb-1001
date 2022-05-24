@@ -1,7 +1,7 @@
 <?php
 
 
-$db = "webprojet";//Nom de la base de données
+$db = "webprojetBDD2";//Nom de la base de données
 $site ="localhost";
 $db_id = "root"; //ID pour accéder mysql
 $db_mdp ="";
