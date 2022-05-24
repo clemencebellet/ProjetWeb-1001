@@ -6,7 +6,7 @@ $id_session = session_id();
 $db = "webprojet";
 $site ="localhost";
 $db_id = "root"; 
-$db_mdp ="root";
+$db_mdp ="";
 
 
 
