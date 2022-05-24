@@ -10,6 +10,8 @@ $db_handle = mysqli_connect($site,$db_id,$db_mdp);
 $db_found = mysqli_select_db($db_handle,$db);
 
 $nom_coach =$_SESSION['NomCoach'];
+$nom =$_SESSION['Nom'];
+$id_client= $_SESSION['id'];
 
 ?> 
 
@@ -49,35 +51,44 @@ $nom_coach =$_SESSION['NomCoach'];
             <p class="nosAct"> Rendez-vous avec  :
             <br> 
             <?php
-            
-                $sql2 ="SELECT coach.Nom
-                FROM  coach";
+
+                $sql2 ="SELECT *
+                FROM  rdv
+                WHERE rdv.client_id = $id_client";
                 $res2 = mysqli_query($db_handle,$sql2);
 
-                $sql1 ="SELECT sport.Nom
-                FROM  sport, coach
-                WHERE sport.id_sport=coach.Sport";
-                $res1 = mysqli_query($db_handle,$sql1);
-        
+                $sql3 ="SELECT coach.Nom
+                FROM  coach, rdv
+                WHERE rdv.coach_id = coach.id_coach";
+                $res3 = mysqli_query($db_handle,$sql3);
+                        
                 while($data2 = mysqli_fetch_assoc($res2)) 
-                { 
-                    if($data1 = mysqli_fetch_assoc($res1))
-                    {
+                {         
+                    if($data3 = mysqli_fetch_assoc($res3)) {         
                 ?>
-                
-                    <input type="checkbox" id=<?php echo $data2["Nom"]?> name=<?php echo $data2["Nom"]?>>
-                    <label for="scales">
+
+                    <input type="checkbox" name="test[]" value=<?php echo $data2["id_rdv"]?>>
                 <?php
-                    echo $data2["Nom"] . " - ".$data1["Nom"] ."<br>";
-                    $_SESSION['NomCoach'] =$data2["Nom"];
-                    $_SESSION['SportCoach'] =$data1["Nom"];
+                    echo "Rdv n° ". $data2["id_rdv"] .", Creneau : " .$data2["info_horaire_date"].", Coach :".$data3["Nom"]. "<br>";
                 ?></label> 
                 <?php
-                
-                }
+                } 
             }
+
             ?>
-            <button class="btnnosAct">Annulation du RDV</button>
+            <button class="btnnosAct" type="submit" name="AnnulerRDV">Annulation du RDV</button>
+            <?php
+               /* if($_POST[$data2["id_rdv"]] && isset($_POST["AnnulerRDV"])) {
+                    echo "Rsupprimé <br/>";
+                }*/
+                if(isset($_POST['test']) && isset($_POST["AnnulerRDV"])){
+                    if(in_array('value1', $_POST['test'])){
+                        echo "Option1 was checked!";
+                    }
+                }
+
+            ?>
+
             </p>
         </div>
 

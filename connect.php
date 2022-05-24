@@ -37,6 +37,7 @@ if($db_found)
                 location="client.php";
                 </script>';
 
+                $_SESSION['id'] =$data["id"];
                 $_SESSION['Nom'] =$data["Nom"];
                 $_SESSION['Prenom'] =$data["Prenom"];
                 $_SESSION['Adresse'] =$data["Adresse"];
