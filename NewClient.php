@@ -20,6 +20,15 @@ if($db_found)
     $tel = $_POST["tel"];
     $age = $_POST["age"];
 
+    if (empty($id)  || empty($nom) || empty($prenom)||empty($email)||empty($mdp)||empty($tel)|| empty($age))
+    {
+        echo '<script type="text/javascript">
+        alert("Un champ est vide , reesayer ");
+        location="NosServices.html";
+        </script>';
+    }
+    else{
+    
     $sql =  "INSERT INTO client(id,Nom,Prenom,Email,Mdp,Tel,Age)
              VALUES('$id','$nom','$prenom','$email','$mdp','$tel','$age')";
     $res = mysqli_query($db_handle,$sql);
@@ -27,13 +36,13 @@ if($db_found)
     if($res) { 
         echo '<script type="text/javascript">
         alert("Bienvenue chez Omnes Sport!");
-        location="accueil.html";
+        location="client.html";
         </script>';
     }
     else {
         echo "Insert unsuccessful";
     }
-    
+    }
   
 }
 

@@ -25,7 +25,14 @@ if($db_found)
         $mdp = $_POST["mdp"];
         $sport = $_POST["sport"];
 
-        echo "'$id','$nom','$prenom','$bureau','$dispo','$tel','$email','$mdp','$sport'";
+        if (empty($id)  || empty($nom) || empty($prenom)||empty($bureau)||empty($dispo)||empty($tel)|| empty($email) || empty($mdp) || empty($sport) )
+    { 
+        echo '<script type="text/javascript">
+        alert("Un champ est vide , reesayer ");
+        location="admin.html";
+        </script>';
+    }
+    else{
 
 
         $sql =  "INSERT INTO coach(id_coach,Nom,Prenom,Bureau,Dispo,NumeroTel,Email,Mdp,Sport)
@@ -41,7 +48,8 @@ if($db_found)
         else {
             echo "Insert unsuccessful";
         }
-    }
+    }}
+
     elseif (isset($_POST["suppcoach"])) {
         $idsupp = $_POST["idsupp"];
         $sql =  "DELETE FROM coach
