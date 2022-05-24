@@ -1,7 +1,10 @@
 <?php
 session_start();
 
-$email = $_SESSION['EmailCompte'];
+
+$nom =$_SESSION['Nom'];
+$prenom=$_SESSION['Prenom'];
+$tel=$_SESSION['Tel'];
 
 
 ?> 
@@ -47,12 +50,45 @@ $email = $_SESSION['EmailCompte'];
     </form>
 
     <div  id="paiement"  style="display:none;text-align: center;" >
+        <h2>Paiement par carte de crédit</h2>
+        <form action="traitementPaiement2.php" method="post">
+            <table border="1">
+                <tr>
+                    <td>Nom du client:</td>
+                    <td><?php echo $nom. " ". $prenom?></td>
+                </tr>
+                <tr>
+                    <td>Montant à payer:</td>
+                    <td><input type="number" step="0.01" name="amount"></td>
+                </tr>
+                <tr>
+                    <td>Payer par:</td>
+                    <td>
+                        <input type="radio" name="creditCard" value="MasterCard">MasterCard<br>
+                        <input type="radio" name="creditCard" value="Visa" checked>Visa<br>
+                        <input type="radio" name="creditCard" value="Amex">American Express<br>
+                        <input type="radio" name="creditCard" value="PayPal">PayPal<br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Numéro de carte de crédit:</td>
+                    <td><input type="number" name="numerocarte"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="submit" name="btnPaiment" value="Soumettre">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
     
-<h2>
-Bienvenue <?php echo $email ?>;
+<h2> Bienvenue <?php echo $prenom ?>;
     
     </h1>
-</div>
+</body>
+</html>
+
             
             
 

@@ -37,6 +37,10 @@ if($db_found)
                 alert("Authetification réussie' .$Email .'");
                 location="client.php";
                 </script>';
+
+                $_SESSION['Nom'] =$data["Nom"];
+                $_SESSION['Prenom'] =$data["Prenom"];
+                $_SESSION['Tel'] =$data["Tel"];
                 
             }
             elseif($data1 = mysqli_fetch_assoc($res1))
