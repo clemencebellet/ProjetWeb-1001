@@ -74,7 +74,7 @@
     </div>
     <h1 style="text-align:center">Nos Services</h1>
     <form style="text-align:center">
-        <input type="button" Value="Personnel de la salle de sport" onclick="masquer_div('personnel');">
+        <input type="button" name="personnel" Value="Personnel de la salle de sport" onclick="masquer_div('personnel');">
         <input type="button" Value="Horaires de la gym" onclick="masquer_div('horaire');">
         <input type="button" Value="Règle sur l’utilisation des machines" onclick="masquer_div('règle');">
         <input type="button" Value="Nouveaux Clients" onclick="masquer_div('newclients');">
@@ -82,7 +82,7 @@
     </form>
 
     <div id="Aff">
-        <div  id="personnel"style="display:none;text-align: center;" >
+        <div  id="personnel" name="personnel" style="display:none;text-align: center;" >
         
             <iframe style="height: 400px; position:relative; top : 30px;" src='personnel.php'>
             </iframe>

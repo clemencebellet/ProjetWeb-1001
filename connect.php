@@ -60,6 +60,8 @@ if($db_found)
                 alert("Authentification réussie");
                 location="coach.html";
                 </script>';
+
+                $_SESSION['NomCoach'] =$data2["Nom"];
             }
             else
             

@@ -1,6 +1,7 @@
 <?php
 
-
+session_start();
+$id_session = session_id();
 $db = "webprojet";//Nom de la base de données
 $site ="localhost";
 $db_id = "root"; //ID pour accéder mysql
@@ -12,9 +13,7 @@ $db_found = mysqli_select_db($db_handle,$db);
 
 if($db_found)
 {
-    
-
-$sql ="SELECT * 
+    $sql ="SELECT * 
         FROM coach";
         $res = mysqli_query($db_handle,$sql);
 
@@ -28,7 +27,7 @@ $sql ="SELECT *
         while($data1 = mysqli_fetch_assoc($res)) 
         { 
             // 1 ligne de donnée
-            while($data2 = mysqli_fetch_assoc($res1))
+            if($data2 = mysqli_fetch_assoc($res1))
             {echo "Voici le coach de ". $data2["Nom"]. "<br>";
 
         echo "Nom : " . $data1["Nom"] . "<br>";
@@ -37,18 +36,10 @@ $sql ="SELECT *
         echo "Dispo : " . $data1["Dispo"] . "<br>";
         echo "NumeroTel : " . $data1["NumeroTel"] . "<br>";
         echo "Email : " . $data1["Email"] . "<br>";
-        //echo "Sport : " . $data["Sport"] . "<br>";
         echo "<br>";}
 
     
-}
-
-    
-}
-
-    
-
-
-
+        }
+    }
 
 ?>
