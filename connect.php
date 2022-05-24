@@ -1,6 +1,7 @@
 <?php
 
-
+session_start();
+$id_session = session_id();
 $db = "webprojet";
 $site ="localhost";
 $db_id = "root"; 
@@ -11,6 +12,10 @@ $db_found = mysqli_select_db($db_handle,$db);
 
 $Email = isset($_POST["Email"])? $_POST["Email"] : "";
 $Mdp = isset($_POST["Mdp"])? $_POST["Mdp"] : "";
+
+$_SESSION['EmailCompte'] =$Email;
+$_SESSION['MdpCompte'] =$Mdp;
+
 
 
 if($db_found)
@@ -30,7 +35,7 @@ if($db_found)
             {
                 echo'<script type="text/javascript">
                 alert("Authetification réussie' .$Email .'");
-                location="client.html";
+                location="client.php";
                 </script>';
                 
             }
@@ -57,23 +62,7 @@ if($db_found)
                 </script>';}
        
     }
-    else if(isset($_POST["paiement"])) {
-        echo "yzzzes"; 
-        echo $Email; 
-        $sqlclient ="SELECT *
-        FROM client 
-        WHERE Email = '$Email'";
-        $resclient = mysqli_query($db_handle,$sqlclient);
-
-        //while($dataclient = mysqli_fetch_assoc($resclient)) {
-            $dataclient = mysqli_fetch_assoc($resclient);
-            echo "yes"; 
-            echo $dataclient["Prenom"]; 
-        //}
-      
-        
-        
-    }
+    
 
     
 }
