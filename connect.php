@@ -46,10 +46,12 @@ if($db_found)
                 $_SESSION['Pays'] =$data["Pays"];
                 $_SESSION['CarteEtudiante'] =$data["CarteEtudiante"];
                 $_SESSION['Tel'] =$data["Tel"];
+                $_SESSION['Email'] =$data["Email"];
                 
             }
             elseif($data1 = mysqli_fetch_assoc($res1))
             {
+                $_SESSION['Email'] =$data1["Email"];
                 echo'<script type="text/javascript">
                 alert("Authentification réussie");
                 location="admin.html";
@@ -62,6 +64,7 @@ if($db_found)
                 location="coach.html";
                 </script>';
 
+                $_SESSION['Email'] =$data2["Email"];
                 $_SESSION['NomCoach'] =$data2["Nom"];
                 $_SESSION['idcoach'] =$data2["id_coach"];
             }
@@ -103,13 +106,26 @@ if($db_found)
         $sqlann =  "DELETE FROM  rdv
         WHERE id_rdv = $idrdv"; 
         $resann = mysqli_query($db_handle,$sqlann);
-        
-        echo $idrdv."et"."id_rdv";
+
+        ## Définitions des deux constantes
+        define('ADRESSE_WEBMASTER','martinrose632@gmail.com'); // Votre adresse qui apparaitra en tant qu'expéditeur des E-mails
+        define('SUJET','Annulation de votre rdv'); // Sujet commun aux deux E-mail
+
+        ## Message envoyé au visiteur
+        $message = "Bonjour, Veuillez noter la suppression de votre rendez-vous n°".$idrdv.
+        ".\n\nN'hésitez pas à reprendre un rendez vous sur notre site.
+        \nCeci est un mail automatique, Merci de ne pas y répondre.
+        \n\n l'équipe Omnes Sport";
+
+        ## Second appel de la fonction mail() : le visiteur reçoit cet E-mail
+        ini_set('SMTP','smtp.orange.fr'); //il faut mettre le stmp qui correspond à son serveur, le lien suivant nous le donne : http://check414.free.fr/detection-smtp/
+        ini_set("sendmail_from","martinrose632@gmail.com"); //donne l'expéditeur (il faut mettre une vrai addresse mail)
+        mail($_SESSION['Email'],SUJET,$message,'From: '.ADRESSE_WEBMASTER); //on envoie le mail
 
         if(($resann)) { 
 
             echo '<script type="text/javascript">
-            alert("Rdv numéro '.$idrdv .' supprimé !");
+            alert("email d annulation envoyé à '.$_SESSION['Email'] .'");
             location="rendezvous.php";
             </script>';
         }
