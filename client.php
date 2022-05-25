@@ -9,7 +9,7 @@ $db_mdp ="";
 $db_handle = mysqli_connect($site,$db_id,$db_mdp);
 $db_found = mysqli_select_db($db_handle,$db);
 
-
+$id_client =$_SESSION['id'];
 $nom =$_SESSION['Nom'];
 $prenom=$_SESSION['Prenom'];
 $adresse =$_SESSION['Adresse'];
@@ -52,10 +52,40 @@ $tel=$_SESSION['Tel'];
     <h2 style="text-align:center"> Bienvenue <?php echo $prenom ?></h2>
     <h3 style="text-align:center">Qu'est ce que vous voulez faire ?</h3>
     <form  style="text-align:center">
-        <input type="button" Value="Informations rendez-vous" onclick="masquer_div('info');">
-        <a href="rendezvous.php"><input type="button" Value="Annuler rendez-vous" onclick="masquer_div('cancel');"></a>
+        <input type="button" Value="Mes informations" onclick="masquer_div('infoClient');">
+        <a href="rendezvous.php"><input type="button" Value="Mes rendez-vous" onclick="masquer_div('cancel');"></a>
         <input type="button" Value="Activites payantes" onclick="masquer_div('Actpayante');">
     </form>
+
+    <div  id="infoClient"  style="display:none;text-align: center;" >
+        <h1> MES<br><span>INFORMATIONS</span></h1>
+            <?php
+
+                $sqlclient ="SELECT *
+                FROM  client
+                WHERE client.id='$id_client'";
+                $resclient = mysqli_query($db_handle,$sqlclient);
+                        
+                while($dataclient = mysqli_fetch_assoc($resclient)) 
+                {            
+                    echo "  ID :  " . $dataclient["id"] . "<br>";
+                    echo "  Nom :  " . $dataclient["Nom"] . "<br>";
+                    echo "  Prenom :  " . $dataclient["Prenom"] . "<br>";
+                    echo "  Email :  " . $dataclient["Email"] . "<br>";
+                    echo "  Telephone :  " . $dataclient["Tel"] . "<br>";
+                    echo "  Age :  " . $dataclient["Age"] . "<br>";
+                    echo "  Adresse :  " . $dataclient["Adresse"] . "<br>";
+                    echo "  Ville :  " . $dataclient["Ville"] . "<br>";
+                    echo "  CodePostal :  " . $dataclient["CodePostal"] . "<br>";
+                    echo "  Pays:  " . $dataclient["Pays"] . "<br>";
+                    echo "  Carte étudiante:  " . $dataclient["CarteEtudiante"] . "<br>";
+                
+                } 
+
+            ?>
+
+    </div>
+
         
     <div  id="Actpayante"  style="display:none;text-align: center;" >
         <br><br>

@@ -81,7 +81,8 @@ $id_coach= $_SESSION['id'];
                 $rescoach = mysqli_query($db_handle,$sqlcoach);
                         
                 while($datacoach = mysqli_fetch_assoc($rescoach)) 
-                {       
+                {   
+                
                     echo '<img src="'.$datacoach['Profil'].' "height = 150 px /></a>';          
                     echo "  ID :  " . $datacoach["id_coach"] . "<br>";
                     echo "  Nom :  " . $datacoach["Nom"] . "<br>";
