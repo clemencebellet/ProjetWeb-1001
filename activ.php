@@ -20,7 +20,7 @@ if (isset($_POST["musculation"]))
 {
 
     $sql = "SELECT * FROM coach WHERE Sport = 7";
-    $sql2 = "SELECT * FROM coach, dispo WHERE id_pro =id_coach and Sport=7";
+    $sql2 = "SELECT * FROM coach, dispo WHERE id_coach=id_pro  and Sport=7";
     $res = mysqli_query($db_handle,$sql);
     $res2 = mysqli_query($db_handle,$sql2);
 
@@ -67,7 +67,8 @@ if (isset($_POST["musculation"]))
     while($data = mysqli_fetch_assoc($res2))
     { 
         echo '<div class="affichagedispo">';
-        echo'<a href="rendezvous.php" >  ' . $data['date_heure'] .' </a>';
+        echo'<a href="rendezvous.php" >  ' . $data['jour'] .' </a>';
+        echo'<a href="rendezvous.php" >  ' . $data['creneau'] .' </a>';
        
         echo '</div>';
         
@@ -129,7 +130,8 @@ else if (isset($_POST["fitness"]))
     while($data = mysqli_fetch_assoc($res2))
     { 
         echo '<div class="affichagedispo">';
-        echo'<a href="rendezvous.php" >  ' . $data['date_heure'] .'  </a>';
+        echo'<a href="rendezvous.php" >  ' . $data['jour'] .' </a>';
+        echo'<a href="rendezvous.php" >  ' . $data['creneau'] .' </a>';
   
         echo '</div>';
         
@@ -188,7 +190,8 @@ else if (isset($_POST["biking"]))
     while($data = mysqli_fetch_assoc($res2))
     { 
         echo '<div class="affichagedispo">';
-        echo'<a href="rendezvous.php" >  ' . $data['date_heure'] .' </a>';
+        echo'<a href="rendezvous.php" >  ' . $data['jour'] .' </a>';
+        echo'<a href="rendezvous.php" >  ' . $data['creneau'] .' </a>';
        
         echo '</div>';
         
@@ -247,7 +250,8 @@ else if (isset($_POST["cardio"]))
     while($data = mysqli_fetch_assoc($res2))
     { 
         echo '<div class="affichagedispo">';
-        echo'<a href="rendezvous.php" >  ' . $data['date_heure'] .' </a>';
+        echo'<a href="rendezvous.php" >  ' . $data['jour'] .' </a>';
+        echo'<a href="rendezvous.php" >  ' . $data['creneau'] .' </a>';
        
         echo '</div>';
         
@@ -306,7 +310,8 @@ else if (isset($_POST["coursCO"]))
     while($data = mysqli_fetch_assoc($res2))
     { 
         echo '<div class="affichagedispo">';
-        echo'<a href="rendezvous.php" >  ' . $data['date_heure'] .' </a>';
+        echo'<a href="rendezvous.php" >  ' . $data['jour'] .' </a>';
+        echo'<a href="rendezvous.php" >  ' . $data['creneau'] .' </a>';
         
         echo '</div>';
         
