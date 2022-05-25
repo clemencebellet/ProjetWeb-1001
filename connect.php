@@ -99,11 +99,14 @@ if($db_found)
     }
     elseif (isset($_POST["AnnulerRDV"])) {
         $idrdv = isset($_POST["idrdv"])? $_POST["idrdv"] : "";
-        $sql =  "DELETE FROM  rdv
+        $sqlann =  "DELETE FROM  rdv
         WHERE id_rdv = $idrdv"; 
-        $res = mysqli_query($db_handle,$sql);
+        $resann = mysqli_query($db_handle,$sqlann);
+        
+        echo $idrdv."et"."id_rdv";
 
-        if($res) { 
+        if(($resann)) { 
+
             echo '<script type="text/javascript">
             alert("Rdv numéro '.$idrdv .' supprimé !");
             location="rendezvous.php";
