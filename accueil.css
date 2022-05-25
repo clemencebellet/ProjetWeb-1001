@@ -14,7 +14,8 @@
 }
 
 .navbar{
-    background-color: rgb(244, 244, 244);
+    /*background-color: rgb(244, 244, 244);*/
+    background-color: rgb(223, 231, 209);
     border-radius: 30px;
     width: 1200px;
     height: 150px;
@@ -30,7 +31,7 @@
 
 /* TITRE OMNES EN HAUT A GAUCHE*/
 .logo{
-    color: #00ff8c;
+    color: #002816;
     font-size: 35px;
     font-family: Arial;
     padding-left: 20px;
@@ -194,7 +195,8 @@ ul li a:hover{
 
 /* FOOTER */
 .footer{
-    background-color: rgb(244, 244, 244);
+    background-color: rgb(223, 231, 209);
+   /* background-color: rgb(244, 244, 244);*/
     clear: both;
     padding: 70px;
     border-radius: 30px;

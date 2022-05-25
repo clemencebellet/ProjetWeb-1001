@@ -1,9 +1,12 @@
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
  <title>Nos Services</title>
  <meta charset="utf-8"/>
- <link href="SalledeSport.css" rel="stylesheet" type="text/css" />
+ <link href="NosServices.css" rel="stylesheet" type="text/css" />
 
  <script type="text/javascript">
      function masquer_div(id)
@@ -67,72 +70,105 @@
  
 
 </head>
-<body>
-    <div id="Nav">
-        <a href="accueil.html"><img src="images/accueil.png" width="150" height="50"></a>
-        <a href="ToutParcourir.html"><img src="images/toutparcourir.png" width="150" height="50"></a>
-    </div>
-    <h1 style="text-align:center">Nos Services</h1>
-    <form style="text-align:center">
-        <input type="button" name="personnel" Value="Personnel de la salle de sport" onclick="masquer_div('personnel');">
-        <input type="button" Value="Horaires de la gym" onclick="masquer_div('horaire');">
-        <input type="button" Value="Règle sur l’utilisation des machines" onclick="masquer_div('règle');">
-        <input type="button" Value="Nouveaux Clients" onclick="masquer_div('newclients');">
-        <input type="button" Value="Alimentation et nutrition" onclick="masquer_div('alimentation');">
-    </form>
 
-    <div id="Aff">
+
+
+<body>
+   <div class="main">
+
+    <div class="navbar">
+        <div class="icon">
+            <h2 class="logo">Omnes</h2>
+        </div>
+
+        <div class="menu">
+            <ul>
+                <li><a href="accueil.html">HOME</a></li>
+                <li><a href="toutparcourir.html">TOUT PARCOURIR</a></li>
+                <li><a href="#">RENDEZ-VOUS</a></li>
+                <li><a href="compte.html">MON COMPTE</a></li>
+            </ul>
+        </div>
+
+        
+         
+        <div class="search">
+            <input class="srch" type="search" name="" placeholder="Rechercher" onchange="pageRecherchee()">
+            <a href="toutparcourir.html"> <button class="btn">Search</button></a>
+        </div> 
+
+
+    </div> 
+
+    <div class="content">
+    <h1> LES SERVICES<br>DE LA SALLE DE SPORT</h1>
+
+            <div class ="services">
+                
+
+                <button class="btnn"><a onclick="masquer_div('personnel');">LE PERSONNEL</a></button>
+                <button class="btnn"><a onclick="masquer_div('horaire');">HORAIRES</a></button>
+                <button class="btnn"><a onclick="masquer_div('règle');">REGLES D'UTILISATION DES MACHINES</a></button>
+                <button class="btnn"><a onclick="masquer_div('newclients');">NOUVEAUX CLIENTS</a></button>
+                <button class="btnn"><a onclick="masquer_div('alimentation');">ALIMENTATION ET NUTRITION</a></button>
+
+            </div>
+  
+
+    
+    <div id="aff">
         <div  id="personnel" name="personnel" style="display:none;text-align: center;" >
         
-            <iframe style="height: 400px; position:relative; top : 30px;" src='personnel.php'>
+            <iframe style="height: 400px; margin-left: 200px; margin-top: 100px; float: left; top : 30px;" src='personnel.php'>
             </iframe>
         </div>
-        </div>
+    </div>
 
-        <div  id="horaire"  style="display:none;text-align: center;" >
+     
+
+        <!-- AFFICHAGE DES HORAIRES DE LA SALLE -->
+        <div  class="Boxhoraire" id="horaire"  style="display:none" >
+
+           <h2>HORAIRES D'OUVERTURE </h2> <br><br>
+            <p>
+                <span>Lundi</span> : 6h00-22h30 <br><br>
+                <span>Mardi</span> : 6h00-22h30 <br><br>
+                <span>Mercredi </span>: 6h00-22h30 <br><br>
+                <span>Jeudi </span>: 6h00-22h30 <br><br>
+                <span> Vendredi</span> : 6h00-22h30 <br><br>
+                <span>Samedi </span>: 9h00-19h00 <br><br>
+                <span>Dimanche</span> : 9h00-19h00 <br>
+            </p>
             
-            <h2>HORAIRES D'OUVERTURE : </h2> <br><br>
-            Lundi : 6h00-22h30 <br>
-            Mardi : 6h00-22h30 <br>
-            Mercredi : 6h00-22h30 <br>
-            Jeudi : 6h00-22h30 <br>
-            Vendredi : 6h00-22h30 <br>
-            Samedi : 9h00-19h00 <br>
-            Dimanche : 9h00-19h00 <br>
         </div>
 
-        <div  id="règle" style="display:none">
-            <h2>Règlement intérieur</h2>
-            <p>Ensemble, nous gardons le club propre et sain <br>
+
+        <!-- AFFICHAGE REGLEMENT -->
+        <div class="Boxreglement"  id="règle" style="display:none">
+            <h3>Règlement intérieur</h3>
+            <p><span>Ensemble, nous gardons le club propre et sain</span><br><br>
             •    Le port de chaussures de sport (propres) et de vêtements de sport appropriés est obligatoire.<br>
             •    Placez votre serviette sur l’appareil que vous utilisez puis, pour l’hygiène de tous, nettoyez l’appareil avec les produits désinfectants mis à votre disposition. <br>
             •    La nourriture et les récipients non refermables ne sont pas autorisés dans les espaces d’entraînement. <br>
             •    Il est interdit de fumer, de faire usage et/ou de distribuer des substances illicites dans le club. <br>
-            •    Les animaux ne sont pas admis au club, hormis les chiens d'assistance. 
+            •    Les animaux ne sont pas admis au club, hormis les chiens d'assistance. <br><br><br><br>
 
-            Nous respectons la vie privée et la tranquillité des autres personnes
+            <span>Nous respectons la vie privée et la tranquillité des autres personnes</span><br>
             •    L'utilisation d'appareils mobiles fait partie intégrante de notre société. Dans les espaces d’entraînement, il n'est pas permis de téléphoner et de prendre des photos ou des films portant atteinte à la vie privée des personnes présentes. <br>
             •    Ne laissez pas tomber le matériel bruyamment, limitez les bruits de toutes sortes ainsi que le niveau sonore de votre musique. <br>
             •    La violence verbale et/ou physique n’est pas tolérée dans le club. <br>
             •    Les gestes, harcèlement, et/ou relations intimes/sexuels ne sont pas tolérés dans le club. <br>
             •    Laissez les appareils disponibles pour les autres si vous ne les utilisez pas de manière active.<br>
-
-            Nous voulons un club sûr pour chacun<br>
-            •    Il est obligatoire de présenter l’original de la carte Basic-Fit valide pour entrer dans le club. <br>
-            •    Les enfants de moins de 16 ans ne sont pas admis dans le club. <br>
-            •    Les instructions du personnel de Basic-Fit doivent être respectées et suivies. Basic-Fit est habilité, s'il a des motifs raisonnables de le faire, à refuser temporairement ou définitivement l'accès au(x) club(s) aux personnes qui ne respecteraient pas les conditions générales et/ou le règlement intérieur. <br>
-            •    Assurez-vous de savoir comment utiliser les appareils et faire les exercices. Respectez vos limites et veillez à connaître ce dont vous êtes capable, éventuellement avec les conseils d'un spécialiste (médical). Vous êtes responsable de votre propre bien-être.<br>
-            •    N'utilisez un appareil que pour l'usage auquel il est destiné et, après l'exercice, éteignez l’appareil ou remettez le matériel à l’endroit prévu à cet effet.<br>
-            •    Les effets personnels non nécessaires à la pratique du sport tels que manteaux, sacs, casques etcetera, ne peuvent être emmenés dans les espaces d’entraînement, ils doivent être rangés dans les casiers. Nous vous conseillons de ne pas emporter d'objets de valeur et d'utiliser les casiers pour ranger vos affaires. Les casiers sont vidés tous les jours. Pour la responsabilité en cas de dommage ou de vol, nous vous renvoyons aux conditions générales en vigueur de Basic-Fit. <br>
-            •    Après la douche, séchez-vous dans la zone humide du vestiaire pour éviter les chutes et les salissures inutiles dans les vestiaires. Pour des raisons d’hygiène, il n’est pas autorisé de se raser dans les vestiaires.<br>
-
-            •    Les activités de vente et/ou de promotion ainsi que le coaching personnel ne sont pas autorisés sans l'accord préalable et écrit de Basic-Fit.<br>
             </p>
             
         </div>
-        <div  id="newclients" style="display:none;text-align:center">
-            <br><br>
-            <form  action="NewClient.php" method="post" style="margin : auto; width : 180px">
+     
+        <div id="newclients" style="display:none;text-align:center">
+            
+            
+            
+            <div class="form"><form  action="NewClient.php" method="post" style="margin-left:100px; width : 180px">
+                <h3>Nouveau Client</h3>
                 <table>
                     <tr>
                         <td>
@@ -248,14 +284,16 @@
                     <tr>
                         <td></td>  
                         <td>
-                            <input type="submit"  name="valider" Value="Valider">
+                            <input  type="submit"  name="valider" Value="Valider" style="margin-top: 30px; background: #01fea5; color: rgb(0, 0, 0);">
                         </td>
                     </tr>
                 </table>
-            </form>
+                </form>
             </div>
+        </div>
+    
 
-        <div id="alimentation" style="display:none">
+        <div class="BoxAlimentation" id="alimentation" style="display:none">
         <h3>Qu’est-ce qu’une alimentation saine lorsque tu pratiques le sport d’endurance ?</h3><br>
         D’abord, toujours prévoir une alimentation riche en glucides. Pense à un régime contenant du pain complet, des pommes de terre, des pâtes, du riz et/ou des légumes. Fais attention aux graisses mais consomme des protéines. La viande maigre et le poisson contiennent des protéines, mais aussi le fromage et les noix. Assure-toi d’avoir une alimentation équilibrée. Car, manger des pâtes bolognaise tous les jours ce n’est pas un régime sain et… c’est surtout très ennuyeux.<br>
 
@@ -266,6 +304,24 @@
 
         Après le sport d’endurance, tu dois recharger les batterie. Mange un repas riches en hydrates de carbone et en protéines.<br>
         </div>
+
+    </div>
+
+    
+    <div class="footer">
+        <h1>NOUS CONTACTER:</h1> 
+        
+        <p> <br>Adresse mail: omnes.sport@edu.ece.fr <br>
+        Numéro de téléphone: +33768423099 <br>
+        Adresse: 37 Quai de Grenelle, 75015, PARIS </p><br> <br>
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.3378949789744!2d2.2842932156190012!3d48.85176677928686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6701b4f58251b%3A0x167f5a60fb94aa76!2sECE%20Paris%20Lyon!5e0!3m2!1sfr!2sfr!4v1653307387919!5m2!1sfr!2sfr" 
+             width="250" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+
 </div>
+
 </body>
+
 </html>
