@@ -67,8 +67,8 @@ if (isset($_POST["musculation"]))
     while($data = mysqli_fetch_assoc($res2))
     { 
         echo '<div class="affichagedispo">';
-        echo'<a href="rendezvous.php" >  ' . $data['jour'] .' </a>';
-        echo'<a href="rendezvous.php" >  ' . $data['creneau'] .' </a>';
+        echo'<a href="rendezvous.php" >  ' . $data['jour'] .  " ". $data['creneau']  .' </a>';
+        
        
         echo '</div>';
         
@@ -130,8 +130,8 @@ else if (isset($_POST["fitness"]))
     while($data = mysqli_fetch_assoc($res2))
     { 
         echo '<div class="affichagedispo">';
-        echo'<a href="rendezvous.php" >  ' . $data['jour'] .' </a>';
-        echo'<a href="rendezvous.php" >  ' . $data['creneau'] .' </a>';
+        echo'<a href="rendezvous.php" >  ' . $data['jour'] .  " ". $data['creneau']  .' </a>';
+       
   
         echo '</div>';
         
@@ -190,8 +190,8 @@ else if (isset($_POST["biking"]))
     while($data = mysqli_fetch_assoc($res2))
     { 
         echo '<div class="affichagedispo">';
-        echo'<a href="rendezvous.php" >  ' . $data['jour'] .' </a>';
-        echo'<a href="rendezvous.php" >  ' . $data['creneau'] .' </a>';
+        echo'<a href="rendezvous.php" >  ' . $data['jour'] .  " ". $data['creneau']  .' </a>';
+        
        
         echo '</div>';
         
@@ -250,8 +250,8 @@ else if (isset($_POST["cardio"]))
     while($data = mysqli_fetch_assoc($res2))
     { 
         echo '<div class="affichagedispo">';
-        echo'<a href="rendezvous.php" >  ' . $data['jour'] .' </a>';
-        echo'<a href="rendezvous.php" >  ' . $data['creneau'] .' </a>';
+        echo'<a href="rendezvous.php" >  ' . $data['jour'] .  " ". $data['creneau']  .' </a>';
+     
        
         echo '</div>';
         
@@ -310,8 +310,8 @@ else if (isset($_POST["coursCO"]))
     while($data = mysqli_fetch_assoc($res2))
     { 
         echo '<div class="affichagedispo">';
-        echo'<a href="rendezvous.php" >  ' . $data['jour'] .' </a>';
-        echo'<a href="rendezvous.php" >  ' . $data['creneau'] .' </a>';
+        echo'<a href="rendezvous.php" >  ' . $data['jour'] .  " ". $data['creneau'] .' </a>';
+       
         
         echo '</div>';
         
