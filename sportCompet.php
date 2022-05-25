@@ -69,8 +69,8 @@ if($db_found)
     while($data = mysqli_fetch_assoc($res2))
     { 
         echo '<div class="affichagedispo">';
-        echo'<a href="rendezvous.php" >  ' . $data['jour'] .' </a>';
-        echo'<a href="rendezvous.php" >  ' . $data['creneau'] .' </a>';
+        echo'<a href="rendezvous.php" >  ' . $data['jour'] .  " ". $data['creneau'] .' </a>';
+      
         
         echo '</div>';
         
@@ -132,8 +132,8 @@ if($db_found)
     while($data = mysqli_fetch_assoc($res2))
     { 
         echo '<div class="affichagedispo">';
-        echo'<a href="rendezvous.php" >  ' . $data['jour'] .' </a>';
-        echo'<a href="rendezvous.php" >  ' . $data['creneau'] .' </a>';
+        echo'<a href="rendezvous.php" >  ' .$data['jour'] .  " ". $data['creneau'] .' </a>';
+        
         
         echo '</div>';
         
@@ -193,8 +193,8 @@ if($db_found)
         while($data = mysqli_fetch_assoc($res2))
         { 
             echo '<div class="affichagedispo">';
-            echo'<a href="rendezvous.php" >  ' . $data['jour'] .' </a>';
-            echo'<a href="rendezvous.php" >  ' . $data['creneau'] .' </a>';
+            echo'<a href="rendezvous.php" >  ' . $data['jour'] .  " ". $data['creneau'] .' </a>';
+           
             
             echo '</div>';
             
@@ -256,8 +256,8 @@ if($db_found)
         while($data = mysqli_fetch_assoc($res2))
         { 
             echo '<div class="affichagedispo">';
-            echo'<a href="rendezvous.php" >  ' . $data['jour'] .' </a>';
-            echo'<a href="rendezvous.php" >  ' . $data['creneau'] .' </a>';
+            echo'<a href="rendezvous.php" >  ' . $data['jour'] .  " ". $data['creneau'].' </a>';
+            
             
             echo '</div>';
             
@@ -318,8 +318,8 @@ if($db_found)
         while($data = mysqli_fetch_assoc($res2))
         { 
             echo '<div class="affichagedispo">';
-            echo'<a href="rendezvous.php" >  ' . $data['jour'] .' </a>';
-             echo'<a href="rendezvous.php" >  ' . $data['creneau'] .' </a>';
+            echo'<a href="rendezvous.php" >  ' . $data['jour'] .  " ". $data['creneau'].' </a>';
+             
           
             echo '</div>';
             
@@ -378,8 +378,8 @@ if($db_found)
         while($data = mysqli_fetch_assoc($res2))
         { 
             echo '<div class="affichagedispo">';
-            echo'<a href="rendezvous.php" >  ' . $data['jour'] .' </a>';
-             echo'<a href="rendezvous.php" >  ' . $data['creneau'] .' </a>';;
+            echo'<a href="rendezvous.php" >  ' . $data['jour'] .  " ". $data['creneau'].' </a>';
+             
             
             echo '</div>';
             

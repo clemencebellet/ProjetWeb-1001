@@ -63,6 +63,7 @@ if($db_found)
                 </script>';
 
                 $_SESSION['NomCoach'] =$data2["Nom"];
+                $_SESSION['idcoach'] =$data2["id_coach"];
             }
             else
             
