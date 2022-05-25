@@ -18,8 +18,31 @@ $id_client= $_SESSION['id'];
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <title>Rendez-vous</title>
     <link rel="stylesheet" href="toutparcourir.css">
+
+    <script type="text/javascript">
+        
+        function getvalue(){
+            in = $("#idrdv").val();
+            return in;
+        }
+        </script>
+<script type="text/javascript">
+        function masquer_div(id)
+        {
+            if (document.getElementById(id).style.display == 'none')
+            {
+                document.getElementById(id).style.display = 'block';
+            }
+            else
+            {
+                document.getElementById(id).style.display = 'none';
+            }
+        }
+    </script>
+
 </head>
 <body>
 
@@ -54,7 +77,7 @@ $id_client= $_SESSION['id'];
 
                 $sql2 ="SELECT *
                 FROM  rdv
-                WHERE rdv.client_id = $id_client";
+                WHERE rdv.client_id = '$id_client'";
                 $res2 = mysqli_query($db_handle,$sql2);
 
                 $sql3 ="SELECT coach.Nom
@@ -67,30 +90,29 @@ $id_client= $_SESSION['id'];
                     if($data3 = mysqli_fetch_assoc($res3)) {         
                 ?>
 
-                    <input type="checkbox" name="test[]" value=<?php echo $data2["id_rdv"]?>>
+                     
                 <?php
-                    echo "Rdv n° ". $data2["id_rdv"] .", Creneau : " .$data2["info_horaire_date"].", Coach :".$data3["Nom"]. "<br>";
+                echo "  ID   " . $data2["id_rdv"] ;
+                echo " ";
+                    echo "Rdv n° ". $data2["id_rdv"] .", Creneau : " .$data2["info_horaire_date"].", Coach : ".$data3["Nom"]. "<br>";
                 ?></label> 
                 <?php
                 } 
             }
 
             ?>
-            <button class="btnnosAct" type="submit" name="AnnulerRDV">Annulation du RDV</button>
-            <?php
-               /* if($_POST[$data2["id_rdv"]] && isset($_POST["AnnulerRDV"])) {
-                    echo "Rsupprimé <br/>";
-                }*/
-                if(isset($_POST['test']) && isset($_POST["AnnulerRDV"])){
-                    if(in_array('value1', $_POST['test'])){
-                        echo "Option1 was checked!";
-                    }
-                }
+            <form action = "connect.php" method="post" style ="text-align : center;" >
+             <td>Veuillez ecrire l'id du rendez que vous voulez supprimer :</td>
+             <td><input method="post" type="text" name="idrdv" id="idrdv"></td>
+             <br/>
 
-            ?>
+             <button class="btnnosAct" type ="submit" name="AnnulerRDV" >Annulation du RDV</button>
 
-            </p>
-        </div>
+            </form>
+
+            
+           
+        
 
 
         
