@@ -9,9 +9,8 @@ $db_mdp ="";
 $db_handle = mysqli_connect($site,$db_id,$db_mdp);
 $db_found = mysqli_select_db($db_handle,$db);
 
-//$nom_coach =$_SESSION['NomCoach'];
 $nom =$_SESSION['Nom'];
-$id_client= $_SESSION['id'];
+$id_coach= $_SESSION['id'];
 
 ?> 
 
@@ -70,6 +69,37 @@ $id_client= $_SESSION['id'];
 
         
         <div class="content">
+
+         <h1> MES<br><span>INFORMATIONS</span></h1>
+            <p class="nosAct">
+            <br> 
+            <?php
+
+                $sqlcoach ="SELECT *
+                FROM  coach
+                WHERE coach.id_coach='$id_coach'";
+                $rescoach = mysqli_query($db_handle,$sqlcoach);
+                        
+                while($datacoach = mysqli_fetch_assoc($rescoach)) 
+                {   
+                
+                    echo '<img src="'.$datacoach['Profil'].' "height = 150 px /></a>';          
+                    echo "  ID :  " . $datacoach["id_coach"] . "<br>";
+                    echo "  Nom :  " . $datacoach["Nom"] . "<br>";
+                    echo "  Prenom :  " . $datacoach["Prenom"] . "<br>";
+                    echo "  Bureau :  " . $datacoach["Bureau"] . "<br>";
+                    echo "  Dispo :  " . $datacoach["Dispo"] . "<br>";
+                    echo "  NumeroTel :  " . $datacoach["NumeroTel"] . "<br>";
+                    echo "  Email :  " . $datacoach["Email"] . "<br>";
+                    echo "  Sport :  " . $datacoach["Sport"] . "<br>";
+                    echo '<a href="'.$datacoach['CV'].'" >';
+                    echo '<img src="'.$datacoach['CV'].' "height = 150 px /></a>';
+                
+                } 
+
+            ?>
+
+
             <h1> MES<br><span>RENDEZ-VOUS</span></h1>
             <p class="nosAct"> Rendez-vous avec  :
             <br> 
@@ -77,24 +107,23 @@ $id_client= $_SESSION['id'];
 
                 $sql2 ="SELECT *
                 FROM  rdv
-                WHERE rdv.client_id = '$id_client'";
+                WHERE rdv.coach_id = '$id_coach'";
                 $res2 = mysqli_query($db_handle,$sql2);
 
-                $sql3 ="SELECT coach.Nom
-                FROM  coach, rdv
-                WHERE rdv.coach_id = coach.id_coach";
-                $res3 = mysqli_query($db_handle,$sql3);
+                $sql3 ="SELECT client.Nom
+                FROM  client, rdv
+                WHERE rdv.client_id = client.id";
+                $res3 = mysqli_query($db_handle,$sql3);            
+                 
                         
                 while($data2 = mysqli_fetch_assoc($res2)) 
                 {         
                     if($data3 = mysqli_fetch_assoc($res3)) {         
-                ?>
-
-                     
+                ?>   
                 <?php
                 echo "  ID   " . $data2["id_rdv"] ;
                 echo " ";
-                    echo "Rdv n° ". $data2["id_rdv"] .", Creneau : " .$data2["info_horaire_date"].", Coach : ".$data3["Nom"]. "<br>";
+                    echo "Rdv n° ". $data2["id_rdv"] .", Creneau : " .$data2["info_horaire_date"].", Client : ".$data3["Nom"]. "<br>";
                 ?></label> 
                 <?php
                 } 
@@ -109,11 +138,8 @@ $id_client= $_SESSION['id'];
              <button class="btnnosAct" type ="submit" name="AnnulerRDV" >Annulation du RDV</button>
 
             </form>
-
-            
-           
         
-
+        </div>
 
         
         <div class="footer">
