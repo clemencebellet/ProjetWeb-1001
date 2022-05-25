@@ -67,8 +67,8 @@ if (isset($_POST["musculation"]))
     while($data = mysqli_fetch_assoc($res2))
     { 
         echo '<div class="affichagedispo">';
-        echo'<a href="rendezvous.php" > ICI  </a>';
-        echo " " . $data["date_heure"] . "<br>";
+        echo'<a href="rendezvous.php" >  ' . $data['date_heure'] .' </a>';
+       
         echo '</div>';
         
         
@@ -129,8 +129,8 @@ else if (isset($_POST["fitness"]))
     while($data = mysqli_fetch_assoc($res2))
     { 
         echo '<div class="affichagedispo">';
-        echo'<a href="rendezvous.php" > ICI  </a>';
-        echo " " . $data["date_heure"] . "<br>";
+        echo'<a href="rendezvous.php" >  ' . $data['date_heure'] .'  </a>';
+  
         echo '</div>';
         
         
@@ -188,8 +188,8 @@ else if (isset($_POST["biking"]))
     while($data = mysqli_fetch_assoc($res2))
     { 
         echo '<div class="affichagedispo">';
-        echo'<a href="rendezvous.php" > ICI  </a>';
-        echo " " . $data["date_heure"] . "<br>";
+        echo'<a href="rendezvous.php" >  ' . $data['date_heure'] .' </a>';
+       
         echo '</div>';
         
         
@@ -247,8 +247,8 @@ else if (isset($_POST["cardio"]))
     while($data = mysqli_fetch_assoc($res2))
     { 
         echo '<div class="affichagedispo">';
-        echo'<a href="rendezvous.php" > ICI  </a>';
-        echo " " . $data["date_heure"] . "<br>";
+        echo'<a href="rendezvous.php" >  ' . $data['date_heure'] .' </a>';
+       
         echo '</div>';
         
         
@@ -306,8 +306,8 @@ else if (isset($_POST["coursCO"]))
     while($data = mysqli_fetch_assoc($res2))
     { 
         echo '<div class="affichagedispo">';
-        echo'<a href="rendezvous.php" > ICI  </a>';
-        echo " " . $data["date_heure"] . "<br>";
+        echo'<a href="rendezvous.php" >  ' . $data['date_heure'] .' </a>';
+        
         echo '</div>';
         
         

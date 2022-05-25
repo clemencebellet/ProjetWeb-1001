@@ -20,7 +20,10 @@ if($db_found)
     if(isset($_POST["Basket"])) 
     {
         $sqlcoachbasket ="SELECT * FROM coach WHERE Sport =1 ";
+       
         $resbasket = mysqli_query($db_handle,$sqlcoachbasket);
+        $sql2 = "SELECT * FROM coach, dispo WHERE id_pro =id_coach and Sport=1";
+        $res2 = mysqli_query($db_handle,$sql2);
 
         if($data = mysqli_fetch_assoc($resbasket)) 
         {
@@ -58,6 +61,21 @@ if($db_found)
 
             echo '</div>';
         }
+    echo '<div class="affichagedispoT">';
+    echo "Vous souhaitez prendre un rendez-vous avec lui ? ". "<br>";
+    echo "Cliquez sur la disponibilité qui vous interesse ". "<br>";
+    echo '</div>';
+   
+    while($data = mysqli_fetch_assoc($res2))
+    { 
+        echo '<div class="affichagedispo">';
+        echo'<a href="rendezvous.php" > ' . $data['date_heure'] .' </a>';
+        
+        echo '</div>';
+        
+        
+    }
+   
     }
     
 
@@ -65,6 +83,9 @@ if($db_found)
     {
         $sqlcoachbasket ="SELECT * FROM coach WHERE Sport =2 ";
         $resbasket = mysqli_query($db_handle,$sqlcoachbasket);
+        $sql2 = "SELECT * FROM coach, dispo WHERE id_pro =id_coach and Sport=1";
+        $res2 = mysqli_query($db_handle,$sql2);
+
 
         if($data = mysqli_fetch_assoc($resbasket)) 
         {
@@ -102,12 +123,28 @@ if($db_found)
             echo '</div>';
 
         }
+        echo '<div class="affichagedispoT">';
+    echo "Vous souhaitez prendre un rendez-vous avec lui ? ". "<br>";
+    echo "Cliquez sur la disponibilité qui vous interesse ". "<br>";
+    echo '</div>';
+   
+    while($data = mysqli_fetch_assoc($res2))
+    { 
+        echo '<div class="affichagedispo">';
+        echo'<a href="rendezvous.php" >  ' . $data['date_heure'] .' </a>';
+        
+        echo '</div>';
+        
+        
+    }
     }
 
     else if(isset($_POST["Rugby"])) 
     {
         $sqlcoachbasket ="SELECT * FROM coach WHERE Sport =3 ";
         $resbasket = mysqli_query($db_handle,$sqlcoachbasket);
+        $sql2 = "SELECT * FROM coach, dispo WHERE id_pro =id_coach and Sport=1";
+        $res2 = mysqli_query($db_handle,$sql2);
 
         if($data = mysqli_fetch_assoc($resbasket)) 
         {
@@ -146,11 +183,27 @@ if($db_found)
 
 
         }
+        echo '<div class="affichagedispoT">';
+        echo "Vous souhaitez prendre un rendez-vous avec lui ? ". "<br>";
+        echo "Cliquez sur la disponibilité qui vous interesse ". "<br>";
+        echo '</div>';
+       
+        while($data = mysqli_fetch_assoc($res2))
+        { 
+            echo '<div class="affichagedispo">';
+            echo'<a href="rendezvous.php" >  ' . $data['date_heure'] .'  </a>';
+            
+            echo '</div>';
+            
+            
+        }
     }
     else if(isset($_POST["Tennis"])) 
     {
         $sqlcoachbasket ="SELECT * FROM coach WHERE Sport =4 ";
         $resbasket = mysqli_query($db_handle,$sqlcoachbasket);
+        $sql2 = "SELECT * FROM coach, dispo WHERE id_pro =id_coach and Sport=1";
+        $res2 = mysqli_query($db_handle,$sql2);
 
         
 
@@ -192,11 +245,27 @@ if($db_found)
 
 
         }
+        echo '<div class="affichagedispoT">';
+        echo "Vous souhaitez prendre un rendez-vous avec lui ? ". "<br>";
+        echo "Cliquez sur la disponibilité qui vous interesse ". "<br>";
+        echo '</div>';
+       
+        while($data = mysqli_fetch_assoc($res2))
+        { 
+            echo '<div class="affichagedispo">';
+            echo'<a href="rendezvous.php" >  ' . $data['date_heure'] .'  </a>';
+            
+            echo '</div>';
+            
+            
+        }
     }
     else if(isset($_POST["Natation"])) 
     {
         $sqlcoachbasket ="SELECT * FROM coach WHERE Sport =5 ";
         $resbasket = mysqli_query($db_handle,$sqlcoachbasket);
+        $sql2 = "SELECT * FROM coach, dispo WHERE id_pro =id_coach and Sport=1";
+        $res2 = mysqli_query($db_handle,$sql2);
 
         if($data = mysqli_fetch_assoc($resbasket)) 
         {
@@ -237,11 +306,27 @@ if($db_found)
            
 
         }
+        echo '<div class="affichagedispoT">';
+        echo "Vous souhaitez prendre un rendez-vous avec lui ? ". "<br>";
+        echo "Cliquez sur la disponibilité qui vous interesse ". "<br>";
+        echo '</div>';
+       
+        while($data = mysqli_fetch_assoc($res2))
+        { 
+            echo '<div class="affichagedispo">';
+            echo'<a href="rendezvous.php" >  ' . $data['date_heure'] .' </a>';
+          
+            echo '</div>';
+            
+            
+        }
     }
     else if(isset($_POST["Plongeon"])) 
     {
         $sqlcoachbasket ="SELECT * FROM coach WHERE Sport =6 ";
         $resbasket = mysqli_query($db_handle,$sqlcoachbasket);
+        $sql2 = "SELECT * FROM coach, dispo WHERE id_pro =id_coach and Sport=1";
+        $res2 = mysqli_query($db_handle,$sql2);
 
         if($data = mysqli_fetch_assoc($resbasket)) 
         {
@@ -280,6 +365,20 @@ if($db_found)
 
 
         }
+        echo '<div class="affichagedispoT">';
+        echo "Vous souhaitez prendre un rendez-vous avec lui ? ". "<br>";
+        echo "Cliquez sur la disponibilité qui vous interesse ". "<br>";
+        echo '</div>';
+       
+        while($data = mysqli_fetch_assoc($res2))
+        { 
+            echo '<div class="affichagedispo">';
+            echo'<a href="rendezvous.php" >  ' . $data['date_heure'] .' </a>';
+            
+            echo '</div>';
+            
+            
+        }
     }
 }
 
@@ -308,6 +407,23 @@ if($db_found)
     top : 80px;
     left : 110px;
     font-size :25px;
+    
+ }
+ .affichagedispoT{ 
+    
+    position: relative;
+    top : 160px;
+    left : 110px;
+    font-size :20px;
+    
+ }
+
+ .affichagedispo{ 
+    
+    position: relative;
+    top : 170px;
+    left : 110px;
+    font-size :20px;
     
  }
  
