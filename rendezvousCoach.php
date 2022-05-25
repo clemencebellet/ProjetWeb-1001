@@ -74,7 +74,6 @@ $id_coach= $_SESSION['idcoach'];
             <p class="nosAct">
             <br> 
             <?php
-            echo $id_coach;
                 $sqlcoach ="SELECT *
                 FROM  coach
                 WHERE coach.id_coach='$id_coach'";
