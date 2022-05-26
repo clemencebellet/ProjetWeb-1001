@@ -10,7 +10,7 @@ $db_handle = mysqli_connect($site,$db_id,$db_mdp);
 $db_found = mysqli_select_db($db_handle,$db);
 
 $nom =$_SESSION['Nom'];
-$id_coach= $_SESSION['id'];
+$id_coach= $_SESSION['idcoach'];
 
 ?> 
 
@@ -74,7 +74,6 @@ $id_coach= $_SESSION['id'];
             <p class="nosAct">
             <br> 
             <?php
-
                 $sqlcoach ="SELECT *
                 FROM  coach
                 WHERE coach.id_coach='$id_coach'";
@@ -120,10 +119,11 @@ $id_coach= $_SESSION['id'];
                 {         
                     if($data3 = mysqli_fetch_assoc($res3)) {         
                 ?>   
-                <?php
-                echo "  ID   " . $data2["id_rdv"] ;
+                <?php 
+                echo " <strong>Rendez-vous n° " . $data2["id_rdv"] ."</strong><br>";
                 echo " ";
-                    echo "Rdv n° ". $data2["id_rdv"] .", Creneau : " .$data2["info_horaire_date"].", Client : ".$data3["Nom"]. "<br>";
+                    echo "Creneau : " .$data2["jour"]." ".$data2["date"]." à ".$data2["heure"]."<br>";
+                    echo "Adresse : ".$data2["adresse"]." Digicode : ".$data2["dogicode"]." <br> Coach : ".$data3["Nom"]." Docs : ".$data2["doc"]."<br><br>";
                 ?></label> 
                 <?php
                 } 

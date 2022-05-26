@@ -53,6 +53,16 @@ h1 {
     margin: 0 auto;
   
    }
+
+.choix {
+
+    width: 250px;
+    height: 200px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  
+   }
 .middleup {
 
     float: middle;

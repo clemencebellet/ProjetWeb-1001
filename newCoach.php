@@ -24,8 +24,9 @@ if($db_found)
         $email = $_POST["email"];
         $mdp = $_POST["mdp"];
         $sport = $_POST["sport"];
-
-        if (empty($id)  || empty($nom) || empty($prenom)||empty($bureau)||empty($dispo)||empty($tel)|| empty($email) || empty($mdp) || empty($sport) )
+        $Profil = "images/Profil/".$_POST["Profil"];
+        $CV = "images/".$_POST["CV"];
+        if (empty($id) || empty($nom) || empty($prenom)||empty($bureau)||empty($dispo)||empty($tel)|| empty($email) || empty($mdp) || empty($sport))
     { 
         echo '<script type="text/javascript">
         alert("Un champ est vide , reesayer ");
@@ -34,9 +35,8 @@ if($db_found)
     }
     else{
 
-
-        $sql =  "INSERT INTO coach(id_coach,Nom,Prenom,Bureau,Dispo,NumeroTel,Email,Mdp,Sport)
-                VALUES('$id','$nom','$prenom','$bureau','$dispo','$tel','$email','$mdp','$sport')";
+        $sql =  "INSERT INTO coach(id_coach,Nom,Prenom,Bureau,Dispo,NumeroTel,Email,Mdp,Sport,Profil,CV)
+                VALUES('$id','$nom','$prenom','$bureau','$dispo','$tel','$email','$mdp','$sport','$Profil','$CV')";
         $res = mysqli_query($db_handle,$sql);
 
         if($res) { 
