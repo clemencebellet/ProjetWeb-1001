@@ -147,7 +147,7 @@ ul li a:hover{
 
     float:left;
     width: 400px;
-    height: 800px;
+    height: 900px;
     /*background: linear-gradient(to top, rgba(80, 80, 80, 0.8)50%,rgba(80, 80, 80, 0.8)50%);*/
     background-color: rgb(244, 244, 244);
     margin-left: 8px;
@@ -240,6 +240,36 @@ ul li a:hover{
 .content h2{
     font-family: 'Arial';
     color: #000000;
+    font-size: 50px;
+    padding-left:  20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-top: 20px;
+    letter-spacing: 2px;
+}
+/*Affichage box dispo*/
+
+.Boxdispo{
+
+    width: 600px;
+    height: 520px;
+    background-color: rgb(244, 244, 244);
+    color: #000000;
+    font-family: 'Arial';
+    text-align: center;
+    margin-left: 600px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    top: -20px;
+    left: 870px;
+    transform: translate(0%,-5%);
+    border-radius: 90px;
+    padding: 25px;
+}
+
+.content h2{
+    font-family: 'Arial';
+    color: #000000;
     font-size: 30px;
     padding-left:  20px;
     padding-top: 15px;
@@ -247,6 +277,7 @@ ul li a:hover{
     margin-top: 20px;
     letter-spacing: 2px;
 }
+
 
 
 /* AFFICHAGE DU REGLEMENT */
