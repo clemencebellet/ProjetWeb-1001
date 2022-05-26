@@ -175,6 +175,7 @@ ul li a:hover{
     color: #fff;
     transition: 0.4s ease;
 }
+
 .btnnosAct:hover{
     background: #014533;
     color: #06ad80;
@@ -184,4 +185,11 @@ ul li a:hover{
     color: rgb(255, 255, 255);
     font-weight: bold;
 }
+
+
+
+
+
+/*
+
 
