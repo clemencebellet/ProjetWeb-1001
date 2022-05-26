@@ -77,6 +77,7 @@ if($db_found)
     }
     elseif(isset($_POST["btnPaiement"])) {
         
+        $montant= isset($_POST["montant"])? $_POST["montant"] : "";
         $Numerocarte= isset($_POST["Numerocarte"])? $_POST["Numerocarte"] : "";
         $dateexp = isset($_POST["dateexp"])? $_POST["datexp"] : "";
         $CVV = isset($_POST["CVV"])? $_POST["CVV"] : "";
@@ -85,10 +86,24 @@ if($db_found)
         $sql4 ="SELECT * FROM client WHERE EXISTS ( SELECT * WHERE NumeroCarte = '$Numerocarte'  AND CVV ='$CVV')";
         $res4 = mysqli_query($db_handle,$sql4);
 
+         ## Définitions des deux constantes
+        define('ADRESSE_WEBMASTER','martinrose632@gmail.com'); // Votre adresse qui apparaitra en tant qu'expéditeur des E-mails
+        define('SUJET','Paiement valide'); // Sujet commun aux deux E-mail
+        
+        ## Message envoyé au visiteur
+        $message = "Bonjour, Vous venez de procéder au paiement de ".$montant." euros.
+        \nCeci est un mail automatique, Merci de ne pas y répondre.
+         \n\nL'équipe Omnes Sport";
+        
+        ## Second appel de la fonction mail() : le visiteur reçoit cet E-mail
+        ini_set('SMTP','smtp.orange.fr'); //il faut mettre le stmp qui correspond à son serveur, le lien suivant nous le donne : http://check414.free.fr/detection-smtp/
+        ini_set("sendmail_from","martinrose632@gmail.com"); //donne l'expéditeur (il faut mettre une vrai addresse mail)
+        mail($_SESSION['Email'],SUJET,$message,'From: '.ADRESSE_WEBMASTER); //on envoie le mail
+
         if($datatest=mysqli_fetch_assoc($res4))
         {
             echo'<script type="text/javascript">
-            alert("Paiement validé");
+            alert("email de validation de votre paiement envoyé à '.$_SESSION['Email'] .'");
             location="client.php";
             </script>';
         }
@@ -115,7 +130,7 @@ if($db_found)
         $message = "Bonjour, Veuillez noter la suppression de votre rendez-vous n°".$idrdv.
         ".\n\nN'hésitez pas à reprendre un rendez vous sur notre site.
         \nCeci est un mail automatique, Merci de ne pas y répondre.
-        \n\n l'équipe Omnes Sport";
+        \n\nL'équipe Omnes Sport";
 
         ## Second appel de la fonction mail() : le visiteur reçoit cet E-mail
         ini_set('SMTP','smtp.orange.fr'); //il faut mettre le stmp qui correspond à son serveur, le lien suivant nous le donne : http://check414.free.fr/detection-smtp/

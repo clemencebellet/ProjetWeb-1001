@@ -138,7 +138,7 @@ $tel=$_SESSION['Tel'];
                         </tr>
                         <tr>
                             <td>Montant à payer:</td>
-                            <td><input type="number" step="0.01" name="amount"></td>
+                            <td><input type="number" name="montant" step="0.01" name="amount"></td>
                         </tr>
                         <tr>
                             <td>Payer par:</td>
@@ -219,7 +219,7 @@ $tel=$_SESSION['Tel'];
                         </tr>
                         <tr>
                             <td>Montant à payer:</td>
-                            <td><input type="number" step="0.01" name="amount"></td>
+                            <td><input type="number" name="montant"  step="0.01" name="amount"></td>
                         </tr>
                         <tr>
                             <td>Payer par:</td>
