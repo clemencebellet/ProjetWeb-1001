@@ -1,62 +1,139 @@
 
+
+
+
 <!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Nos activités sportive</title>
-    <meta charset="utf-8"/>
-    <link href="prime.css" rel="stylesheet" type="text/css" />
+    <title>Omnes Sport</title>
+    <link rel="stylesheet" href="prime.css">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 </head>
-
 <body>
-    
-    <form action="activ.php" method="post">
 
-    <div class="hautPage">
-        <a href="accueil.html"><img src="images/accueil.png" width="150" height="50"></a>
-        <a href="toutparcourir.html"><img src="images/toutparcourir.png" width="150" height="50"></a>
+
     
-    </div>
-    
-    
-    <div class="up">
-        <div class="rightup">
-            <input type="submit" name="musculation" value="MUSCULATION">
-            <br>
-            <img class="muscuimg" src="images/muscu.jpeg">
+    <div class="main">
+
+
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">Omnes</h2>
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li><a href="accueil.html">HOME</a></li>
+                    <li><a href="toutparcourir.html">TOUT PARCOURIR</a></li>
+                    <li><a href="rendezvous.php">RENDEZ-VOUS</a></li>
+                    <li><a href="compte.html">MON COMPTE</a></li>
+                </ul>
+            </div>
+
+
+        
+
             
+             
+            <div class="search">
+                <input class="srch" type="search" name="" placeholder="Rechercher" onchange="pageRecherchee()">
+                <a href="toutparcourir.html"> <button class="btn">Search</button></a>
+            </div> 
+
+        </div> 
+
+
+
+        
+        <div class="content">
+            <h1>LES <span>ACTIVITES</span></h1>
+
+
+            <!--MUSCULATION-->
+            <div class="activMuscu">
+
+                    <p class="muscuimg"><img src="images/muscu.jpeg" height="235px" width="188px"/> </p>
+                    <h2> MUSCULATION</h2>
+                    <form action="activ.php" method="post" >
+                        <input type="submit" class="btnActivMuscu" name="musculation" value ="En Savoir Plus" ;>
+                    </form> 
+            </div>
+
+           
+
+            <!--FITNESS-->
+            <div class="activFitness">
+
+                <p class="fitnessimg"><img src="images/fitness.jpeg" height="290px" width="188px"/> </p>
+                <h3> FITNESS</h3>
+                <form action="activ.php" method="post" >
+                    <input type="submit" class="btnActivFitness" name="fitness" value ="En Savoir Plus" ;>
+                </form> 
+            </div>
+
+
+            <!--BIKING-->
+            <div class="activBiking">
+
+                <p class="bikingimg"><img src="images/biking.jpeg" height="235px" width="188px"/> </p>
+                <h4> BIKING</h4>
+                <form action="activ.php" method="post" >
+                    <input type="submit" class="btnActivBiking" name="biking" value ="En Savoir Plus" ;>
+                </form> 
+            </div>
+
+
+
+            <div class="activCardio">
+
+                
+                <p class="cardioimg"><img src="images/cardio.jpeg" height="235px" width="188px"/> </p>
+                <h5> CARDIO</h5>
+                <form action="activ.php" method="post" >
+                    <input type="submit" class="btnActivCardio" name="cardio" value ="En Savoir Plus" ;>
+                </form> 
+            </div>
+
+
+            <div class="activCours">
+
+                <p class="coursimg"><img src="images/courimg.jpeg" height="235px" width="188px"/> </p>
+                <h6> COURS COLLECTIFS</h6>
+                <form action="activ.php" method="post" >
+                    <input type="submit" class="btnActivCours" name="coursCO" value ="En Savoir Plus" ;>
+                </form> 
+            </div>
+
+
+
+
         </div>
-        <div class="middleup">
 
-            <input type="submit" name="fitness" value="FITNESS">
-            <br>
-            <img class="fitnessimg" src="images/fitness.jpeg">
-        </div>
-        <div class="leftup">
 
-            <input type="submit" name="biking" value="BIKING">
-            <br>
-            <img class="bikingimg" src="images/biking.jpeg">
-        </div>
+       
+        
 
-    </div>
-
-    <div class="down">
-        <div class="rightdown">
-
-            <input type="submit" name="cardio" value="CARDIO TRAINING">
-            <br>
-            <img class="cardioimg" src="images/cardio.jpeg">
+        <div class="footer">
+            <h1>NOUS CONTACTER:</h1> 
             
-        </div>
-        <div class="leftdown">
+            <p> <br>Adresse mail: omnes.sport@edu.ece.fr <br>
+            Numéro de téléphone: +33768423099 <br>
+            Adresse: 37 Quai de Grenelle, 75015, PARIS </p><br> <br>
 
-            <input type="submit" name="coursCO" value="COURS COLLECTIFS">
-            <br>
-            <img class="coursimg" src="images/courimg.jpeg">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.3378949789744!2d2.2842932156190012!3d48.85176677928686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6701b4f58251b%3A0x167f5a60fb94aa76!2sECE%20Paris%20Lyon!5e0!3m2!1sfr!2sfr!4v1653307387919!5m2!1sfr!2sfr" 
+                 width="250" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
-    
 
     </div>
-</form>
 
+ 
 </body>
 </html>
+
+
+
+
+
+
+
+
