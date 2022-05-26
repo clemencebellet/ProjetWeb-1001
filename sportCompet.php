@@ -1,5 +1,5 @@
 <?php
-
+session_cache_limiter('private_no_expire, must-revalidate');
 session_start();
 $id_session = session_id();
 $db = "webprojet";
@@ -38,6 +38,9 @@ if($db_found)
 
             echo '<div class="affichagenom">';
             echo    $data["Nom"] . "  ". $data["Prenom"];
+            $_SESSION['Nomcoach'] =$data["Nom"];
+            $_SESSION['Prenomcoach'] =$data["Prenom"];
+            $_SESSION['idcoach'] =$data["id_coach"];
             echo '</div>';
              
             echo '<div class="img">';
@@ -68,7 +71,8 @@ if($db_found)
     while($data = mysqli_fetch_assoc($res2))
     { 
         echo '<div class="affichagedispo">';
-        echo'<a href="rendezvous.php" >  ' . $data['jour'] .  " ". $data['creneau'] .' </a>';
+        echo'<a href="priserdv.php" >  ' . $data['date'] .' </a>';
+        echo'<a href="priserdv.php" >  ' . $data['jour'] .  " ". $data['creneau'] .' </a>';
       
         
         echo '</div>';
@@ -83,7 +87,7 @@ if($db_found)
     {
         $sqlcoachbasket ="SELECT * FROM coach WHERE Sport =2 ";
         $resbasket = mysqli_query($db_handle,$sqlcoachbasket);
-        $sql2 = "SELECT * FROM coach, dispo WHERE id_pro =id_coach and Sport=1";
+        $sql2 = "SELECT * FROM coach, dispo WHERE id_pro =id_coach and Sport=2";
         $res2 = mysqli_query($db_handle,$sql2);
 
 
@@ -100,6 +104,9 @@ if($db_found)
 
             echo '<div class="affichagenom">';
             echo    $data["Nom"] . "  ". $data["Prenom"];
+            $_SESSION['Nomcoach'] =$data["Nom"];
+            $_SESSION['Prenomcoach'] =$data["Prenom"];
+            $_SESSION['idcoach'] =$data["id_coach"];
             echo '</div>';
              
             echo '<div class="img">';
@@ -131,7 +138,8 @@ if($db_found)
     while($data = mysqli_fetch_assoc($res2))
     { 
         echo '<div class="affichagedispo">';
-        echo'<a href="rendezvous.php" >  ' .$data['jour'] .  " ". $data['creneau'] .' </a>';
+        echo'<a href="priserdv.php" >  ' . $data['date'] .' </a>';
+        echo'<a href="priserdv.php" >  ' .$data['jour'] .  " ". $data['creneau'] .' </a>';
         
         
         echo '</div>';
@@ -144,7 +152,7 @@ if($db_found)
     {
         $sqlcoachbasket ="SELECT * FROM coach WHERE Sport =3 ";
         $resbasket = mysqli_query($db_handle,$sqlcoachbasket);
-        $sql2 = "SELECT * FROM coach, dispo WHERE id_pro =id_coach and Sport=1";
+        $sql2 = "SELECT * FROM coach, dispo WHERE id_pro =id_coach and Sport=3";
         $res2 = mysqli_query($db_handle,$sql2);
 
         if($data = mysqli_fetch_assoc($resbasket)) 
@@ -160,6 +168,9 @@ if($db_found)
 
             echo '<div class="affichagenom">';
             echo    $data["Nom"] . "  ". $data["Prenom"];
+            $_SESSION['Nomcoach'] =$data["Nom"];
+            $_SESSION['Prenomcoach'] =$data["Prenom"];
+            $_SESSION['idcoach'] =$data["id_coach"];
             echo '</div>';
              
             echo '<div class="img">';
@@ -192,7 +203,8 @@ if($db_found)
         while($data = mysqli_fetch_assoc($res2))
         { 
             echo '<div class="affichagedispo">';
-            echo'<a href="rendezvous.php" >  ' . $data['jour'] .  " ". $data['creneau'] .' </a>';
+            echo'<a href="priserdv.php" >  ' . $data['date'] .' </a>';
+            echo'<a href="priserdv.php" >  ' . $data['jour'] .  " ". $data['creneau'] .' </a>';
            
             
             echo '</div>';
@@ -204,7 +216,7 @@ if($db_found)
     {
         $sqlcoachbasket ="SELECT * FROM coach WHERE Sport =4 ";
         $resbasket = mysqli_query($db_handle,$sqlcoachbasket);
-        $sql2 = "SELECT * FROM coach, dispo WHERE id_pro =id_coach and Sport=1";
+        $sql2 = "SELECT * FROM coach, dispo WHERE id_pro =id_coach and Sport=4";
         $res2 = mysqli_query($db_handle,$sql2);
 
         
@@ -223,6 +235,9 @@ if($db_found)
 
             echo '<div class="affichagenom">';
             echo    $data["Nom"] . "  ". $data["Prenom"];
+            $_SESSION['Nomcoach'] =$data["Nom"];
+            $_SESSION['Prenomcoach'] =$data["Prenom"];
+            $_SESSION['idcoach'] =$data["id_coach"];
             echo '</div>';
              
             echo '<div class="img">';
@@ -255,7 +270,8 @@ if($db_found)
         while($data = mysqli_fetch_assoc($res2))
         { 
             echo '<div class="affichagedispo">';
-            echo'<a href="rendezvous.php" >  ' . $data['jour'] .  " ". $data['creneau'].' </a>';
+            echo'<a href="priserdv.php" >  ' . $data['date'] .' </a>';
+            echo'<a href="priserdv.php" >  ' . $data['jour'] .  " ". $data['creneau'].' </a>';
             
             
             echo '</div>';
@@ -267,7 +283,7 @@ if($db_found)
     {
         $sqlcoachbasket ="SELECT * FROM coach WHERE Sport =5 ";
         $resbasket = mysqli_query($db_handle,$sqlcoachbasket);
-        $sql2 = "SELECT * FROM coach, dispo WHERE id_pro =id_coach and Sport=1";
+        $sql2 = "SELECT * FROM coach, dispo WHERE id_pro =id_coach and Sport=5";
         $res2 = mysqli_query($db_handle,$sql2);
 
         if($data = mysqli_fetch_assoc($resbasket)) 
@@ -284,6 +300,9 @@ if($db_found)
 
             echo '<div class="affichagenom">';
             echo    $data["Nom"] . "  ". $data["Prenom"];
+            $_SESSION['Nomcoach'] =$data["Nom"];
+            $_SESSION['Prenomcoach'] =$data["Prenom"];
+            $_SESSION['idcoach'] =$data["id_coach"];
             echo '</div>';
              
             echo '<div class="img">';
@@ -317,7 +336,8 @@ if($db_found)
         while($data = mysqli_fetch_assoc($res2))
         { 
             echo '<div class="affichagedispo">';
-            echo'<a href="rendezvous.php" >  ' . $data['jour'] .  " ". $data['creneau'].' </a>';
+            echo'<a href="priserdv.php" >  ' . $data['date'] .' </a>';
+            echo'<a href="priserdv.php" >  ' . $data['jour'] .  " ". $data['creneau'].' </a>';
              
           
             echo '</div>';
@@ -329,7 +349,7 @@ if($db_found)
     {
         $sqlcoachbasket ="SELECT * FROM coach WHERE Sport =6 ";
         $resbasket = mysqli_query($db_handle,$sqlcoachbasket);
-        $sql2 = "SELECT * FROM coach, dispo WHERE id_pro =id_coach and Sport=1";
+        $sql2 = "SELECT * FROM coach, dispo WHERE id_pro =id_coach and Sport=6";
         $res2 = mysqli_query($db_handle,$sql2);
 
         if($data = mysqli_fetch_assoc($resbasket)) 
@@ -345,6 +365,9 @@ if($db_found)
 
             echo '<div class="affichagenom">';
             echo    $data["Nom"] . "  ". $data["Prenom"];
+            $_SESSION['Nomcoach'] =$data["Nom"];
+            $_SESSION['Prenomcoach'] =$data["Prenom"];
+            $_SESSION['idcoach'] =$data["id_coach"];
             echo '</div>';
              
             echo '<div class="img">';
@@ -377,7 +400,8 @@ if($db_found)
         while($data = mysqli_fetch_assoc($res2))
         { 
             echo '<div class="affichagedispo">';
-            echo'<a href="rendezvous.php" >  ' . $data['jour'] .  " ". $data['creneau'].' </a>';
+            echo'<a href="priserdv.php" >  ' . $data['date'] .' </a>';
+            echo'<a href="priserdv.php" >  ' . $data['jour'] .  " ". $data['creneau'].' </a>';
              
             
             echo '</div>';

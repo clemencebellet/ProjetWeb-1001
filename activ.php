@@ -33,6 +33,9 @@ if (isset($_POST["musculation"]))
                 echo '<h1><br><br>Voici notre coach référent de MUSCULATION </h1>';
                 echo '<div class="affichagenom">';
                     echo    $data["Nom"] . "  ". $data["Prenom"];
+                    $_SESSION['Nomcoach'] =$data["Nom"];
+                    $_SESSION['Prenomcoach'] =$data["Prenom"];
+                    $_SESSION['idcoach'] =$data["id_coach"];
                 echo '</div>';
                 echo '<div class="img">';
                     echo '<img src="'.$data['Profil'].' "height=300px />' ;
@@ -58,8 +61,10 @@ if (isset($_POST["musculation"]))
         while($data = mysqli_fetch_assoc($res2))
         { 
             echo '<div class="affichagedispo">';
-                echo'<a href="priserdv.html" >  ' . $data['jour'] .' </a>';
-                echo'<a href="priserdv.html" >  ' . $data['creneau'] .' </a>';
+            echo'<a href="priserdv.php" >  ' . $data['date'] .' </a>';
+                echo'<a href="priserdv.php" >  ' . $data['jour'] .' </a>';
+                echo'<a href="priserdv.php" >  ' . $data['creneau'] .' </a>';
+               
             echo '</div>';
             
         }
@@ -86,6 +91,9 @@ else if (isset($_POST["fitness"]))
         echo '<h1><br><br>Voici notre coach référent de FITNESS </h1>';
                 echo '<div class="affichagenom">';
                     echo    $data["Nom"] . "  ". $data["Prenom"];
+                    $_SESSION['Nomcoach'] =$data["Nom"];
+                    $_SESSION['Prenomcoach'] =$data["Prenom"];
+                    $_SESSION['idcoach'] =$data["id_coach"];
                 echo '</div>';
                 echo '<div class="img">';
                     echo '<img src="'.$data['Profil'].' "height=300px />' ;
@@ -111,8 +119,9 @@ else if (isset($_POST["fitness"]))
     while($data = mysqli_fetch_assoc($res2))
     { 
         echo '<div class="affichagedispo">';
-                echo'<a href="priserdv.html" >  ' . $data['jour'] .' </a>';
-                echo'<a href="priserdv.html" >  ' . $data['creneau'] .' </a>';
+        echo'<a href="priserdv.php" >  ' . $data['date'] .' </a>';
+                echo'<a href="priserdv.php" >  ' . $data['jour'] .' </a>';
+                echo'<a href="priserdv.php" >  ' . $data['creneau'] .' </a>';
         echo '</div>';
     }
     echo '</div>';
@@ -137,6 +146,9 @@ else if (isset($_POST["biking"]))
         echo '<h1><br><br>Voici notre coach référent de BIKING </h1>';
                 echo '<div class="affichagenom">';
                     echo    $data["Nom"] . "  ". $data["Prenom"];
+                    $_SESSION['Nomcoach'] =$data["Nom"];
+                    $_SESSION['Prenomcoach'] =$data["Prenom"];
+                    $_SESSION['idcoach'] =$data["id_coach"];
                 echo '</div>';
                 echo '<div class="img">';
                     echo '<img src="'.$data['Profil'].' "height=300px />' ;
@@ -159,8 +171,9 @@ else if (isset($_POST["biking"]))
     while($data = mysqli_fetch_assoc($res2))
     { 
         echo '<div class="affichagedispo">';
-                echo'<a href="priserdv.html" >  ' . $data['jour'] .' </a>';
-                echo'<a href="priserdv.html" >  ' . $data['creneau'] .' </a>';
+        echo'<a href="priserdv.php" >  ' . $data['date'] .' </a>';
+                echo'<a href="priserdv.php" >  ' . $data['jour'] .' </a>';
+                echo'<a href="priserdv.php" >  ' . $data['creneau'] .' </a>';
         echo '</div>'; 
     }
     echo '</div>';
@@ -183,6 +196,9 @@ else if (isset($_POST["cardio"]))
         echo '<h1><br><br>Voici notre coach référent de CARDIO </h1>';
                 echo '<div class="affichagenom">';
                     echo    $data["Nom"] . "  ". $data["Prenom"];
+                    $_SESSION['Nomcoach'] =$data["Nom"];
+                    $_SESSION['Prenomcoach'] =$data["Prenom"];
+                    $_SESSION['idcoach'] =$data["id_coach"];
                 echo '</div>';
                 echo '<div class="img">';
                     echo '<img src="'.$data['Profil'].' "height=300px />' ;
@@ -205,8 +221,9 @@ else if (isset($_POST["cardio"]))
     while($data = mysqli_fetch_assoc($res2))
     { 
         echo '<div class="affichagedispo">';
-            echo'<a href="priserdv.html" >  ' . $data['jour'] .' </a>';
-            echo'<a href="priserdv.html" >  ' . $data['creneau'] .' </a>';
+        echo'<a href="priserdv.php" >  ' . $data['date'] .' </a>';
+            echo'<a href="priserdv.php" >  ' . $data['jour'] .' </a>';
+            echo'<a href="priserdv.php" >  ' . $data['creneau'] .' </a>';
         echo '</div>';
     }
     echo '</div>';
@@ -231,6 +248,9 @@ else if (isset($_POST["coursCO"]))
         echo '<h1><br><br>Voici notre coach référent de CARDIO </h1>';
                 echo '<div class="affichagenom">';
                     echo    $data["Nom"] . "  ". $data["Prenom"];
+                    $_SESSION['Nomcoach'] =$data["Nom"];
+                    $_SESSION['Prenomcoach'] =$data["Prenom"];
+                    $_SESSION['idcoach'] =$data["id_coach"];
                 echo '</div>';
                 echo '<div class="img">';
                     echo '<img src="'.$data['Profil'].' "height=300px />' ;
@@ -253,8 +273,9 @@ else if (isset($_POST["coursCO"]))
     while($data = mysqli_fetch_assoc($res2))
     { 
         echo '<div class="affichagedispo">';
-            echo'<a href="priserdv.html" >  ' . $data['jour'] .' </a>';
-            echo'<a href="priserdv.html" >  ' . $data['creneau'] .' </a>';
+        echo'<a href="priserdv.php" >  ' . $data['date'] .' </a>';
+            echo'<a href="priserdv.php" >  ' . $data['jour'] .' </a>';
+            echo'<a href="priserdv.php" >  ' . $data['creneau'] .' </a>';
         echo '</div>';
     }
     echo '</div>';

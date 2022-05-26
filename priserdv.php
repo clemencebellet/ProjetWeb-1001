@@ -1,5 +1,6 @@
 <?php
 
+session_cache_limiter('private_no_expire, must-revalidate');
 
 session_start();
 $id_session = session_id();
@@ -11,87 +12,95 @@ $db_mdp =""; //pour mac
 $db_handle = mysqli_connect($site,$db_id,$db_mdp);
 $db_found = mysqli_select_db($db_handle,$db);
 
-$Email = isset($_POST["Email"])? $_POST["Email"] : "";
-$Mdp = isset($_POST["Mdp"])? $_POST["Mdp"] : "";
-
-$_SESSION['EmailCompte'] =$Email;
-$_SESSION['MdpCompte'] =$Mdp;
-
-
-if($db_found)
-{   
-    if (isset($_POST["Connexion"]))
-    {
-        $sql = "SELECT * FROM coach, dispo WHERE id_coach=id_pro and jour='lundi' and creneau='matin' and sport='7'";
-        $sql2 ="SELECT * FROM client WHERE EXISTS ( SELECT * WHERE Email = '$Email' AND Mdp ='$Mdp' )";
-        $res = mysqli_query($db_handle,$sql);
-        $res2 = mysqli_query($db_handle,$sql2);
-        
-        if($data = mysqli_fetch_assoc($res) && $data2 = mysqli_fetch_assoc($res2) )
-        {
-
-            $id_coach=$data["id_coach"];
-            $id_client=$data2["id"];
-            echo $id_coach;
-            $sql3= "INSERT INTO rdv (heure,client_id, coach_id,jour,date,adresse,doc,dogicode)
-                    VALUES('10:30:00','2','2','lundi','13 avril','23 rue du loup','ordonnace','12B')";
-            $res3 = mysqli_query($db_handle,$sql3);
-            echo"tout est ok pd";
-        }
-
-   
-
-    }
-
-
-
- }  
-
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Webpage Design</title>
+    <link rel="stylesheet" href="compte.css">
+</head>
+<body>
+    
+    <div class="main">
 
-<style type="text/css">
-.affichagecoach{ 
-    
-    text-align: center ;
-    font-size : 80px;
+        
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">Omnes</h2>
+            </div>
 
- }
-.img{
-    float : left;
-    position: relative;
-    top : 100px;
-    padding-left: 10 px ;
-    text-align: center ;
-    
+            <div class="menu">
+                <ul>
+                    <li><a href="accueil.html">HOME</a></li>
+                    <li><a href="toutparcourir.html">TOUT PARCOURIR</a></li>
+                    <li><a href="rendezvous.php">RENDEZ-VOUS</a></li>
+                    <li><a href="compte.html">MON COMPTE</a></li>
+                </ul>
+            </div>
 
-}
+            
+             
+            <div class="search">
+                <input class="srch" type="search" name="" placeholder="Rechercher" onchange="pageRecherchee()">
+                <a href="toutparcourir.html"> <button class="btn">Search</button></a>
+            </div> 
 
-.affichagenom{ 
-    
-    position: relative;
-    top : 80px;
-    left : 110px;
-    font-size :25px;
-    
- }
 
- .affichagedispoT{ 
-    
-    position: relative;
-    top : 160px;
-    left : 110px;
-    font-size :20px;
-    
- }
+        </div> 
 
- .affichagedispo{ 
-    
-    position: relative;
-    top : 170px;
-    left : 110px;
-    font-size :20px;
-    
- }
- 
- 
-</style>
+
+        <div class="content">
+
+            
+                <div class="form">
+                    <form action="connect.php" method="post">
+                        <h2>Prendre un rendez-vous</h2>
+                        <input type="email" name="Email" placeholder="Entrer votre mail ici">
+                        <input type="password" name="Mdp" placeholder="Entrer votre mot de passe ici">
+                       
+                       <label  for="coach1"><?php echo "<p style='text-align:center; font-size : 20px'>" . " COACH : " . $_SESSION['Nomcoach'] . " " . $_SESSION['Prenomcoach'] ?></p></label>
+                       <br/>
+
+                       <?php
+                        
+                       echo "<u>" ."<p style='text-align:center;'>" ."Disponibilités : " . "</u>";
+                       $id = $_SESSION['idcoach'];
+                       $sql = "SELECT * FROM  dispo WHERE id_pro= '$id' ";
+                       $res = mysqli_query($db_handle,$sql);
+                      
+                       while($data = mysqli_fetch_assoc($res))
+                       { 
+                        
+                        echo "<p style='text-align:center;'>". $data['jour'] . " " .$data['creneau'] . $data['date'] ;
+                      
+
+                    }
+    ?>
+   <input type="text" name="date" placeholder="Entrer la date ici">
+   <input type="file" name="doc" >
+                        <button class="btnn" type="submit" name="ValRDV">VALIDER</button>
+                    </form>
+                </div>
+            
+                    
+        </div>
+
+        
+        <div class="footer">
+            <h1>NOUS CONTACTER:</h1> 
+            
+            <p> <br>Adresse mail: omnes.sport@edu.ece.fr <br>
+            Numéro de téléphone: +33768423099 <br>
+            Adresse: 37 Quai de Grenelle, 75015, PARIS </p><br> <br>
+
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.3378949789744!2d2.2842932156190012!3d48.85176677928686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6701b4f58251b%3A0x167f5a60fb94aa76!2sECE%20Paris%20Lyon!5e0!3m2!1sfr!2sfr!4v1653307387919!5m2!1sfr!2sfr" 
+                 width="250" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+    </div>
+                
+                    
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+</body>
+</html>
+

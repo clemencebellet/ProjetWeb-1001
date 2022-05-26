@@ -81,6 +81,58 @@ if($db_found)
                 location="compte.html";
                 </script>';}
     }
+
+    else if(isset($_POST["ValRDV"])) {
+
+        $mail = isset($_POST["Email"])? $_POST["Email"] : "";
+        $mdp = isset($_POST["Mdp"])? $_POST["Mdp"] : "";
+        $date = isset($_POST["date"])? $_POST["date"] : "";
+    
+        $id_rdv = rand(1, 30);
+        
+        if (empty($_POST["doc"]))
+        {
+            $doc = "Aucun";
+        }
+        else {
+            $doc = "images/".$_POST["doc"];
+        }
+        
+
+        $sql1 ="SELECT * FROM dispo WHERE EXISTS ( SELECT * WHERE date = '$date'  )";
+        $sql ="SELECT * FROM client WHERE EXISTS ( SELECT * WHERE Email = '$Email' AND Mdp ='$Mdp' )";
+        $res1 = mysqli_query($db_handle,$sql1);
+        $res = mysqli_query($db_handle,$sql);
+        while($data1 = mysqli_fetch_assoc($res1)) 
+        {
+$horaire=$data1["jour"] ;
+        }
+        
+        while($data = mysqli_fetch_assoc($res)) 
+        {
+$idclient=$data["id"];
+        }
+        $idcoach=$_SESSION['idcoach'];
+       
+
+       $sqlrdv =  "INSERT INTO rdv(id_rdv,heure,client_id,coach_id,jour,date,adresse,doc,dogicode)
+        VALUES('$id_rdv','10:05:00','$idclient','$idcoach','$horaire','$date','37 quai de grenelle','$doc','32B')";
+$resrdv = mysqli_query($db_handle,$sqlrdv);
+
+if($resrdv) { 
+    echo '<script type="text/javascript">
+    alert("Nouveau Rendez-vous ajouté !");
+    location="accueil.html";
+    </script>';
+}
+else {
+    echo "Insert unsuccessful";
+}
+        
+
+            
+                
+    }
     elseif(isset($_POST["btnPaiement"])) {
         
         $montant= isset($_POST["montant"])? $_POST["montant"] : "";
@@ -129,7 +181,7 @@ if($db_found)
         $resann = mysqli_query($db_handle,$sqlann);
 
         ## Définitions des deux constantes
-        define('ADRESSE_WEBMASTER','clemence.bellet33@gmail.com'); // Votre adresse qui apparaitra en tant qu'expéditeur des E-mails
+        define('ADRESSE_WEBMASTER','martinrose632@gmail.com'); // Votre adresse qui apparaitra en tant qu'expéditeur des E-mails
         define('SUJET','Annulation de votre rdv'); // Sujet commun aux deux E-mail
 
         ## Message envoyé au visiteur
@@ -140,8 +192,8 @@ if($db_found)
 
         ## Second appel de la fonction mail() : le visiteur reçoit cet E-mail
         ini_set('SMTP','smtp.orange.fr'); //il faut mettre le stmp qui correspond à son serveur, le lien suivant nous le donne : http://check414.free.fr/detection-smtp/
-        ini_set("sendmail_from","clemence.bellet33@gmail.com"); //donne l'expéditeur (il faut mettre une vrai addresse mail)
-        mail('clemence.bellet@edu.ece.fr',SUJET,$message,'From: '.ADRESSE_WEBMASTER); //on envoie le mail
+        ini_set("sendmail_from","martinrose632@gmail.com"); //donne l'expéditeur (il faut mettre une vrai addresse mail)
+        mail($_SESSION['Email'],SUJET,$message,'From: '.ADRESSE_WEBMASTER); //on envoie le mail
 
         if(($resann)) { 
 
