@@ -12,9 +12,14 @@ $db_found = mysqli_select_db($db_handle,$db);
 
 $Email = isset($_POST["Email"])? $_POST["Email"] : "";
 $Mdp = isset($_POST["Mdp"])? $_POST["Mdp"] : "";
+$info = isset($_POST["info"])? $_POST["info"] : "";
 
 $_SESSION['EmailCompte'] =$Email;
 $_SESSION['MdpCompte'] =$Mdp;
+$_SESSION['info'] =$info;
+
+
+
 
 
 
@@ -54,19 +59,20 @@ if($db_found)
                 $_SESSION['Email'] =$data1["Email"];
                 echo'<script type="text/javascript">
                 alert("Authentification réussie");
-                location="admin.html";
+                location="admin.php";
                 </script>';
             }
             elseif($data2 = mysqli_fetch_assoc($res2))
             {
                 echo'<script type="text/javascript">
                 alert("Authentification réussie");
-                location="coach.html";
+                location="coach.php";
                 </script>';
-
-                $_SESSION['Email'] =$data2["Email"];
-                $_SESSION['NomCoach'] =$data2["Nom"];
+                
                 $_SESSION['idcoach'] =$data2["id_coach"];
+                $_SESSION['NomCoach'] =$data2["Nom"];
+                $_SESSION['Email'] =$data2["Email"];
+                
             }
             else
             
@@ -123,7 +129,7 @@ if($db_found)
         $resann = mysqli_query($db_handle,$sqlann);
 
         ## Définitions des deux constantes
-        define('ADRESSE_WEBMASTER','martinrose632@gmail.com'); // Votre adresse qui apparaitra en tant qu'expéditeur des E-mails
+        define('ADRESSE_WEBMASTER','clemence.bellet33@gmail.com'); // Votre adresse qui apparaitra en tant qu'expéditeur des E-mails
         define('SUJET','Annulation de votre rdv'); // Sujet commun aux deux E-mail
 
         ## Message envoyé au visiteur
@@ -134,8 +140,8 @@ if($db_found)
 
         ## Second appel de la fonction mail() : le visiteur reçoit cet E-mail
         ini_set('SMTP','smtp.orange.fr'); //il faut mettre le stmp qui correspond à son serveur, le lien suivant nous le donne : http://check414.free.fr/detection-smtp/
-        ini_set("sendmail_from","martinrose632@gmail.com"); //donne l'expéditeur (il faut mettre une vrai addresse mail)
-        mail($_SESSION['Email'],SUJET,$message,'From: '.ADRESSE_WEBMASTER); //on envoie le mail
+        ini_set("sendmail_from","clemence.bellet33@gmail.com"); //donne l'expéditeur (il faut mettre une vrai addresse mail)
+        mail('clemence.bellet@edu.ece.fr',SUJET,$message,'From: '.ADRESSE_WEBMASTER); //on envoie le mail
 
         if(($resann)) { 
 
@@ -147,6 +153,29 @@ if($db_found)
         else {
             echo "Delete unsuccessful";
         }
+
+    }
+
+    elseif (isset($_POST["envoyer"])) {
+        //$client = isset($_POST["client"])? $_POST["client"] : "";
+        //$message = isset($_POST["message"])? $_POST["message"] : "";
+        //On recupere le nom du client et le message
+
+        
+        /*$sql ="SELECT * FROM client WHERE Nom = '$client'";
+
+        $res = mysqli_query($db_handle,$sql);
+
+            while($data = mysqli_fetch_assoc($res)) 
+            {
+                $_SESSION['EmailClient'] =$data["Email"];
+            }
+*/
+//et apres faire le mail 
+
+
+        
+        
 
     }
     

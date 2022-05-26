@@ -1,3 +1,11 @@
+
+ <?php $db = "webprojet";
+    $site ="localhost";
+    $db_id = "root"; 
+    $db_mdp ="";
+    
+    $db_handle = mysqli_connect($site,$db_id,$db_mdp);
+    $db_found = mysqli_select_db($db_handle,$db);?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -304,6 +312,80 @@
                 </table>
             </form>
     </div>
+
+    <div  id="infos" style="display:none;text-align: center;" >
+    <br/>
+    <h1>DISPONIBILITES SALLE DE SPORT</span></h1>
+    <br/>
+
+    <?php
+        $sql ="SELECT * FROM  disposalle";
+        
+        $res = mysqli_query($db_handle,$sql);
+        echo "<b>" ;
+        while($dataclient = mysqli_fetch_assoc($res)) 
+{           
+    echo "<p style='font-size: 25px; color: #1ad39f;'>"  . $dataclient["dispo"] . "</p>". "<br>";
+    
+    echo "<br>";
+
+    
+    
+} 
+
+        ?>
+             <br/>
+             <br/>
+             <br/>
+    <h1>DISPONIBILITES COACH</span></h1>
+    <form action = "admin.php" method="post" style ="text-align : center;" >
+             <td>Veuillez ecrire l'ID du coach :</td>
+             <td><input method="post" type="text" name="info" id="info"></td>
+             <br/>
+
+             <button class="btnnosAct" type ="submit" name="Info" >Dispo</button>
+             <br/>
+             <br/>
+
+            </form>
+
+            
+    <?php
+   
+   $info = isset($_POST["info"])? $_POST["info"] : "";
+   
+$sqlinfo = "SELECT * FROM coach WHERE  id_coach='$info'";
+$resinfo = mysqli_query($db_handle,$sqlinfo);
+$sqlcreaneaux = "SELECT * FROM dispo WHERE  id_pro='$info'";
+$rescreneaux = mysqli_query($db_handle,$sqlcreaneaux);
+
+                while($datainfo = mysqli_fetch_assoc($resinfo)) 
+                {       
+                    echo "Voici les créneaux disponibles de " . $datainfo['Nom'] . " " .  $datainfo['Prenom'] . "<br>";
+                  
+                    
+                    echo "<br>";
+                
+                } 
+               
+                    
+    while($data = mysqli_fetch_assoc($rescreneaux))
+    { 
+    
+        echo $data['jour'] . " " . $data['creneau'] ;
+        echo "<br>";
+       
+        
+        
+        
+    }
+                
+    
+
+
+            ?>
+            </div>
+       
 
 </body>
 </html>
