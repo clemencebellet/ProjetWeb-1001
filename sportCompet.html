@@ -1,68 +1,129 @@
-<!DOCTYPE html>
-<head>
-    <title>Nos sports en compétition </title>
-    <meta charset="utf-8"/>
-    <link href="compet.css" rel="stylesheet" type="text/css" />
-</head>
 
+
+<!-- début -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Omnes Sport</title>
+    <link rel="stylesheet" href="compet.css">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+</head>
 <body>
 
-    <div class="hautPage">
-        <a href="accueil.html"><img src="images/accueil.png" width="150" height="50"></a>
-        <img src="images/toutparcourir.png" width="150" height="50">
+
+
     
-    </div>
-    
-    <div class="up">
+    <div class="main">
+
+
+
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">Omnes</h2>
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li><a href="accueil.html">HOME</a></li>
+                    <li><a href="toutparcourir.html">TOUT PARCOURIR</a></li>
+                    <li><a href="rendezvous.php">RENDEZ-VOUS</a></li>
+                    <li><a href="compte.html">MON COMPTE</a></li>
+                </ul>
+            </div>
+
+            <div class="search">
+                <input class="srch" type="search" name="" placeholder="Rechercher" onchange="pageRecherchee()">
+                <a href="toutparcourir.html"> <button class="btn">Search</button></a>
+            </div> 
+
+        </div> 
+
+
+        <div class="content">
+            <h1>LES SPORTS DE <span>COMPETITION</span></h1>
+
+
+            <div class="competBasket">
+
+                    <p class="basketimg"><img src="images/basketImage.jpg" height="235px" width="188px"/> </p>
+                    <h2> BASKET-BALL</h2>
+                    <form action="sportCompet.php" method="post" >
+                        <input type="submit" class="btnCompetBasket" name="Basket" value ="En Savoir Plus" ;>
+                    </form> 
+            </div>
+
+
+            
+            <div class="competFoot">
+
+                <p class="footimg"><img src="images/footImage.jpg" height="290px" width="188px"/> </p>
+                <h3> FOOTBALL</h3>
+                <form action="sportCompet.php" method="post" >
+                    <input type="submit" class="btnCompetFoot" name="Football" value ="En Savoir Plus" ;>
+                </form> 
+            </div>
+
+            <div class="competRugby">
+
+                
+                <p class="rugbyimg"><img src="images/rugbyImage.jpg" height="235px" width="188px"/> </p>
+                <h4> RUGBY</h4>
+                <form action="sportCompet.php" method="post" >
+                    <input type="submit" class="btnCompetRugby" name="Rugby" value ="En Savoir Plus" ;>
+                </form> 
+            </div>
+
+
+            <div class="competTennis">
+
+                
+                <p class="tennisimg"><img src="images/tennisImage.jpg" height="235px" width="188px"/> </p>
+                <h5> TENNIS</h5>
+                <form action="sportCompet.php" method="post" >
+                    <input type="submit" class="btnCompetTennis" name="Tennis" value ="En Savoir Plus" ;>
+                </form> 
+            </div>
+
+
+
+            <div class="competNatation">
+
+                <p class="nataimg"><img src="images/natationImage.jpg" height="235px" width="188px"/> </p>
+                <h6> NATATION</h6>
+                <form action="sportCompet.php" method="post" >
+                    <input type="submit" class="btnCompetNatation" name="Natation" value ="En Savoir Plus" ;>
+                </form> 
+            </div>
+
+
+
+            <div class="competPlongeon">
+                
+                <p class="plongeonimg"><img src="images/plongeonImage.jpg" height="250px" width="188px"/> </p>
+                <h1> PLONGEON </h1>
+                <form action="sportCompet.php" method="post" >
+                    <input type="submit" class="btnCompetPlongeon" name="Plongeon" value ="En Savoir Plus" ;>
+                </form> 
+            </div>
+
+       
         
-        <div class="rightup">
-            <form action="sportCompet.php" method="post" >
-            <input type="submit"  name="Basket" value ="Basket" ;>
-        </form>
-            <br>
-            <img class="basketimg" src="images/basket.jpeg">
+
+        <div class="footer">
+            <h1>NOUS CONTACTER:</h1> 
             
-        </div>
-        <div class="middleup">
-           
-            <form action="sportCompet.php" method="post" >
-                <input type="submit"  name="Football" value ="Football" ;>
-            </form>
-            <img class="footimg" src="images/foot.jpeg">
-        </div>
-        <div class="leftup">
-            <form action="sportCompet.php" method="post" >
-                <input type="submit"  name="Rugby" value ="Rubgy" ;>
-            </form>
-            <img class="rugbyimg" src="images/rugby.jpeg">
+            <p> <br>Adresse mail: omnes.sport@edu.ece.fr <br>
+            Numéro de téléphone: +33768423099 <br>
+            Adresse: 37 Quai de Grenelle, 75015, PARIS </p><br> <br>
+
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.3378949789744!2d2.2842932156190012!3d48.85176677928686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6701b4f58251b%3A0x167f5a60fb94aa76!2sECE%20Paris%20Lyon!5e0!3m2!1sfr!2sfr!4v1653307387919!5m2!1sfr!2sfr" 
+                 width="250" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
 
     </div>
 
-    <div class="down">
-        <div class="rightdown">
-            <form action="sportCompet.php" method="post" >
-                <input type="submit"  name="Tennis" value ="Tennis" ;>
-            </form>
-            <img class="tennisimg" src="images/tennis.jpeg">
-            
-        </div>
-        <div class="middledown">
-            <form action="sportCompet.php" method="post" >
-                <input type="submit"  name="Natation" value ="Natation" ;>
-            </form>
-            <img class="nataimg" src="images/natation.jpeg">
-            
-        </div>
-        <div class="leftdown">
-            <form action="sportCompet.php" method="post" >
-                <input type="submit"  name="Plongeon" value ="Plongeon" ;>
-            </form>
-            <img class="plongeonimg" src="images/plongeon.jpeg">
-        </div>
-    
 
-    </div>
-
+ 
 </body>
 </html>
