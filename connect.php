@@ -12,9 +12,14 @@ $db_found = mysqli_select_db($db_handle,$db);
 
 $Email = isset($_POST["Email"])? $_POST["Email"] : "";
 $Mdp = isset($_POST["Mdp"])? $_POST["Mdp"] : "";
+$info = isset($_POST["info"])? $_POST["info"] : "";
 
 $_SESSION['EmailCompte'] =$Email;
 $_SESSION['MdpCompte'] =$Mdp;
+$_SESSION['info'] =$info;
+
+
+
 
 
 
@@ -54,7 +59,7 @@ if($db_found)
                 $_SESSION['Email'] =$data1["Email"];
                 echo'<script type="text/javascript">
                 alert("Authentification réussie");
-                location="admin.html";
+                location="admin.php";
                 </script>';
             }
             elseif($data2 = mysqli_fetch_assoc($res2))
@@ -63,10 +68,11 @@ if($db_found)
                 alert("Authentification réussie");
                 location="coach.html";
                 </script>';
-
-                $_SESSION['Email'] =$data2["Email"];
-                $_SESSION['NomCoach'] =$data2["Nom"];
+                
                 $_SESSION['idcoach'] =$data2["id_coach"];
+                $_SESSION['NomCoach'] =$data2["Nom"];
+                $_SESSION['Email'] =$data2["Email"];
+                
             }
             else
             
