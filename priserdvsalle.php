@@ -58,28 +58,28 @@ $db_found = mysqli_select_db($db_handle,$db);
                         <input type="email" name="Email" placeholder="Entrer votre mail ici">
                         <input type="password" name="Mdp" placeholder="Entrer votre mot de passe ici">
                        
-                       <label  for="coach1"><?php echo "<p style='text-align:center; font-size : 20px'>" . " COACH : " . $_SESSION['Nomcoach'] . " " . $_SESSION['Prenomcoach'] ?></p></label>
-                       <br/>
+                       <label  for="coach1"><?php echo "<p style='text-align:center; font-size : 20px'>" . " GUIDE : " . "Directeur" ?></p></label>
+                      
 
                        <?php
                         
                        echo "<u>" ."<p style='text-align:center;'>" ."Disponibilités : " . "</u>";
-                       $id = $_SESSION['idcoach'];
                        
-                       $sql = "SELECT * FROM  dispo WHERE id_pro= '$id' ";
+                       
+                       $sql = "SELECT * FROM  disposalle ";
                        $res = mysqli_query($db_handle,$sql);
                       
                        while($data = mysqli_fetch_assoc($res))
                        { 
                         
-                        echo "<p style='text-align:center;'>". $data['jour'] . " " .$data['creneau'] . $data['date'] ;
+                        echo "<p style='text-align:center;'>". $data['jour'] . " " . $data['creneau'] . " " . $data['date'] ;
                       
 
                     }
     ?>
    <input type="text" name="date" placeholder="Entrer la date ici">
    <input type="file" name="doc" >
-                        <button class="btnn" type="submit" name="ValRDV">VALIDER</button>
+                        <button class="btnn" type="submit" name="ValRDVSalle">VALIDER</button>
                     </form>
                 </div>
             

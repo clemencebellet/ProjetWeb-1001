@@ -99,11 +99,14 @@ if($db_found)
             $doc = "images/".$_POST["doc"];
         }
         
-
+        $idcoach=$_SESSION['idcoach'];
         $sql1 ="SELECT * FROM dispo WHERE EXISTS ( SELECT * WHERE date = '$date'  )";
         $sql ="SELECT * FROM client WHERE EXISTS ( SELECT * WHERE Email = '$Email' AND Mdp ='$Mdp' )";
         $res1 = mysqli_query($db_handle,$sql1);
         $res = mysqli_query($db_handle,$sql);
+        $sql2 ="SELECT * FROM coach WHERE id_coach = '$idcoach'  ";
+        $res2 = mysqli_query($db_handle,$sql2);
+
         while($data1 = mysqli_fetch_assoc($res1)) 
         {
             $jour=$data1["jour"] ;
@@ -114,15 +117,88 @@ if($db_found)
         {
             $idclient=$data["id"];
         }
-        $idcoach=$_SESSION['idcoach'];
+        while($data2 = mysqli_fetch_assoc($res2)) 
+        {
+            $bureau = $data2["Bureau"];
+        }
+        
+
+       
        
         echo  $idcoach ;
         echo  $id_rdv ;
         
        $sqlrdv =  "INSERT INTO rdv(id_rdv,heure,client_id,coach_id,jour,date,adresse,doc,dogicode,bool_rdv)
-        VALUES('$id_rdv','$creneau','$idclient','$idcoach','$jour','$date','37 quai de grenelle','$doc','32B','1')";
+        VALUES('$id_rdv','$creneau','$idclient','$idcoach','$jour','$date','$bureau','$doc','32B','1')";
         $resrdv = mysqli_query($db_handle,$sqlrdv);
         $sqlsupr =  "DELETE FROM dispo WHERE date = '$date'"; 
+
+        if($resrdv) { 
+            echo '<script type="text/javascript">
+            alert("Nouveau Rendez-vous ajouté !");
+            location="accueil.html";
+            </script>';
+            $ressupr = mysqli_query($db_handle,$sqlsupr);
+          
+        }
+        else {
+            echo "Insert unsuccessful";
+        }
+        
+        
+    
+            
+                
+    }
+
+    else if(isset($_POST["ValRDVSalle"])) {
+        
+
+        $mail = isset($_POST["Email"])? $_POST["Email"] : "";
+        $mdp = isset($_POST["Mdp"])? $_POST["Mdp"] : "";
+        $date= isset($_POST["date"])? $_POST["date"] : "";
+    
+        $id_rdv = rand(1, 30);
+        
+        if (empty($_POST["doc"]))
+        {
+            $doc = "Aucun";
+        }
+        else {
+            $doc = "images/".$_POST["doc"];
+        }
+        
+        $idcoach=15;
+        $sql1 ="SELECT * FROM disposalle WHERE EXISTS ( SELECT * WHERE date = '$date'  )";
+        $sql ="SELECT * FROM client WHERE EXISTS ( SELECT * WHERE Email = '$Email' AND Mdp ='$Mdp' )";
+        $res1 = mysqli_query($db_handle,$sql1);
+        $res = mysqli_query($db_handle,$sql);
+        $sql2 ="SELECT * FROM coach WHERE id_coach = 15  ";
+        $res2 = mysqli_query($db_handle,$sql2);
+
+        while($data1 = mysqli_fetch_assoc($res1)) 
+        {
+            $jour=$data1["jour"] ;
+            $creneau=$data1["creneau"] ;
+            
+        }
+        
+        while($data = mysqli_fetch_assoc($res)) 
+        {
+            $idclient=$data["id"];
+        }
+        while($data2 = mysqli_fetch_assoc($res2)) 
+        {
+            $idcoach = $data2["id_coach"];
+            $bureau = $data2["Bureau"];
+        }
+        
+
+        
+       $sqlrdv =  "INSERT INTO rdv(id_rdv,heure,client_id,coach_id,jour,date,adresse,doc,dogicode,bool_rdv)
+        VALUES('$id_rdv','$creneau','$idclient','$idcoach','$jour','$date','$bureau','$doc','32B','1')";
+        $resrdv = mysqli_query($db_handle,$sqlrdv);
+        $sqlsupr =  "DELETE FROM disposalle WHERE date = '$date'"; 
 
         if($resrdv) { 
             echo '<script type="text/javascript">
@@ -202,8 +278,11 @@ if($db_found)
             echo $date=$d["date"] ;
             echo $idcoach=$d["coach_id"] ;
         }
-        
-        
+        /****************************************** */
+        //PROBLEME : QUAND LE RDV EST CELUI DE LA SALLE DE SPORT, IL REAFFICHE PAS LA DISPO DANS NOS SERVICES CAR ICI 
+        // ON DEMANDE DE REINSERER DANS "DISPO" ALORS QUE POUR LA SALLE CEST "DISPOSALLE"
+        /************************** */
+
         $instdispo =  "INSERT INTO dispo (jour,id_pro,creneau,date) VALUES('$jour','$idcoach','$creneau','$date')";
         $resdispo = mysqli_query($db_handle,$instdispo);
         $delrdv =  "DELETE FROM rdv WHERE date = '$date' and coach_id='$idcoach' and id_rdv= '$idrdv' "; 

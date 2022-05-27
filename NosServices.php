@@ -318,12 +318,12 @@ $db_found = mysqli_select_db($db_handle,$db);
         <h2>HORAIRES DE VISITE</h2> <br><br>
         <?php
         $sql ="SELECT * FROM  disposalle";
-        
         $res = mysqli_query($db_handle,$sql);
-        echo "<b>" ;
+
+       
         while($dataclient = mysqli_fetch_assoc($res)) 
 {           
-    echo "<p style='font-size: 30px; color: #1ad39f;'>"  . $dataclient["dispo"] . "</p>". "<br>";
+    echo "<p style='font-size: 25px; color: #1ad39f;'>"  . $dataclient["jour"]. " ". $dataclient["creneau"] . "</p>". "<br>";
     echo "<br>";
     echo "<br>";
 
@@ -331,7 +331,17 @@ $db_found = mysqli_select_db($db_handle,$db);
     
 } 
 
+
         ?>
+        <label> Les visites seront assurées par le directeur de notre salle </label>
+        <div class="form3"><form  action="priserdvsalle.php"  style="margin-left:100px; width : 180px">
+        <tr>
+                        <td></td>  
+                        <td>
+                            <input  type="submit"  name="valider" Value="Prendre rendez-vous" style="margin-top: 5px; background: #01fea5; color: rgb(0, 0, 0);">
+                        </td>
+                    </tr>
+</div>
     </div>
 </div>
 
