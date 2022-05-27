@@ -83,6 +83,7 @@ if($db_found)
     }
 
     else if(isset($_POST["ValRDV"])) {
+        
 
         $mail = isset($_POST["Email"])? $_POST["Email"] : "";
         $mdp = isset($_POST["Mdp"])? $_POST["Mdp"] : "";
@@ -115,22 +116,28 @@ if($db_found)
         }
         $idcoach=$_SESSION['idcoach'];
        
-echo  $idcoach ;
+        echo  $idcoach ;
+        echo  $id_rdv ;
+        
        $sqlrdv =  "INSERT INTO rdv(id_rdv,heure,client_id,coach_id,jour,date,adresse,doc,dogicode,bool_rdv)
         VALUES('$id_rdv','$creneau','$idclient','$idcoach','$jour','$date','37 quai de grenelle','$doc','32B','1')";
-$resrdv = mysqli_query($db_handle,$sqlrdv);
+        $resrdv = mysqli_query($db_handle,$sqlrdv);
+        $sqlsupr =  "DELETE FROM dispo WHERE date = '$date'"; 
 
-if($resrdv) { 
-    echo '<script type="text/javascript">
-    alert("Nouveau Rendez-vous ajouté !");
-    location="accueil.html";
-    </script>';
-}
-else {
-    echo "Insert unsuccessful";
-}
+        if($resrdv) { 
+            echo '<script type="text/javascript">
+            alert("Nouveau Rendez-vous ajouté !");
+            location="accueil.html";
+            </script>';
+            $ressupr = mysqli_query($db_handle,$sqlsupr);
+          
+        }
+        else {
+            echo "Insert unsuccessful";
+        }
         
-
+        
+    
             
                 
     }
@@ -177,10 +184,35 @@ else {
     }
     elseif (isset($_POST["AnnulerRDV"])) {
         $idrdv = isset($_POST["idrdv"])? $_POST["idrdv"] : "";
-        $sqlann =  "UPDATE rdv 
-        SET bool_rdv = '0' 
-        WHERE rdv.id_rdv =$idrdv"; 
-        $resann = mysqli_query($db_handle,$sqlann);
+        echo $idrdv;
+
+        $sqlc ="SELECT * FROM rdv WHERE EXISTS ( SELECT * WHERE id_rdv = '$idrdv'  )";
+        $resc = mysqli_query($db_handle,$sqlc);
+    
+        while($d = mysqli_fetch_assoc($resc)) 
+        {
+            echo $jour=$d["jour"] ;
+            echo $creneau=$d["creneau"] ;
+            echo $date=$d["date"] ;
+            echo $idcoach=$d["coach_id"] ;
+        }
+        
+        
+        $instdispo =  "INSERT INTO dispo (jour,id_pro,creneau,date) VALUES('$jour','$idcoach','$creneau','$date')";
+        $resdispo = mysqli_query($db_handle,$instdispo);
+        $delrdv =  "DELETE FROM rdv WHERE date = '$date' and coach_id='$idcoach' and id_rdv= '$idrdv' "; 
+
+        if($resdispo) { 
+            echo '<script type="text/javascript">
+            alert("email d annulation envoyé à '.$_SESSION['Email'] .'");
+            location="rendezvous.php";
+            </script>';
+            $resrdv = mysqli_query($db_handle,$delrdv);
+          
+        }
+        else {
+            echo "Insertion dispo unsuccessful";
+        }
 
 
        /* ## Définitions des deux constantes
@@ -198,16 +230,7 @@ else {
         ini_set("sendmail_from","martinrose632@gmail.com"); //donne l'expéditeur (il faut mettre une vrai addresse mail)
         mail($_SESSION['Email'],SUJET,$message,'From: '.ADRESSE_WEBMASTER); //on envoie le mail*/
 
-        if(($resann)) { 
-
-            echo '<script type="text/javascript">
-            alert("email d annulation envoyé à '.$_SESSION['Email'] .'");
-            location="rendezvous.php";
-            </script>';
-        }
-        else {
-            echo "Delete unsuccessful";
-        }
+        
 
     }
 
