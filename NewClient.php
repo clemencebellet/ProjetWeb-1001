@@ -45,8 +45,9 @@ if($db_found)
     $res = mysqli_query($db_handle,$sql);
 
     if($res) { 
+        
         echo '<script type="text/javascript">
-        alert("Bienvenue chez Omnes Sport!");
+        alert("Bienvenue chez Omnes Sport, votre compte a bien été crée!");
         location="client.php";
         </script>';
     }

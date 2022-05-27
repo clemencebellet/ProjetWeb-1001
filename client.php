@@ -49,7 +49,7 @@ $tel=$_SESSION['Tel'];
         <a href="accueil.html"><img src="images/accueil.png" width="150" height="50"></a>
         <a href="ToutParcourir.html"><img src="images/toutparcourir.png" width="150" height="50"></a>
     </div>
-    <h2 style="text-align:center"> Bienvenue <?php echo $prenom ?></h2>
+    <h2 style="text-align:center"> Bienvenue dans votre compte client</h2>
     <h3 style="text-align:center">Qu'est ce que vous voulez faire ?</h3>
     <form  style="text-align:center">
         <input type="button" Value="Mes informations" onclick="masquer_div('infoClient');">

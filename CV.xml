@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CV>
+  <InformationsPerso>
+    <Nom>Benarha</Nom>
+    <Prenom>Mohamed</Prenom>
+    <Bureau>ECE5</Bureau>
+    <Telephone>0702897656</Telephone>
+    <Mail>momo.75@gmail.com</Mail>
+  </InformationsPerso>
+  <Professionnel>
+    <Adresse>8 avenue de la piscine Paris</Adresse>
+    <Diplome>diplome de coach sportif</Diplome>
+    <Experience>vendeur</Experience>
+  </Professionnel>
+</CV>
