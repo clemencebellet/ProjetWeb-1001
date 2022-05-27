@@ -183,6 +183,11 @@ if($db_found)
    
     }
     elseif (isset($_POST["AnnulerRDV"])) {
+        $sqlann =  "UPDATE rdv 
+        SET bool_rdv = '0' 
+        WHERE rdv.id_rdv =$idrdv"; 
+        $resann = mysqli_query($db_handle,$sqlann); 
+
         $idrdv = isset($_POST["idrdv"])? $_POST["idrdv"] : "";
         echo $idrdv;
 
@@ -200,19 +205,20 @@ if($db_found)
         
         $instdispo =  "INSERT INTO dispo (jour,id_pro,creneau,date) VALUES('$jour','$idcoach','$creneau','$date')";
         $resdispo = mysqli_query($db_handle,$instdispo);
-        $delrdv =  "DELETE FROM rdv WHERE date = '$date' and coach_id='$idcoach' and id_rdv= '$idrdv' "; 
+        //$delrdv =  "DELETE FROM rdv WHERE date = '$date' and coach_id='$idcoach' and id_rdv= '$idrdv' "; 
 
         if($resdispo) { 
             echo '<script type="text/javascript">
             alert("email d annulation envoyé à '.$_SESSION['Email'] .'");
             location="rendezvous.php";
             </script>';
-            $resrdv = mysqli_query($db_handle,$delrdv);
+           // $resrdv = mysqli_query($db_handle,$delrdv);
           
         }
         else {
             echo "Insertion dispo unsuccessful";
         }
+
 
 
        /* ## Définitions des deux constantes
