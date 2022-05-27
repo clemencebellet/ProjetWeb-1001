@@ -312,6 +312,14 @@
                 </table>
             </form>
     </div>
+    <div  id="creerXML" style="display:none;text-align: center;" >
+        <br><br>
+        <h1>creer un cv</h1>;
+        <form  action="cv.php" method="post" style="margin : auto; width : 180px">
+            <input type="submit" onClick="isEmpty()" name="cvf" value ="cvf " ;>
+        
+        </form>
+    </div>
 
     <div  id="infos" style="display:none;text-align: center;" >
     <br/>
