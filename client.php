@@ -54,6 +54,7 @@ $tel=$_SESSION['Tel'];
     <form  style="text-align:center">
         <input type="button" Value="Mes informations" onclick="masquer_div('infoClient');">
         <a href="rendezvous.php"><input type="button" Value="Mes rendez-vous" onclick="masquer_div('cancel');"></a>
+        <a href="anciensrendezvous.php"><input type="button" Value="Mes anciens rendez-vous" onclick="masquer_div('anciensrdvs');"></a>
         <input type="button" Value="Activites payantes" onclick="masquer_div('Actpayante');">
     </form>
 

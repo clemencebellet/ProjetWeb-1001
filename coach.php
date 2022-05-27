@@ -93,7 +93,7 @@ left :10px; }
     <form style="text-align:center">
         <input type="button" Value="Mail Clients" onclick="masquer_div('tchat');">
         <a href="rendezvousCoach.php"><input type="button" Value="Mes prochains rdvs" onclick="masquer_div('info');"></a>
-        
+        <a href="anciensrendezvousCoach.php"><input type="button" Value="Mes anciens rendez-vous" onclick="masquer_div('anciensrdvs');"></a>
     </form>
 
     <div  id="tchat" style="display:none;text-align: center;" >
