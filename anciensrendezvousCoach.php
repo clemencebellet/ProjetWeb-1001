@@ -109,13 +109,15 @@ $id_coach= $_SESSION['idcoach'];
                 WHERE rdv.coach_id = '$id_coach'";
                 $res2 = mysqli_query($db_handle,$sql2);
 
-                $sql3 ="SELECT client.Nom
-                FROM  client, rdv
-                WHERE rdv.client_id = client.id";
-                $res3 = mysqli_query($db_handle,$sql3);   
+               
                      
                 while($data2 = mysqli_fetch_assoc($res2)) 
-                {         
+                {       
+                    $idclient =$data2['client_id'];
+                    $sql3 ="SELECT *
+                    FROM   client
+                    WHERE id = '$idclient'";
+                    $res3 = mysqli_query($db_handle,$sql3);  
                     if($data3 = mysqli_fetch_assoc($res3)) {     
                         
                         if($data2["bool_rdv"]=='0')
@@ -124,7 +126,7 @@ $id_coach= $_SESSION['idcoach'];
                             echo " <strong>Rendez-vous n° " . $data2["id_rdv"] ."</strong><br>";
                             echo " ";
                                 echo "Creneau : " .$data2["jour"]." ". $data2["heure"]. " ". $data2["date"]."<br>";
-                                echo "Adresse : ".$data2["adresse"]." Digicode : ".$data2["dogicode"]." <br> Coach : ".$data3["Nom"]." Docs : ".$data2["doc"]."<br><br>";
+                                echo "Adresse : ".$data2["adresse"]." Digicode : ".$data2["dogicode"]." <br> Client : ".$data3["Nom"]." Docs : ".$data2["doc"]."<br><br>";
                             ?></label> 
                             <?php
                         }
