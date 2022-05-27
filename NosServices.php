@@ -31,46 +31,9 @@ $db_found = mysqli_select_db($db_handle,$db);
         }
     }
     function isEmpty(){
-            var nom = document.getElementById("name").value;
-            var prenom = document.getElementById("prenom").value;
-            var a = document.getElementById("age").value;
-            var num = document.getElementById("tel").value;
-            var email = document.getElementById("email").value; 
             var mdp = document.getElementById("mdp").value;
             var mdp1 = document.getElementById("mdp1").value;
             var cp=0; 
-            
-             if( !nom.replace(/\s+/, '').length ) {
-                  masquer_div("nomerror");
-                  cp = (cp+1);
-             }
-             if( !prenom.replace(/\s+/, '').length ) {
-                  masquer_div("prenomerror");
-                  cp = (cp+1);
-             }
-             if( !a.replace(/\s+/, '').length ) {
-                  masquer_div("ageerror");
-                  cp = (cp+1);
-             }
-             if( !num.replace(/\s+/, '').length ) {
-                 masquer_div("telerror");
-                  cp = (cp+1);
-             }
-             if(num.replace(/\s+/, '').length!=10) {
-                  cp = (cp+1);
-             }             
-             if( !email.replace(/\s+/, '').length ) {
-                  masquer_div("emailerror");
-                  cp = (cp+1);
-             }
-             if( !mdp.replace(/\s+/, '').length ) {
-                  masquer_div("mdperror");
-                  cp = (cp+1);
-             }
-             if( !mdp1.replace(/\s+/, '').length ) {
-                  masquer_div("mdperror1");
-                  cp = (cp+1);
-             }
              if(mdp!=mdp1) {
                 masquer_div("pasmememdp");
                 cp = (cp+1);
@@ -179,21 +142,8 @@ $db_found = mysqli_select_db($db_handle,$db);
             
             
             <div class="form"><form  action="NewClient.php" method="post" style="margin-left:100px; width : 180px">
-                <h3>Nouveau Client</h3>
+                <h3 >Nouveau Client</h3>
                 <table>
-                    <tr>
-                        <td>
-                            ID:
-                        </td>  
-                        <td>
-                            <input type="text" name="id" id="id"> <br> 
-                        </td>
-                        <td>
-                            <div id="iderror" style="display:none;">
-                                Champ id vide !
-                            </div>
-                        </td>
-                    </tr>
                     <tr>
                         <td>
                             Nom:
@@ -201,11 +151,7 @@ $db_found = mysqli_select_db($db_handle,$db);
                         <td>
                             <input type="text" name="nom" id="name"> <br> 
                         </td>
-                        <td>
-                            <div id="nomerror" style="display:none;">
-                                Champ Nom vide !
-                            </div>
-                        </td>
+                        
                     </tr>
                     <tr>
                         <td>
@@ -214,11 +160,7 @@ $db_found = mysqli_select_db($db_handle,$db);
                         <td>
                             <input type="text"name="prenom" id="prenom"> <br> 
                         </td>
-                        <td>
-                            <div id="prenomerror" style="display:none;">
-                                Champ Prenom vide !
-                            </div>
-                        </td>
+                       
                     </tr>
                     <tr>
                         <td>
@@ -227,11 +169,7 @@ $db_found = mysqli_select_db($db_handle,$db);
                         <td>
                             <input type="text" name="age" id="age"> <br>
                         </td>
-                        <td>
-                            <div id="ageerror" style="display:none;">
-                                Champ Age vide !
-                            </div>
-                        </td>
+                        
                     </tr>
                     <tr>
                         <td>
@@ -240,11 +178,7 @@ $db_found = mysqli_select_db($db_handle,$db);
                         <td>
                             <input type="text" name="tel" id="tel"> <br> 
                         </td>
-                        <td>
-                            <div id="telerror" style="display:none;">
-                                Champ Téléphone vide !
-                            </div>
-                        </td>
+                       
                     </tr>
                     <tr>
                         <td>
@@ -253,11 +187,7 @@ $db_found = mysqli_select_db($db_handle,$db);
                         <td>
                             <input type="text" name="email" id="email"> <br> 
                         </td>
-                        <td>
-                            <div id="emailerror" style="display:none;">
-                                Champ Email vide !
-                            </div>
-                        </td>
+                        
                     </tr>
                     <tr>
                         <td>
@@ -266,11 +196,7 @@ $db_found = mysqli_select_db($db_handle,$db);
                         <td>
                             <input type="password" name="mdp" id="mdp"> <br> 
                         </td>
-                        <td>
-                            <div id="mdperror" style="display:none;">
-                                Champ Mdp vide !
-                            </div>
-                        </td>
+                        
                     </tr>
                     <tr>
                         <td>
@@ -279,11 +205,7 @@ $db_found = mysqli_select_db($db_handle,$db);
                         <td>
                             <input type="password" id="mdp1"> <br> 
                         </td>
-                        <td>
-                            <div id="mdperror1" style="display:none;">
-                                Champ Mdp vide !
-                            </div>
-                        </td>
+                        
                     </tr>
                     <tr>
                         <td>
@@ -293,9 +215,82 @@ $db_found = mysqli_select_db($db_handle,$db);
                         </td>
                     </tr>
                     <tr>
+                        <td>
+                            Adresse:
+                        </td>  
+                        <td>
+                            <input type="text" name="adresse" id="adresse"> <br> 
+                        </td>
+                       
+                    </tr>
+                    <tr>
+                        <td>
+                            Ville:
+                        </td>  
+                        <td>
+                            <input type="text" name="ville" id="ville"> <br> 
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                            Code Postal:
+                        </td>  
+                        <td>
+                            <input type="text" name="cp" id="cp"> <br> 
+                        </td>
+                       
+                    </tr>
+                    <tr>
+                        <td>
+                            Pays:
+                        </td>  
+                        <td>
+                            <input type="text" name="pays" id="pays"> <br> 
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                            Carte Etudiante:
+                        </td>  
+                        <td>
+                            <input type="text" name="ce" id="ce"> <br> 
+                        </td>
+                       
+                    </tr>
+                    <tr>
+                        <td>
+                            Numero de Carte:
+                        </td>  
+                        <td>
+                            <input type="text" name="numcarte" id="numcarte"> <br> 
+                        </td>
+                        
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Date Expiration:
+                        </td>  
+                        <td>
+                            <input type="date" name="date" id="date"> <br> 
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                            CVV:
+                        </td>  
+                        <td>
+                            <input type="text" name="cvv" id="cvv"> <br> 
+                        </td>
+                        
+                    </tr>
+                    <tr>
                         <td></td>  
                         <td>
-                            <input  type="submit"  name="valider" Value="Valider" style="margin-top: 30px; background: #01fea5; color: rgb(0, 0, 0);">
+                            <input  type="submit"  name="valider" Value="Valider" style="margin-top: 15px; background: #01fea5; color: rgb(0, 0, 0);">
                         </td>
                     </tr>
                 </table>
