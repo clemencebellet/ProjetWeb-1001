@@ -105,7 +105,8 @@ if($db_found)
         $res = mysqli_query($db_handle,$sql);
         while($data1 = mysqli_fetch_assoc($res1)) 
         {
-            $horaire=$data1["jour"] ;
+            $jour=$data1["jour"] ;
+            $creneau=$data1["creneau"] ;
         }
         
         while($data = mysqli_fetch_assoc($res)) 
@@ -114,9 +115,9 @@ if($db_found)
         }
         $idcoach=$_SESSION['idcoach'];
        
-
+echo  $idcoach ;
        $sqlrdv =  "INSERT INTO rdv(id_rdv,heure,client_id,coach_id,jour,date,adresse,doc,dogicode,bool_rdv)
-        VALUES('$id_rdv','10:05:00','$idclient','$idcoach','$horaire','$date','37 quai de grenelle','$doc','32B','1')";
+        VALUES('$id_rdv','$creneau','$idclient','$idcoach','$jour','$date','37 quai de grenelle','$doc','32B','1')";
 $resrdv = mysqli_query($db_handle,$sqlrdv);
 
 if($resrdv) { 
