@@ -183,12 +183,13 @@ if($db_found)
    
     }
     elseif (isset($_POST["AnnulerRDV"])) {
+        $idrdv = isset($_POST["idrdv"])? $_POST["idrdv"] : "";
         $sqlann =  "UPDATE rdv 
         SET bool_rdv = '0' 
         WHERE rdv.id_rdv =$idrdv"; 
         $resann = mysqli_query($db_handle,$sqlann); 
 
-        $idrdv = isset($_POST["idrdv"])? $_POST["idrdv"] : "";
+        
         echo $idrdv;
 
         $sqlc ="SELECT * FROM rdv WHERE EXISTS ( SELECT * WHERE id_rdv = '$idrdv'  )";
@@ -197,7 +198,7 @@ if($db_found)
         while($d = mysqli_fetch_assoc($resc)) 
         {
             echo $jour=$d["jour"] ;
-            echo $creneau=$d["creneau"] ;
+            echo $creneau=$d["heure"] ;
             echo $date=$d["date"] ;
             echo $idcoach=$d["coach_id"] ;
         }
@@ -205,7 +206,7 @@ if($db_found)
         
         $instdispo =  "INSERT INTO dispo (jour,id_pro,creneau,date) VALUES('$jour','$idcoach','$creneau','$date')";
         $resdispo = mysqli_query($db_handle,$instdispo);
-        //$delrdv =  "DELETE FROM rdv WHERE date = '$date' and coach_id='$idcoach' and id_rdv= '$idrdv' "; 
+        $delrdv =  "DELETE FROM rdv WHERE date = '$date' and coach_id='$idcoach' and id_rdv= '$idrdv' "; 
 
         if($resdispo) { 
             echo '<script type="text/javascript">

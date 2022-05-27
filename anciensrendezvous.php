@@ -80,10 +80,7 @@ $id_client= $_SESSION['id'];
                 WHERE rdv.client_id = '$id_client'";
                 $res2 = mysqli_query($db_handle,$sql2);
 
-                $sql3 ="SELECT coach.Nom
-                FROM  coach, rdv
-                WHERE rdv.coach_id = coach.id_coach";
-                $res3 = mysqli_query($db_handle,$sql3);
+               
 
                /* $sql4 = "SELECT rdv.bool_rdv 
                 FROM rdv,coach 
@@ -92,7 +89,11 @@ $id_client= $_SESSION['id'];
                 $res4 = mysqli_query($db_handle,$sql4);*/
                         
                 while($data2 = mysqli_fetch_assoc($res2)) 
-                {         
+                {          $idcoach =$data2['coach_id'];
+                    $sql3 ="SELECT *
+                    FROM   coach
+                    WHERE id_coach = '$idcoach'";
+                    $res3 = mysqli_query($db_handle,$sql3);
                     if($data3 = mysqli_fetch_assoc($res3)) {  
                         
                         if($data2["bool_rdv"]=='0') {
