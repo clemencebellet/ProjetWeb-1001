@@ -314,9 +314,12 @@
     </div>
     <div  id="creerXML" style="display:none;text-align: center;" >
         <br><br>
-        <h1>creer un cv</h1>;
-        <form  action="cv.php" method="post" style="margin : auto; width : 180px">
-            <input type="submit" onClick="isEmpty()" name="cvf" value ="cvf " ;>
+
+        
+        <form  action="xml.php" method="post" style="margin : auto; width : 180px">
+        <label>Saissisez l'ID du coach dont vous voulez créer le XML</label>
+        <input type="text"  name="idcv" placeholder = "ID du coach" >
+            <input type="submit"  name="xml" value ="xml " >
         
         </form>
     </div>
