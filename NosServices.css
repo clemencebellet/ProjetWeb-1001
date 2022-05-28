@@ -206,7 +206,7 @@ ul li a:hover{
     width: 1200px;
     height: auto;
     margin: auto;
-    color: #fff;
+    color: rgb(255, 255, 255);
     position: relative;
 }
 
@@ -216,6 +216,9 @@ ul li a:hover{
     color: #1ad39f;
     font-size: 25px
 }
+
+
+
 
 /* AFFICHAGE DES HORAIRES */
 

@@ -29,10 +29,13 @@ if($db_found)
             // 1 ligne de donnée
             if($data2 = mysqli_fetch_assoc($res1))
 
+            echo "<div class= personnelbox>";
+
                 if($data1["Nom"]!='Directeur')
                 {
-                    echo "Voici le coach de ". $data2["Nom"]. "<br>";
-
+                    echo "<span>";
+                    echo "Voici le coach de ".$data2["Nom"]. "<br>";
+                    echo "</span>";
                     echo "Nom : " . $data1["Nom"] . "<br>";
                     echo "Prenom : " . $data1["Prenom"] . "<br>";
                     echo "Bureau : " . $data1["Bureau"] . "<br>";
@@ -44,8 +47,9 @@ if($db_found)
                 
                 elseif($data1["Nom"]=='Directeur')
                 {
+                    echo "<span>";
                     echo "Voici le directeur de la salle <br>";
-
+                    echo "</span>";
                     echo "Nom : " . $data1["Nom"] . "<br>";
                     echo "Prenom : " . $data1["Prenom"] . "<br>";
                     echo "Bureau : " . $data1["Bureau"] . "<br>";
@@ -54,9 +58,27 @@ if($db_found)
                     echo "Email : " . $data1["Email"] . "<br>";
                     echo "<br>";
                 }
+                echo "</div>";
             }
 
     
         }
 
 ?>
+
+<style>
+    
+
+.personnelbox{
+    margin-top:20px;
+    margin-left:20px;
+    font-family:'Arial';
+    font-size: 20px;
+}
+
+.personnelbox span{
+    font-size:25px;
+    letter-spacing: 2px;
+    color: #2a8536;
+
+}

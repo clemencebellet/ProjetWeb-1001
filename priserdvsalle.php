@@ -17,7 +17,7 @@ $db_found = mysqli_select_db($db_handle,$db);
 <html lang="en">
 <head>
     <title>Webpage Design</title>
-    <link rel="stylesheet" href="compte.css">
+    <link rel="stylesheet" href="priserdv.css">
 </head>
 <body>
     

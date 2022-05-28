@@ -91,10 +91,13 @@ $db_found = mysqli_select_db($db_handle,$db);
 
     
     <div id="aff">
-        <div  id="personnel" name="personnel" style="display:none;text-align: center;" >
+        <div  id="personnel" name="personnel" style="display:none; margin-left:300px " >
         
-            <iframe style="height: 400px; margin-left: 200px; margin-top: 100px; float: left; top : 30px;" src='personnel.php'>
+            <iframe style="height: 900px; width: 500px; margin-left: 200px; margin-top: 70px; float: left; top : 30px;
+                          border-radius: 30px; background-color: rgb(223, 231, 209)"
+                          src='personnel.php'>
             </iframe>
+            
         </div>
     </div>
 
