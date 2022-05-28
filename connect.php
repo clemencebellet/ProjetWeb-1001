@@ -268,38 +268,67 @@ if($db_found)
         
         echo $idrdv;
 
-        $sqlc ="SELECT * FROM rdv WHERE EXISTS ( SELECT * WHERE id_rdv = '$idrdv'  )";
+
+        //verif rdv avec id 
+        $sqlc ="SELECT * FROM rdv WHERE EXISTS ( SELECT * WHERE id_rdv = '$idrdv')";
         $resc = mysqli_query($db_handle,$sqlc);
-    
-        while($d = mysqli_fetch_assoc($resc)) 
+
+        while($data = mysqli_fetch_assoc($resc)) 
         {
-            echo $jour=$d["jour"] ;
-            echo $creneau=$d["heure"] ;
-            echo $date=$d["date"] ;
-            echo $idcoach=$d["coach_id"] ;
-        }
-        /****************************************** */
-        //PROBLEME : QUAND LE RDV EST CELUI DE LA SALLE DE SPORT, IL REAFFICHE PAS LA DISPO DANS NOS SERVICES CAR ICI 
-        // ON DEMANDE DE REINSERER DANS "DISPO" ALORS QUE POUR LA SALLE CEST "DISPOSALLE"
-        /************************** */
-
-        $instdispo =  "INSERT INTO dispo (jour,id_pro,creneau,date) VALUES('$jour','$idcoach','$creneau','$date')";
-        $resdispo = mysqli_query($db_handle,$instdispo);
-        $delrdv =  "DELETE FROM rdv WHERE date = '$date' and coach_id='$idcoach' and id_rdv= '$idrdv' "; 
-
-        if($resdispo) { 
-            echo '<script type="text/javascript">
-            alert("email d annulation envoyé à '.$_SESSION['Email'] .'");
-            location="rendezvous.php";
-            </script>';
-           // $resrdv = mysqli_query($db_handle,$delrdv);
-          
-        }
-        else {
-            echo "Insertion dispo unsuccessful";
+            echo $j=$data["jour"] ;
+            echo $cren=$data["heure"] ;
+            echo $da=$data["date"] ;
+            echo $idcoa=$data["coach_id"] ;
         }
 
+        //si rdv coach 
+        if($idcoa==15)
+        {
 
+            echo "on ajoute la dispo dans salle de sport";
+            // //insertion dispo salle et suppr du rdv 
+            $instdispo =  "INSERT INTO disposalle (creneau,date, jour) VALUES('$cren','$da','$j')";
+            $delrdv =  "DELETE FROM rdv WHERE date = '$da' and coach_id='$idcoa' and id_rdv= '$idrdv' "; 
+            $resdispo = mysqli_query($db_handle,$instdispo);
+                    if($resdispo) 
+                    { 
+                            echo '<script type="text/javascript">
+                            alert("email d annulation envoyé à '.$_SESSION['Email'] .'");
+                            location="rendezvous.php";
+                            </script>';
+                        $resrdv = mysqli_query($db_handle,$delrdv);
+                        //echo " insertion dispo normal classique";
+                    }
+                    else 
+                    {
+                        echo "Insertion dispo rdv  unsuccessful";
+                    }
+
+        }
+
+        else 
+        {
+             echo "on ajoute la dispo dans dispo coach ";
+              //insertion dispo coach et suppr du rdv 
+            $instdispocoach =  "INSERT INTO dispo (jour,id_pro,creneau,date) VALUES('$j','$idcoa','$cren','$da')";
+            $delrdvcoach =  "DELETE FROM rdv WHERE date = '$da' and coach_id='$idcoa' and id_rdv= '$idrdv' "; 
+            $resdispocoach = mysqli_query($db_handle,$instdispocoach);
+             
+                     if($resdispocoach) 
+                     { 
+                             echo '<script type="text/javascript">
+                             alert("email d annulation envoyé à '.$_SESSION['Email'] .'");
+                             location="rendezvous.php";
+                             </script>';
+                         $resrdvcoach = mysqli_query($db_handle,$delrdvcoach);
+                         echo " insertion dispo coach classique et supp rdv ";
+                     }
+                     else 
+                     {
+                         echo "Insertion dispo rdv  unsuccessful";
+                     }
+        }
+    
 
        /* ## Définitions des deux constantes
         define('ADRESSE_WEBMASTER','martinrose632@gmail.com'); // Votre adresse qui apparaitra en tant qu'expéditeur des E-mails
