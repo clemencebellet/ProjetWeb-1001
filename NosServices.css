@@ -326,6 +326,7 @@ ul li a:hover{
     padding-bottom: 15px;
     margin-top: 20px;
     letter-spacing: 2px;
+
 }
 
 .form{
@@ -340,6 +341,7 @@ ul li a:hover{
     transform: translate(0%,-5%);
     border-radius: 90px;
     padding: 25px;
+
 }
 
 .form input{
@@ -357,11 +359,10 @@ ul li a:hover{
 }
 
 
+
+
 /* AFFICHAGE ALIMENTATION */
 
-
-
-/* AFFICHAGE DU REGLEMENT */
 
 .BoxAlimentation{
     width: 600px;

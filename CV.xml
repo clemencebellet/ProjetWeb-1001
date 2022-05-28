@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <CV>
   <InformationsPerso>
-    <Nom>Vivenot</Nom>
-    <Prenom>Bastien</Prenom>
-    <Bureau>JIL6</Bureau>
-    <Telephone>0767854534</Telephone>
-    <Mail>vivent.bast@omnes-sport.com</Mail>
+    <Nom>Bellet</Nom>
+    <Prenom>Thomas</Prenom>
+    <Bureau>TGGG</Bureau>
+    <Telephone>0144390600</Telephone>
+    <Mail>rosecommeprenom@gmail.com</Mail>
   </InformationsPerso>
   <Professionnel>
-    <Adresse>27 rue de la vie Paris</Adresse>
-    <Diplome>mécanique </Diplome>
-    <Experience>chauffeur privé</Experience>
+    <Adresse>101 rue du Loup Paris</Adresse>
+    <Diplome>diplome coach sportif</Diplome>
+    <Experience>coach freelance</Experience>
   </Professionnel>
 </CV>

@@ -152,7 +152,7 @@ $db_found = mysqli_select_db($db_handle,$db);
                             Nom:
                         </td>  
                         <td>
-                            <input type="text" name="nom" id="name"> <br> 
+                            <input type="text" name="nom" id="name"><br> 
                         </td>
                         
                     </tr>

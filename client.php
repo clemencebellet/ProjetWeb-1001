@@ -93,7 +93,7 @@ $tel=$_SESSION['Tel'];
 
 
     
-        <!-- AFFICHAGE DES HORAIRES DE LA SALLE -->
+        <!-- AFFICHAGE DES INFOS CLIENTS -->
         <div  class="BoxInfoClient" id="infoClient" >
 
            <h2> MES INFORMATIONS </h2> <br><br>
