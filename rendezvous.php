@@ -120,6 +120,9 @@ $id_client= $_SESSION['id'];
              <button class="btnnosAct" type ="submit" name="AnnulerRDV" >Annulation du RDV</button>
 
             </form>
+            <form action = "client.php" style ="text-align : center;" >
+            <button  class="btnnosAct" type ="submit" >Retour</button></a>
+            </form>
 
             
            

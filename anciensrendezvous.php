@@ -110,6 +110,9 @@ $id_client= $_SESSION['id'];
             }
 
             ?>
+            <form action = "client.php" style ="text-align : center;" >
+            <button  class="btnnosAct" type ="submit" >Retour</button></a>
+            </form>
         
         <div class="footer">
             <h1>NOUS CONTACTER:</h1> 

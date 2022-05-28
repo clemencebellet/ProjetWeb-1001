@@ -28,66 +28,10 @@
     }
 
     function isEmpty(){
-            var id = document.getElementById("id").value;
-            var nom = document.getElementById("name").value;
-            var prenom = document.getElementById("prenom").value;
-            var bureau = document.getElementById("bureau").value;
-            var dispo = document.getElementById("dispo").value;
-            var num = document.getElementById("tel").value;
-            var email = document.getElementById("email").value; 
+            
             var mdp = document.getElementById("mdp").value;
             var mdp1 = document.getElementById("mdp1").value;
-            var sport = document.getElementById("sport").value;
-            var idsupp = document.getElementById("idsupp").value;
-            var cp=0; 
-
-            if( !id.replace(/\s+/, '').length ) {
-                  masquer_div("iderror");
-                  cp = (cp+1);
-             }
-             if( !nom.replace(/\s+/, '').length ) {
-                  masquer_div("nomerror");
-                  cp = (cp+1);
-             }
-             if( !prenom.replace(/\s+/, '').length ) {
-                  masquer_div("prenomerror");
-                  cp = (cp+1);
-             }
-             if( !bureau.replace(/\s+/, '').length ) {
-                  masquer_div("bureauerror");
-                  cp = (cp+1);
-             }
-             if( !dispo.replace(/\s+/, '').length ) {
-                  masquer_div("dispoerror");
-                  cp = (cp+1);
-             }
-             if( !num.replace(/\s+/, '').length ) {
-                 masquer_div("telerror");
-                  cp = (cp+1);
-             }
-             if(num.replace(/\s+/, '').length!=10) {
-                  cp = (cp+1);
-             }             
-             if( !email.replace(/\s+/, '').length ) {
-                  masquer_div("emailerror");
-                  cp = (cp+1);
-             }
-             if( !mdp.replace(/\s+/, '').length ) {
-                  masquer_div("mdperror");
-                  cp = (cp+1);
-             }
-             if( !mdp1.replace(/\s+/, '').length ) {
-                  masquer_div("mdperror1");
-                  cp = (cp+1);
-             }
-             if( !sport.replace(/\s+/, '').length ) {
-                  masquer_div("sporterror");
-                  cp = (cp+1);
-             }
-             if( !idsupp.replace(/\s+/, '').length ) {
-                  masquer_div("idsupperror");
-                  cp = (cp+1);
-             }
+            
              if(mdp!=mdp1) {
                 masquer_div("pasmememdp");
                 cp = (cp+1);
@@ -120,11 +64,6 @@
                         <td>
                             <input type="text" name="id" id="id"> <br> 
                         </td>
-                        <td>
-                            <div id="iderror" style="display:none;">
-                                Champ id vide !
-                            </div>
-                        </td>
                     </tr>
                     <tr>
                         <td>
@@ -132,11 +71,6 @@
                         </td>  
                         <td>
                             <input type="text" name="nom" id="name"> <br> 
-                        </td>
-                        <td>
-                            <div id="nomerror" style="display:none;">
-                                Champ Nom vide !
-                            </div>
                         </td>
                     </tr>
                     <tr>
@@ -146,11 +80,6 @@
                         <td>
                             <input type="text"name="prenom" id="prenom"> <br> 
                         </td>
-                        <td>
-                            <div id="prenomerror" style="display:none;">
-                                Champ Prenom vide !
-                            </div>
-                        </td>
                     </tr>
                     <tr>
                         <td>
@@ -158,11 +87,6 @@
                         </td>  
                         <td>
                             <input type="text" name="bureau" id="bureau"> <br>
-                        </td>
-                        <td>
-                            <div id="bureauerror" style="display:none;">
-                                Champ bureau vide !
-                            </div>
                         </td>
                     </tr>
                     <tr>
@@ -172,11 +96,6 @@
                         <td>
                             <input type="text" name="dispo" id="dispo"> <br>
                         </td>
-                        <td>
-                            <div id="dispoerror" style="display:none;">
-                                Champ Dispo vide !
-                            </div>
-                        </td>
                     </tr>
                     <tr>
                         <td>
@@ -184,11 +103,6 @@
                         </td>  
                         <td>
                             <input type="text" name="tel" id="tel"> <br> 
-                        </td>
-                        <td>
-                            <div id="telerror" style="display:none;">
-                                Champ Téléphone vide !
-                            </div>
                         </td>
                     </tr>
                     <tr>
@@ -198,11 +112,6 @@
                         <td>
                             <input type="text" name="email" id="email"> <br> 
                         </td>
-                        <td>
-                            <div id="emailerror" style="display:none;">
-                                Champ Email vide !
-                            </div>
-                        </td>
                     </tr>
                     <tr>
                         <td>
@@ -210,11 +119,6 @@
                         </td>  
                         <td>
                             <input type="text" id="sport" name="sport"> <br> 
-                        </td>
-                        <td>
-                            <div id="sporterror" style="display:none;">
-                                Champ Sport vide !
-                            </div>
                         </td>
                     </tr>
                     <tr>
@@ -224,11 +128,6 @@
                         <td>
                             <input type="file"id="Profil" name="Profil" accept="image/png, image/jpeg"><br> 
                         </td>
-                        <td>
-                            <div id="Profilerror" style="display:none;">
-                                Aucune photo de profil!
-                            </div>
-                        </td>
                     </tr>
                     <tr>
                         <td>
@@ -236,11 +135,6 @@
                         </td>  
                         <td>
                             <input type="file"id="CV" name="CV" accept="image/png, image/jpeg"><br> 
-                        </td>
-                        <td>
-                            <div id="CVerror" style="display:none;">
-                                Aucun CV de profile !
-                            </div>
                         </td>
                     </tr>
                     <tr>
@@ -250,11 +144,6 @@
                         <td>
                             <input type="password" name="mdp" id="mdp"> <br> 
                         </td>
-                        <td>
-                            <div id="mdperror" style="display:none;">
-                                Champ Mdp vide !
-                            </div>
-                        </td>
                     </tr>
                     <tr>
                         <td>
@@ -262,11 +151,6 @@
                         </td>  
                         <td>
                             <input type="password" id="mdp1"> <br> 
-                        </td>
-                        <td>
-                            <div id="mdperror1" style="display:none;">
-                                Champ Mdp vide !
-                            </div>
                         </td>
                     </tr>
                     <tr>
@@ -277,9 +161,36 @@
                         </td>
                     </tr>
                     <tr>
+                        <td>
+                            Adresse:
+                        </td>  
+                        <td>
+                            <input type="text" name="adresse" id="adresse"> <br> 
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Diplome:
+                        </td>  
+                        <td>
+                            <input type="text" name="diplome" id="diplome"> <br> 
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Expérience:
+                        </td>  
+                        <td>
+                            <input type="text" name="experience" id="experience"> <br> 
+                        </td>
+                    </tr>
+
+                    <tr>
                         <td></td>  
                         <td>
-                            <input type="submit"  name="ajoutcoach" Value="ajoutcoach">
+                            <input type="submit"  name="ajoutcoach" Value="Ajouter">
                         </td>
                     </tr>
                 </table>
@@ -297,16 +208,11 @@
                         <td>
                             <input type="text" name="idsupp" id="idsupp"> <br> 
                         </td>
-                        <td>
-                            <div id="idsupperror" style="display:none;">
-                                Champ id à supprimer vide !
-                            </div>
-                        </td>
                     </tr>
                     <tr>
                         <td></td>  
                         <td>
-                            <input type="submit" onClick="isEmpty()" name="suppcoach" Value="suppcoach">
+                            <input type="submit"  name="suppcoach" Value="suppcoach">
                         </td>
                     </tr>
                 </table>

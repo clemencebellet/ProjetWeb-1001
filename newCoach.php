@@ -26,7 +26,11 @@ if($db_found)
         $sport = $_POST["sport"];
         $Profil = "images/Profil/".$_POST["Profil"];
         $CV = "images/".$_POST["CV"];
-        if (empty($id) || empty($nom) || empty($prenom)||empty($bureau)||empty($dispo)||empty($tel)|| empty($email) || empty($mdp) || empty($sport))
+
+        $adresse = $_POST["adresse"];
+        $diplome = $_POST["diplome"];
+        $experience = $_POST["experience"];
+        if (empty($id) || empty($nom) || empty($prenom)||empty($bureau)||empty($dispo)||empty($tel)|| empty($email) || empty($mdp) || empty($sport)|| empty($adresse)|| empty($diplome)|| empty($experience))
     { 
         echo '<script type="text/javascript">
         alert("Un champ est vide , reesayer ");
@@ -35,14 +39,14 @@ if($db_found)
     }
     else{
 
-        $sql =  "INSERT INTO coach(id_coach,Nom,Prenom,Bureau,Dispo,NumeroTel,Email,Mdp,Sport,Profil,CV)
-                VALUES('$id','$nom','$prenom','$bureau','$dispo','$tel','$email','$mdp','$sport','$Profil','$CV')";
+        $sql =  "INSERT INTO coach(id_coach,Nom,Prenom,Bureau,Dispo,NumeroTel,Email,Mdp,Sport,Profil,CV,adresse,diplome,experience)
+                VALUES('$id','$nom','$prenom','$bureau','$dispo','$tel','$email','$mdp','$sport','$Profil','$CV','$adresse','$diplome','$experience')";
         $res = mysqli_query($db_handle,$sql);
 
         if($res) { 
             echo '<script type="text/javascript">
             alert("Nouveau Coach ajouté !");
-            location="admin.html";
+            location="admin.php";
             </script>';
         }
         else {
@@ -55,6 +59,14 @@ if($db_found)
         $sql =  "DELETE FROM coach
                  WHERE id_coach='$idsupp'"; 
         $res = mysqli_query($db_handle,$sql);
+
+        if (empty($idsupp))
+        { 
+            echo '<script type="text/javascript">
+            alert("Le champ est vide , reesayer ");
+            location="admin.html";
+            </script>';
+        }
 
         if($res) { 
             echo '<script type="text/javascript">

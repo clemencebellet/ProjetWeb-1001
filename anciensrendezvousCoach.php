@@ -99,7 +99,7 @@ $id_coach= $_SESSION['idcoach'];
             ?>
 
 
-            <h1> MES<br><span>RENDEZ-VOUS</span></h1>
+            <h1> MES ANCIENS <br><span>RENDEZ-VOUS</span></h1>
             <p class="nosAct"> Rendez-vous avec  :
             <br> 
             <?php
@@ -134,6 +134,9 @@ $id_coach= $_SESSION['idcoach'];
             }
 
             ?>
+            <form action = "coach.php" style ="text-align : center;" >
+            <button  class="btnnosAct" type ="submit" >Retour</button></a>
+            </form>
         
         </div>
 

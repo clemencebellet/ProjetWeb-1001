@@ -142,9 +142,15 @@ $id_coach= $_SESSION['idcoach'];
              <br/>
 
              <button class="btnnosAct" type ="submit" name="AnnulerRDV" >Annulation du RDV</button>
+             
+            
 
             </form>
-        
+
+            <form action = "coach.php" style ="text-align : center;" >
+            <button  class="btnnosAct" type ="submit" >Retour</button></a>
+            </form>
+
         </div>
 
         
