@@ -17,7 +17,7 @@ $db_found = mysqli_select_db($db_handle,$db);
 <html lang="en">
 <head>
     <title>Webpage Design</title>
-    <link rel="stylesheet" href="compte.css">
+    <link rel="stylesheet" href="priserdv.css">
 </head>
 <body>
     
@@ -58,12 +58,12 @@ $db_found = mysqli_select_db($db_handle,$db);
                         <input type="email" name="Email" placeholder="Entrer votre mail ici">
                         <input type="password" name="Mdp" placeholder="Entrer votre mot de passe ici">
                        
-                       <label  for="coach1"><?php echo "<p style='text-align:center; font-size : 20px'>" . " COACH : " . $_SESSION['Nomcoach'] . " " . $_SESSION['Prenomcoach'] ?></p></label>
+                       <label  for="coach1"><?php echo "<p style='text-align:center; margin-top: 20px;font-size : 20px'>" . " COACH : " . $_SESSION['Nomcoach'] . " " . $_SESSION['Prenomcoach'] ?></p></label>
                        <br/>
 
                        <?php
                         
-                       echo "<u>" ."<p style='text-align:center;'>" ."Disponibilités : " . "</u>";
+                       echo "<u>" ."<p style='text-align:center;margin-bottom:10px;font-size : 20px'>" ."Disponibilités : " . "</u>";
                        $id = $_SESSION['idcoach'];
                        
                        $sql = "SELECT * FROM  dispo WHERE id_pro= '$id' ";
@@ -72,7 +72,7 @@ $db_found = mysqli_select_db($db_handle,$db);
                        while($data = mysqli_fetch_assoc($res))
                        { 
                         
-                        echo "<p style='text-align:center;'>". $data['jour'] . " " .$data['creneau'] . $data['date'] ;
+                        echo "<p style='text-align:center;margin-bottom:10px;font-size : 20px;'>". $data['jour'] . " " .$data['creneau'] . $data['date'] ;
                       
 
                     }
@@ -104,4 +104,8 @@ $db_found = mysqli_select_db($db_handle,$db);
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
 </body>
 </html>
+
+
+
+
 
