@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <CV>
   <InformationsPerso>
-    <Nom>Benarha</Nom>
-    <Prenom>Mohamed</Prenom>
-    <Bureau>ECE5</Bureau>
-    <Telephone>0702897656</Telephone>
-    <Mail>momo.75@gmail.com</Mail>
+    <Nom>Vivenot</Nom>
+    <Prenom>Bastien</Prenom>
+    <Bureau>JIL6</Bureau>
+    <Telephone>0767854534</Telephone>
+    <Mail>vivent.bast@omnes-sport.com</Mail>
   </InformationsPerso>
   <Professionnel>
-    <Adresse>8 avenue de la piscine Paris</Adresse>
-    <Diplome>diplome de coach sportif</Diplome>
-    <Experience>vendeur</Experience>
+    <Adresse>27 rue de la vie Paris</Adresse>
+    <Diplome>mécanique </Diplome>
+    <Experience>chauffeur privé</Experience>
   </Professionnel>
 </CV>

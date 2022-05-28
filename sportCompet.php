@@ -24,6 +24,7 @@ if($db_found)
         $sql2 = "SELECT * FROM coach, dispo WHERE id_coach=id_pro and Sport=1";
         $res2 = mysqli_query($db_handle,$sql2);
 
+        echo '<div class="content">';
         if($data = mysqli_fetch_assoc($resbasket)) 
         {
           
@@ -31,57 +32,45 @@ if($db_found)
             $ressport = mysqli_query($db_handle,$sqlsport);
             $data1 = mysqli_fetch_assoc($ressport);
 
-            echo '<div class="affichagecoach">';
-
-            echo "Coach de ". $data1["Nom"]. "<br>";
-            echo '</div>';
-
+            echo '<h1><br><br>Voici notre coach référent de BASKET </h1>';
             echo '<div class="affichagenom">';
-            echo    $data["Nom"] . "  ". $data["Prenom"];
-            $_SESSION['Nomcoach'] =$data["Nom"];
-            $_SESSION['Prenomcoach'] =$data["Prenom"];
-            $_SESSION['idcoach'] =$data["id_coach"];
+                echo    $data["Nom"] . "  ". $data["Prenom"];
+                $_SESSION['Nomcoach'] =$data["Nom"];
+                $_SESSION['Prenomcoach'] =$data["Prenom"];
+                $_SESSION['idcoach'] =$data["id_coach"];
             echo '</div>';
-             
             echo '<div class="img">';
-             echo '<img src="'.$data['Profil'].' "height=300px />' ;
-             
-             echo '<br>';
-           
-            echo  $data["Bureau"] ;
-
-            echo '<br>';
-        
-            echo '<br>';
-
-            echo "Cliquez pour voir en grand le CV";
-
-            echo '<br>';
+                echo '<img src="'.$data['Profil'].' "height=300px />' ;
+            echo'</div>';
             
-            echo '<a href="'.$data['CV'].'" >';
-            echo '<img src="'.$data['CV'].' "height = 150 px /></a>';
-
+            echo '<div class="CV">';
+                echo "Cliquer pour afficher le  CV";
+                echo'<br>'; echo'<br>';
+                echo '<a href="'.$data['CV'].'" >';
+                echo '<img src="'.$data['CV'].' "height = 150 px /></a>';
             echo '</div>';
+
         }
-    echo '<div class="affichagedispoT">';
-    echo "Vous souhaitez prendre un rendez-vous avec lui ? ". "<br>";
-    echo "Cliquez sur la disponibilité qui vous interesse ". "<br>";
-    echo '</div>';
+
+        echo '<div class="affichagedispoT">';
+                echo "Souhaitez-vous prendre un rendez-vous ? ". "<br>";
+                echo "Cliquer sur la disponibilité qui vous interesse ". "<br>";
+             echo '</div>';
    
     while($data = mysqli_fetch_assoc($res2))
     { 
         echo '<div class="affichagedispo">';
-        echo'<a href="priserdv.php" >  ' . $data['date'] .' </a>';
-        echo'<a href="priserdv.php" >  ' . $data['jour'] .  " ". $data['creneau'] .' </a>';
-      
-        
-        echo '</div>';
-        
-        
+            echo'<a href="priserdv.php" >  ' . $data['date'] .' </a>';
+                echo'<a href="priserdv.php" >  ' . $data['jour'] .' </a>';
+                echo'<a href="priserdv.php" >  ' . $data['creneau'] .' </a>';
+               
+            echo '</div>';
     }
+    echo '</div>';
    
     }
     
+
 
     else if(isset($_POST["Football"])) 
     {
@@ -90,62 +79,50 @@ if($db_found)
         $sql2 = "SELECT * FROM coach, dispo WHERE id_pro =id_coach and Sport=2";
         $res2 = mysqli_query($db_handle,$sql2);
 
-
+        echo '<div class="content">';
         if($data = mysqli_fetch_assoc($resbasket)) 
         {
             $sqlsport ="SELECT * FROM sport WHERE id_sport =2 ";
             $ressport = mysqli_query($db_handle,$sqlsport);
             $data1 = mysqli_fetch_assoc($ressport);
 
-            echo '<div class="affichagecoach">';
-
-            echo "Coach de ". $data1["Nom"]. "<br>";
-            echo '</div>';
-
+            echo '<h1><br><br>Voici notre coach référent de FOOTBALL </h1>';
             echo '<div class="affichagenom">';
-            echo    $data["Nom"] . "  ". $data["Prenom"];
-            $_SESSION['Nomcoach'] =$data["Nom"];
-            $_SESSION['Prenomcoach'] =$data["Prenom"];
-            $_SESSION['idcoach'] =$data["id_coach"];
+                echo    $data["Nom"] . "  ". $data["Prenom"];
+                $_SESSION['Nomcoach'] =$data["Nom"];
+                $_SESSION['Prenomcoach'] =$data["Prenom"];
+                $_SESSION['idcoach'] =$data["id_coach"];
             echo '</div>';
-             
             echo '<div class="img">';
-             echo '<img src="'.$data['Profil'].' "height=300px />' ;
-             
-             echo '<br>';
-           
-            echo  $data["Bureau"] ;
-
-            echo '<br>';
-        
-            echo '<br>';
-
-            echo "Cliquez pour voir en grand le CV";
-
-            echo '<br>';
+                echo '<img src="'.$data['Profil'].' "height=300px />' ;
+            echo'</div>';
             
-            echo '<a href="'.$data['CV'].'" >';
-            echo '<img src="'.$data['CV'].' "height = 150 px /></a>';
-
+            echo '<div class="CV">';
+                echo "Cliquer pour afficher le  CV";
+                echo'<br>'; echo'<br>';
+                echo '<a href="'.$data['CV'].'" >';
+                echo '<img src="'.$data['CV'].' "height = 150 px /></a>';
             echo '</div>';
 
         }
+        
         echo '<div class="affichagedispoT">';
-    echo "Vous souhaitez prendre un rendez-vous avec lui ? ". "<br>";
-    echo "Cliquez sur la disponibilité qui vous interesse ". "<br>";
-    echo '</div>';
+        echo "Souhaitez-vous prendre un rendez-vous ? ". "<br>";
+        echo "Cliquer sur la disponibilité qui vous interesse ". "<br>";
+     echo '</div>';
    
     while($data = mysqli_fetch_assoc($res2))
     { 
         echo '<div class="affichagedispo">';
         echo'<a href="priserdv.php" >  ' . $data['date'] .' </a>';
-        echo'<a href="priserdv.php" >  ' .$data['jour'] .  " ". $data['creneau'] .' </a>';
-        
-        
+            echo'<a href="priserdv.php" >  ' . $data['jour'] .' </a>';
+            echo'<a href="priserdv.php" >  ' . $data['creneau'] .' </a>';
+           
         echo '</div>';
-        
-        
     }
+    echo '</div>';
+
+
     }
 
     else if(isset($_POST["Rugby"])) 
@@ -155,63 +132,56 @@ if($db_found)
         $sql2 = "SELECT * FROM coach, dispo WHERE id_pro =id_coach and Sport=3";
         $res2 = mysqli_query($db_handle,$sql2);
 
+        echo '<div class="content">';
         if($data = mysqli_fetch_assoc($resbasket)) 
         {
             $sqlsport ="SELECT * FROM sport WHERE id_sport =3 ";
             $ressport = mysqli_query($db_handle,$sqlsport);
             $data1 = mysqli_fetch_assoc($ressport);
 
-            echo '<div class="affichagecoach">';
-
-            echo "Coach de ". $data1["Nom"]. "<br>";
-            echo '</div>';
-
+            echo '<h1><br><br>Voici notre coach référent de RUGBY </h1>';
             echo '<div class="affichagenom">';
-            echo    $data["Nom"] . "  ". $data["Prenom"];
-            $_SESSION['Nomcoach'] =$data["Nom"];
-            $_SESSION['Prenomcoach'] =$data["Prenom"];
-            $_SESSION['idcoach'] =$data["id_coach"];
+                echo    $data["Nom"] . "  ". $data["Prenom"];
+                $_SESSION['Nomcoach'] =$data["Nom"];
+                $_SESSION['Prenomcoach'] =$data["Prenom"];
+                $_SESSION['idcoach'] =$data["id_coach"];
             echo '</div>';
-             
             echo '<div class="img">';
-             echo '<img src="'.$data['Profil'].' "height=300px />' ;
-             
-             echo '<br>';
-           
-            echo  $data["Bureau"] ;
-
-            echo '<br>';
-        
-            echo '<br>';
-
-            echo "Cliquez pour voir en grand le CV";
-
-            echo '<br>';
+                echo '<img src="'.$data['Profil'].' "height=300px />' ;
+            echo'</div>';
             
-            echo '<a href="'.$data['CV'].'" >';
-            echo '<img src="'.$data['CV'].' "height = 150 px /></a>';
-
+            echo '<div class="CV">';
+                echo "Cliquer pour afficher le  CV";
+                echo'<br>'; echo'<br>';
+                echo '<a href="'.$data['CV'].'" >';
+                echo '<img src="'.$data['CV'].' "height = 150 px /></a>';
             echo '</div>';
 
 
         }
+        
+        
         echo '<div class="affichagedispoT">';
-        echo "Vous souhaitez prendre un rendez-vous avec lui ? ". "<br>";
-        echo "Cliquez sur la disponibilité qui vous interesse ". "<br>";
-        echo '</div>';
+        echo "Souhaitez-vous prendre un rendez-vous ? ". "<br>";
+        echo "Cliquer sur la disponibilité qui vous interesse ". "<br>";
+     echo '</div>';
        
         while($data = mysqli_fetch_assoc($res2))
         { 
             echo '<div class="affichagedispo">';
             echo'<a href="priserdv.php" >  ' . $data['date'] .' </a>';
-            echo'<a href="priserdv.php" >  ' . $data['jour'] .  " ". $data['creneau'] .' </a>';
-           
-            
+                echo'<a href="priserdv.php" >  ' . $data['jour'] .' </a>';
+                echo'<a href="priserdv.php" >  ' . $data['creneau'] .' </a>';
+               
             echo '</div>';
             
-            
         }
+        echo '</div>';
     }
+
+
+
+
     else if(isset($_POST["Tennis"])) 
     {
         $sqlcoachbasket ="SELECT * FROM coach WHERE Sport =4 ";
@@ -219,66 +189,55 @@ if($db_found)
         $sql2 = "SELECT * FROM coach, dispo WHERE id_pro =id_coach and Sport=4";
         $res2 = mysqli_query($db_handle,$sql2);
 
-        
-
-
+        echo '<div class="content">';
         if($data = mysqli_fetch_assoc($resbasket)) 
         {
             $sqlsport ="SELECT * FROM sport WHERE id_sport =4 ";
             $ressport = mysqli_query($db_handle,$sqlsport);
             $data1 = mysqli_fetch_assoc($ressport);
 
-            echo '<div class="affichagecoach">';
-
-            echo "Coach de ". $data1["Nom"]. "<br>";
-            echo '</div>';
-
+            echo '<h1><br><br>Voici notre coach référent de TENNIS </h1>';
             echo '<div class="affichagenom">';
-            echo    $data["Nom"] . "  ". $data["Prenom"];
-            $_SESSION['Nomcoach'] =$data["Nom"];
-            $_SESSION['Prenomcoach'] =$data["Prenom"];
-            $_SESSION['idcoach'] =$data["id_coach"];
+                echo    $data["Nom"] . "  ". $data["Prenom"];
+                $_SESSION['Nomcoach'] =$data["Nom"];
+                $_SESSION['Prenomcoach'] =$data["Prenom"];
+                $_SESSION['idcoach'] =$data["id_coach"];
             echo '</div>';
-             
             echo '<div class="img">';
-             echo '<img src="'.$data['Profil'].' "height=300px />' ;
-             
-             echo '<br>';
-           
-            echo  $data["Bureau"] ;
-
-            echo '<br>';
-        
-            echo '<br>';
-
-            echo "Cliquez pour voir en grand le CV";
-
-            echo '<br>';
+                echo '<img src="'.$data['Profil'].' "height=300px />' ;
+            echo'</div>';
             
-            echo '<a href="'.$data['CV'].'" >';
-            echo '<img src="'.$data['CV'].' "height = 150 px /></a>';
-
+            echo '<div class="CV">';
+                echo "Cliquer pour afficher le  CV";
+                echo'<br>'; echo'<br>';
+                echo '<a href="'.$data['CV'].'" >';
+                echo '<img src="'.$data['CV'].' "height = 150 px /></a>';
             echo '</div>';
 
 
         }
+        
         echo '<div class="affichagedispoT">';
-        echo "Vous souhaitez prendre un rendez-vous avec lui ? ". "<br>";
-        echo "Cliquez sur la disponibilité qui vous interesse ". "<br>";
-        echo '</div>';
-       
+        echo "Souhaitez-vous prendre un rendez-vous ? ". "<br>";
+        echo "Cliquer sur la disponibilité qui vous interesse ". "<br>";
+     echo '</div>';
+
         while($data = mysqli_fetch_assoc($res2))
         { 
             echo '<div class="affichagedispo">';
             echo'<a href="priserdv.php" >  ' . $data['date'] .' </a>';
-            echo'<a href="priserdv.php" >  ' . $data['jour'] .  " ". $data['creneau'].' </a>';
-            
-            
+                echo'<a href="priserdv.php" >  ' . $data['jour'] .' </a>';
+                echo'<a href="priserdv.php" >  ' . $data['creneau'] .' </a>';
+               
             echo '</div>';
             
-            
         }
+        echo '</div>';
     }
+
+
+
+
     else if(isset($_POST["Natation"])) 
     {
         $sqlcoachbasket ="SELECT * FROM coach WHERE Sport =5 ";
@@ -286,6 +245,7 @@ if($db_found)
         $sql2 = "SELECT * FROM coach, dispo WHERE id_pro =id_coach and Sport=5";
         $res2 = mysqli_query($db_handle,$sql2);
 
+        echo '<div class="content">';
         if($data = mysqli_fetch_assoc($resbasket)) 
         {
             
@@ -293,57 +253,49 @@ if($db_found)
             $ressport = mysqli_query($db_handle,$sqlsport);
             $data1 = mysqli_fetch_assoc($ressport);
 
-            echo '<div class="affichagecoach">';
-
-            echo "Coach de ". $data1["Nom"]. "<br>";
-            echo '</div>';
-
-            echo '<div class="affichagenom">';
-            echo    $data["Nom"] . "  ". $data["Prenom"];
-            $_SESSION['Nomcoach'] =$data["Nom"];
-            $_SESSION['Prenomcoach'] =$data["Prenom"];
-            $_SESSION['idcoach'] =$data["id_coach"];
-            echo '</div>';
-             
-            echo '<div class="img">';
-             echo '<img src="'.$data['Profil'].' "height=300px />' ;
-             
-             echo '<br>';
-           
-            echo  $data["Bureau"] ;
-
-            echo '<br>';
-        
-            echo '<br>';
-
-            echo "Cliquez pour voir en grand le CV";
-
-            echo '<br>';
             
-            echo '<a href="'.$data['CV'].'" >';
-            echo '<img src="'.$data['CV'].' "height = 150 px /></a>';
-
-
+            echo '<h1><br><br>Voici notre coach référent de NATATION </h1>';
+            echo '<div class="affichagenom">';
+                echo    $data["Nom"] . "  ". $data["Prenom"];
+                $_SESSION['Nomcoach'] =$data["Nom"];
+                $_SESSION['Prenomcoach'] =$data["Prenom"];
+                $_SESSION['idcoach'] =$data["id_coach"];
             echo '</div>';
-           
+            echo '<div class="img">';
+                echo '<img src="'.$data['Profil'].' "height=300px />' ;
+            echo'</div>';
+            
+            echo '<div class="CV">';
+                echo "Cliquer pour afficher le  CV";
+                echo'<br>'; echo'<br>';
+                echo '<a href="'.$data['CV'].'" >';
+                echo '<img src="'.$data['CV'].' "height = 150 px /></a>';
+            echo '</div>';
+
+
 
         }
+        
         echo '<div class="affichagedispoT">';
-        echo "Vous souhaitez prendre un rendez-vous avec lui ? ". "<br>";
-        echo "Cliquez sur la disponibilité qui vous interesse ". "<br>";
-        echo '</div>';
+        echo "Souhaitez-vous prendre un rendez-vous ? ". "<br>";
+        echo "Cliquer sur la disponibilité qui vous interesse ". "<br>";
+     echo '</div>';
        
         while($data = mysqli_fetch_assoc($res2))
         { 
+            
             echo '<div class="affichagedispo">';
             echo'<a href="priserdv.php" >  ' . $data['date'] .' </a>';
-            echo'<a href="priserdv.php" >  ' . $data['jour'] .  " ". $data['creneau'].' </a>';
-             
-          
+                echo'<a href="priserdv.php" >  ' . $data['jour'] .' </a>';
+                echo'<a href="priserdv.php" >  ' . $data['creneau'] .' </a>';
+               
             echo '</div>';
             
-            
         }
+        echo '</div>';
+
+
+
     }
     else if(isset($_POST["Plongeon"])) 
     {
@@ -352,108 +304,120 @@ if($db_found)
         $sql2 = "SELECT * FROM coach, dispo WHERE id_pro =id_coach and Sport=6";
         $res2 = mysqli_query($db_handle,$sql2);
 
+        echo '<div class="content">';
         if($data = mysqli_fetch_assoc($resbasket)) 
         {
             $sqlsport ="SELECT * FROM sport WHERE id_sport =6 ";
             $ressport = mysqli_query($db_handle,$sqlsport);
             $data1 = mysqli_fetch_assoc($ressport);
 
-            echo '<div class="affichagecoach">';
-
-            echo "Coach de ". $data1["Nom"]. "<br>";
-            echo '</div>';
-
+            
+            echo '<h1><br><br>Voici notre coach référent de PLONGEON </h1>';
             echo '<div class="affichagenom">';
-            echo    $data["Nom"] . "  ". $data["Prenom"];
-            $_SESSION['Nomcoach'] =$data["Nom"];
-            $_SESSION['Prenomcoach'] =$data["Prenom"];
-            $_SESSION['idcoach'] =$data["id_coach"];
+                echo    $data["Nom"] . "  ". $data["Prenom"];
+                $_SESSION['Nomcoach'] =$data["Nom"];
+                $_SESSION['Prenomcoach'] =$data["Prenom"];
+                $_SESSION['idcoach'] =$data["id_coach"];
             echo '</div>';
-             
             echo '<div class="img">';
-             echo '<img src="'.$data['Profil'].' "height=300px />' ;
-             
-             echo '<br>';
-           
-            echo  $data["Bureau"] ;
-
-            echo '<br>';
-        
-            echo '<br>';
-
-            echo "Cliquez pour voir en grand le CV";
-
-            echo '<br>';
+                echo '<img src="'.$data['Profil'].' "height=300px />' ;
+            echo'</div>';
             
-            echo '<a href="'.$data['CV'].'" >';
-            echo '<img src="'.$data['CV'].' "height = 150 px /></a>';
-            
+            echo '<div class="CV">';
+                echo "Cliquer pour afficher le  CV";
+                echo'<br>'; echo'<br>';
+                echo '<a href="'.$data['CV'].'" >';
+                echo '<img src="'.$data['CV'].' "height = 150 px /></a>';
             echo '</div>';
 
 
         }
+
+        
         echo '<div class="affichagedispoT">';
-        echo "Vous souhaitez prendre un rendez-vous avec lui ? ". "<br>";
-        echo "Cliquez sur la disponibilité qui vous interesse ". "<br>";
-        echo '</div>';
+        echo "Souhaitez-vous prendre un rendez-vous ? ". "<br>";
+        echo "Cliquer sur la disponibilité qui vous interesse ". "<br>";
+     echo '</div>';
+       
        
         while($data = mysqli_fetch_assoc($res2))
         { 
+            
             echo '<div class="affichagedispo">';
             echo'<a href="priserdv.php" >  ' . $data['date'] .' </a>';
-            echo'<a href="priserdv.php" >  ' . $data['jour'] .  " ". $data['creneau'].' </a>';
-             
-            
+                echo'<a href="priserdv.php" >  ' . $data['jour'] .' </a>';
+                echo'<a href="priserdv.php" >  ' . $data['creneau'] .' </a>';
+               
             echo '</div>';
             
-            
         }
+        
+        echo '</div>';
     }
 }
 
+
+
 ?>
 
+
 <style type="text/css">
-.affichagecoach{ 
-    
-    text-align: center ;
-    font-size : 80px;
 
+
+ /****CONTENT****/
+ 
+ .content{
+    width:900px;
+    height: 1100px;
+    margin: auto;
+    background-color: rgb(223, 231, 209);
+    position: relative;
+    border-radius:30px;
  }
-.img{
-    float : left;
-    position: relative;
-    top : 100px;
-    padding-left: 10 px ;
-    text-align: center ;
-    
-
-}
-
-.affichagenom{ 
-    
-    position: relative;
-    top : 80px;
-    left : 110px;
-    font-size :25px;
-    
+ 
+ 
+ .content h1{
+    font-family: 'Times New Roman';
+    color: rgb(6, 57, 32);
+    font-size: 40px;
+    padding-left: 20px;
+    margin-top: 70px;
+    text-align: center;
+    margin-top:20px;
+    margin-bottom: 100px;
  }
- .affichagedispoT{ 
-    
-    position: relative;
-    top : 160px;
-    left : 110px;
-    font-size :20px;
-    
+ 
+ .affichagenom{
+    text-align: center;
+    font-family:'Arial';
+    font-size:20px;
+    margin-bottom:20px;
  }
 
- .affichagedispo{ 
-    
-    position: relative;
-    top : 170px;
-    left : 110px;
-    font-size :20px;
-    
+ .img{
+    text-align: center;
+ }
+
+ .CV{
+    text-align:center;
+    font-family:'Arial';
+    font-size:20px;
+    margin-top:40px;
+    margin-bottom:20px;  
+ }
+
+ .affichagedispoT{
+    text-align: center;
+    font-family:'Arial';
+    font-size:20px;
+    margin-bottom:20px;
+ }
+ 
+ .affichagedispo{
+    text-align: center;
+    font-family:'Arial';
+    font-size:20px;
+    margin-bottom:20px;
  }
  
  

@@ -59,7 +59,7 @@ if($db_found)
         if($res) { 
             echo '<script type="text/javascript">
             alert("Coach numéro '.$idsupp .' supprimé !");
-            location="admin.html";
+            location="admin.php";
             </script>';
         }
         else {
