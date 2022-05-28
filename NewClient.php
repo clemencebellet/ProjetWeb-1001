@@ -48,7 +48,7 @@ if($db_found)
         
         echo '<script type="text/javascript">
         alert("Bienvenue chez Omnes Sport, votre compte a bien été crée!");
-        location="client.php";
+        location="compte.html";
         </script>';
     }
     else {
