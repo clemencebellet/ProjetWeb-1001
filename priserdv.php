@@ -72,7 +72,7 @@ $db_found = mysqli_select_db($db_handle,$db);
                        while($data = mysqli_fetch_assoc($res))
                        { 
                         
-                        echo "<p style='text-align:center;margin-bottom:10px;font-size : 20px;'>". $data['jour'] . " " .$data['creneau'] . $data['date'] ;
+                        echo "<p style='text-align:center;margin-bottom:10px;font-size : 20px;'>". $data['jour'] . " " .$data['creneau'] . " ". $data['date'] ;
                       
 
                     }

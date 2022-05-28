@@ -245,9 +245,9 @@ if($db_found)
         if($datatest=mysqli_fetch_assoc($res4))
         {
             echo'<script type="text/javascript">
-            alert("email de validation de votre paiement envoyé à '.$_SESSION['Email'] .'")';
-           // location="client.php";
-            echo '</script>';
+            alert("email de validation de votre paiement envoyé à '.$_SESSION['Email'] .'");
+            location="client.php";
+            </script>';
         }
         else
         {

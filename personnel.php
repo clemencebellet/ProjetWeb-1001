@@ -28,18 +28,35 @@ if($db_found)
         { 
             // 1 ligne de donnée
             if($data2 = mysqli_fetch_assoc($res1))
-            {echo "Voici le coach de ". $data2["Nom"]. "<br>";
 
-        echo "Nom : " . $data1["Nom"] . "<br>";
-        echo "Prenom : " . $data1["Prenom"] . "<br>";
-        echo "Bureau : " . $data1["Bureau"] . "<br>";
-        echo "Dispo : " . $data1["Dispo"] . "<br>";
-        echo "NumeroTel : " . $data1["NumeroTel"] . "<br>";
-        echo "Email : " . $data1["Email"] . "<br>";
-        echo "<br>";}
+                if($data1["Nom"]!='Directeur')
+                {
+                    echo "Voici le coach de ". $data2["Nom"]. "<br>";
+
+                    echo "Nom : " . $data1["Nom"] . "<br>";
+                    echo "Prenom : " . $data1["Prenom"] . "<br>";
+                    echo "Bureau : " . $data1["Bureau"] . "<br>";
+                    echo "Dispo : " . $data1["Dispo"] . "<br>";
+                    echo "NumeroTel : " . $data1["NumeroTel"] . "<br>";
+                    echo "Email : " . $data1["Email"] . "<br>";
+                    echo "<br>";
+                }
+                
+                elseif($data1["Nom"]=='Directeur')
+                {
+                    echo "Voici le directeur de la salle <br>";
+
+                    echo "Nom : " . $data1["Nom"] . "<br>";
+                    echo "Prenom : " . $data1["Prenom"] . "<br>";
+                    echo "Bureau : " . $data1["Bureau"] . "<br>";
+                    echo "Dispo : " . $data1["Dispo"] . "<br>";
+                    echo "NumeroTel : " . $data1["NumeroTel"] . "<br>";
+                    echo "Email : " . $data1["Email"] . "<br>";
+                    echo "<br>";
+                }
+            }
 
     
         }
-    }
 
 ?>
