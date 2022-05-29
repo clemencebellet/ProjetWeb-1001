@@ -83,12 +83,28 @@ $tel=$_SESSION['Tel'];
 
     
     <div class ="choix">
-                
+
+                <button class="btnn"><a onclick="masquer_div('tchat');">MAIL CLIENTS</a></button>
                 <button class="btnn"><a onclick="masquer_div('infoClient');">MES INFORMATIONS</a></button>
                 <button class="btnn"><a href="rendezvous.php" onclick="masquer_div('cancel');">MES RENDEZ-VOUS</a></button>
                 <button class="btnn"><a href="anciensrendezvous.php" onclick="masquer_div('anciensrdvs');">MES ANCIENS RENDEZ-VOUS</a></button>
                 <button class="btnn"><a onclick="masquer_div('Actpayante');">ACTIVITES PAYANTES</a></button>
 
+    </div>
+
+    <div  id="tchat" style="display:none;text-align: center;" >
+    <div class="main"id="main">
+            <h1> Envoyer un mail </h1>
+
+        <div class="envoyerclient" id="envoyer">
+            <form name="message" action="connect.php" method="post">   
+                <input name="coachemail" type="text" id="coachemail" value ="" placeholder="email du coach" style ="width: 400px; " />
+                <input name="objet" type="text" id="objet" value ="" placeholder="Objet" style ="width: 400px;" />
+                <input name="message" type="text" id="message" value ="" placeholder="" style ="width: 1000px; height: 200px;" />
+                <input style ="text-align:center; background-color:rgb(255, 255, 255); cursor:pointer" type="submit" name="envoyerclient"  id="envoyerclient" value="Envoyer"  />
+            </form>
+        </div>
+    </div>
     </div>
 
 

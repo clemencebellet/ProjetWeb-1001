@@ -401,7 +401,6 @@ if($db_found)
 
 
     }
-
     elseif (isset($_POST["envoyer"])) {
         $clientemail = isset($_POST["clientemail"])? $_POST["clientemail"] : "";
         $message = isset($_POST["message"])? $_POST["message"] : "";
@@ -409,16 +408,6 @@ if($db_found)
 
         $sql4 ="SELECT * FROM client WHERE EXISTS ( SELECT * WHERE Email = '$clientemail')";
         $res4 = mysqli_query($db_handle,$sql4);
-
-
-        //$sql ="SELECT * FROM client WHERE Nom = '$client'";
-
-       // $res = mysqli_query($db_handle,$sql);
-
-           /* while($data = mysqli_fetch_assoc($res)) 
-            {
-                $_SESSION['EmailClient'] =$data["Email"];
-            }*/
 
            ## Définitions des deux constantes
           define('ADRESSE_WEBMASTER','martinrose632@gmail.com'); // Votre adresse qui apparaitra en tant qu'expéditeur des E-mails
@@ -444,8 +433,39 @@ if($db_found)
               </script>';
           }
 
+    }
+    elseif (isset($_POST["envoyerclient"])) {
+        $coachemail = isset($_POST["coachemail"])? $_POST["coachemail"] : "";
+        $message = isset($_POST["message"])? $_POST["message"] : "";
+        $objet = isset($_POST["objet"])? $_POST["objet"] : "";
 
-        
+        $sql4 ="SELECT * FROM coach WHERE EXISTS ( SELECT * WHERE Email = '$coachemail')";
+        $res4 = mysqli_query($db_handle,$sql4);
+
+           ## Définitions des deux constantes
+          define('ADRESSE_WEBMASTER','martinrose632@gmail.com'); // Votre adresse qui apparaitra en tant qu'expéditeur des E-mails
+          define('SUJET',$objet); // Sujet commun aux deux E-mail
+          
+          ## Second appel de la fonction mail() : le visiteur reçoit cet E-mail
+          ini_set('SMTP','smtp.orange.fr'); //il faut mettre le stmp qui correspond à son serveur, le lien suivant nous le donne : http://check414.free.fr/detection-smtp/
+          ini_set("sendmail_from","martinrose632@gmail.com"); //donne l'expéditeur (il faut mettre une vrai addresse mail)
+          mail($coachemail,SUJET,$message,'From: '.ADRESSE_WEBMASTER); //on envoie le mail
+  
+          if($datatest=mysqli_fetch_assoc($res4))
+          {
+              echo'<script type="text/javascript">
+              alert("email envoyé à '.$coachemail .'");
+              location="client.php";
+              </script>';
+          }
+          else
+          {
+              echo'<script type="text/javascript">
+              alert("Email non envoyé");
+              location="client.php";
+              </script>';
+          }
+
     }
     
 }
