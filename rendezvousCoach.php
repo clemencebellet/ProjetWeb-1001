@@ -100,7 +100,7 @@ $id_coach= $_SESSION['idcoach'];
 
 
             <h1> MES<br><span>RENDEZ-VOUS</span></h1>
-            <p class="nosAct"> Rendez-vous avec  :
+            <p class="nosAct">
             <br> 
             <?php
 
@@ -127,7 +127,7 @@ $id_coach= $_SESSION['idcoach'];
 
                             echo " <strong>Rendez-vous n° " . $data2["id_rdv"] ."</strong><br>";
                             echo " ";
-                                echo "Creneau : " .$data2["jour"]." ". $data2["heure"]. " ". $data2["daterdv"]."<br>";
+                                echo "Creneau : " .$data2["jour"]." ". $data2["daterdv"]. " ". $data2["heure"]."<br>";
                                 echo "Adresse : ".$data2["adresse"]." Digicode : ".$data2["dogicode"]." <br> Client : ".$data3["Nom"]." Docs : ".$data2["doc"]."<br><br>";
                             ?></label> 
                             <?php
