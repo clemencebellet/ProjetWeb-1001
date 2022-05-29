@@ -84,7 +84,7 @@ $db_found = mysqli_select_db($db_handle,$db);
                 <button class="btnn"><a onclick="masquer_div('règle');">REGLES D'UTILISATION DES MACHINES</a></button>
                 <button class="btnn"><a onclick="masquer_div('newclients');">NOUVEAUX CLIENTS</a></button>
                 <button class="btnn"><a onclick="masquer_div('alimentation');">ALIMENTATION ET NUTRITION</a></button>
-                <button class="btnn"><a onclick="masquer_div('dispo');">DISPONIBILITE VISITES</a></button>
+                <button class="btnn"><a onclick="masquer_div('dispo');">VISITE DE LA SALLE</a></button>
 
             </div>
   

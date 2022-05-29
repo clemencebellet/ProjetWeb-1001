@@ -38,7 +38,7 @@ if($db_found)
             if($data = mysqli_fetch_assoc($res)) 
             {
                 echo'<script type="text/javascript">
-                alert("Authetification réussie' .$Email .'");
+                alert("Authentification réussie ' .$Email .'");
                 location="client.php";
                 </script>';
 
@@ -262,26 +262,22 @@ if($db_found)
         $idrdv = isset($_POST["idrdv"])? $_POST["idrdv"] : "";
         $sqlann =  "UPDATE rdv 
         SET bool_rdv = '0' 
-        WHERE rdv.id_rdv =$idrdv"; 
+        WHERE rdv.id_rdv =$idrdv AND "; 
         $resann = mysqli_query($db_handle,$sqlann); 
-
-        
-        echo $idrdv;
-
 
         //verif rdv avec id 
         $sqlc ="SELECT * FROM rdv WHERE EXISTS ( SELECT * WHERE id_rdv = '$idrdv')";
         $resc = mysqli_query($db_handle,$sqlc);
 
-        while($data = mysqli_fetch_assoc($resc)) 
+       if($data = mysqli_fetch_assoc($resc)) 
         {
             echo $j=$data["jour"] ;
             echo $cren=$data["heure"] ;
             echo $da=$data["date"] ;
             echo $idcoa=$data["coach_id"] ;
-        }
+        
 
-        //si rdv coach 
+        //si rdv salle de sport avec le directeur 
         if($idcoa==15)
         {
 
@@ -328,6 +324,13 @@ if($db_found)
                          echo "Insertion dispo rdv  unsuccessful";
                      }
         }
+    }
+    else {
+        echo '<script type="text/javascript">
+        alert("Erreur. Le rendez-vous saisi est incorrect!");
+        location="rendezvous.php";
+        </script>';
+    }
     
 
        /* ## Définitions des deux constantes

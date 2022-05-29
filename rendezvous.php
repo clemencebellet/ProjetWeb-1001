@@ -80,7 +80,6 @@ $id_client= $_SESSION['id'];
                 WHERE rdv.client_id = '$id_client'";
                 $res2 = mysqli_query($db_handle,$sql2);
 
-               
 
                /* $sql4 = "SELECT rdv.bool_rdv 
                 FROM rdv,coach 

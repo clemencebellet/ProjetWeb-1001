@@ -290,14 +290,10 @@
         $res = mysqli_query($db_handle,$sql);
         echo "<b>" ;
         while($dataclient = mysqli_fetch_assoc($res)) 
-{           
-    echo "<p style='font-size: 25px; color: #1ad39f;'>"  . $dataclient["dispo"] . "</p>". "<br>";
-    
-    echo "<br>";
-
-    
-    
-} 
+        {              
+            echo "<p style='font-size: 25px; color: #1ad39f;'>"  . $dataclient["jour"] ." ". $dataclient["date"] ." - ". $dataclient["creneau"] ."</p>". "<br>";
+            echo "<br>";
+        } 
 
         ?>
              <br/>
@@ -317,40 +313,42 @@
 
             
     <?php
-   
+   if(isset($_POST["Info"]))
+   {
    $info = isset($_POST["info"])? $_POST["info"] : "";
+   $sqlblindage ="SELECT * FROM coach WHERE EXISTS ( SELECT * WHERE id_coach = '$info')";
+   $resblindage = mysqli_query($db_handle,$sqlblindage);
+
+   if($data1 = mysqli_fetch_assoc($resblindage)) {
    
-$sqlinfo = "SELECT * FROM coach WHERE  id_coach='$info'";
-$resinfo = mysqli_query($db_handle,$sqlinfo);
-$sqlcreaneaux = "SELECT * FROM dispo WHERE  id_pro='$info'";
-$rescreneaux = mysqli_query($db_handle,$sqlcreaneaux);
+        $sqlinfo = "SELECT * FROM coach WHERE  id_coach='$info'";
+        $resinfo = mysqli_query($db_handle,$sqlinfo);
+        $sqlcreaneaux = "SELECT * FROM dispo WHERE  id_pro='$info'";
+        $rescreneaux = mysqli_query($db_handle,$sqlcreaneaux);
 
-                while($datainfo = mysqli_fetch_assoc($resinfo)) 
-                {       
-                    echo "Voici les créneaux disponibles de " . $datainfo['Nom'] . " " .  $datainfo['Prenom'] . "<br>";
-                  
-                    
-                    echo "<br>";
-                
-                } 
-               
-                    
-    while($data = mysqli_fetch_assoc($rescreneaux))
-    { 
-    
-        echo $data['jour'] . " " . $data['creneau'] ;
-        echo "<br>";
-       
-        
-        
-        
+        while($datainfo = mysqli_fetch_assoc($resinfo)) 
+        {       
+        echo "Voici les créneaux disponibles de " . $datainfo['Nom'] . " " .  $datainfo['Prenom'] . "<br><br>";
+                        
+        } 
+                            
+        while($data = mysqli_fetch_assoc($rescreneaux))
+        { 
+            
+            echo $data['jour'] . " " . $data['creneau']. "<br>" ;
+
+        }
     }
-                
-    
+    else {
+        echo '<script type="text/javascript">
+        alert("Erreur. Id du coach saisi incorrect!");
+        location="admin.php";
+        </script>';
+        }
+   }
 
-
-            ?>
-            </div>
+?>
+</div>
        
 
 </body>

@@ -146,7 +146,7 @@ $tel=$_SESSION['Tel'];
 
             <div  id="Actpayante"  style="display:none;text-align: center;" >
                 <h2> LES ACTIVITES PAYANTES </h2> <br><br>
-                    <h3>Initiation Crossfit</h3>
+                    <h3>Initiation Crossfit - 17 euros</h3>
                     <p>Entrainement adapté à tous. Coachs qualifiés et expérimentés. 
                     Protocole sanitaire en place. <br>
                     L’OMNES Sport c’est plus qu’une simple salle de sport, c'est une famille.</p>
@@ -224,7 +224,7 @@ $tel=$_SESSION['Tel'];
                         </tr>
                         <tr>
                             <td colspan="2" align="center">
-                                <input type="submit" name="btnPaiement" value="btnPaiement">
+                                <input type="submit" name="btnPaiement" value="PAYER">
                             </td>
                         </tr>
                     </table>
@@ -232,7 +232,7 @@ $tel=$_SESSION['Tel'];
         </div>
 
 
-        <h3>Roller dans les rues de Paris</h3>
+        <h3>Roller dans les rues de Paris - 15 euros </h3>
             <p>Cours et activités autour de plusieurs disciplines du roller : apprentissage général, freestyle, courses et randonnées<br>
                 Permettre la participation aux événements rollers au plus grand nombre et dans la convivialité</p>
 
@@ -306,7 +306,7 @@ $tel=$_SESSION['Tel'];
                         </tr>
                         <tr>
                             <td colspan="2" align="center">
-                                <input type="submit" name="btnPaiement" value="btnPaiement">
+                                <input type="submit" name="btnPaiement" value="PAYER">
                             </td>
                         </tr>
                     </table>
