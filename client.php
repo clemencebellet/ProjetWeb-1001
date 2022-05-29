@@ -394,7 +394,7 @@ $tel=$_SESSION['Tel'];
 .choix{
 
 width: 1250px;
-height: 200px;
+height: 450px;;
 /*background: linear-gradient(to top, rgba(80, 80, 80, 0.8)50%,rgba(80, 80, 80, 0.8)50%);*/
 background-color: rgb(244, 244, 244);
 margin-left: 400px;
@@ -575,6 +575,55 @@ padding: 25px;
 }
 
 
+
+
+
+
+/**** MAIL ****/
+
+.main{
+    width: 1250px;
+    height: auto;
+    /*background: linear-gradient(to top, rgba(80, 80, 80, 0.8)50%,rgba(80, 80, 80, 0.8)50%);*/
+    background-color: rgb(244, 244, 244);
+    margin-left: 370px;
+    margin-top: 50px;
+    margin-bottom: 0px;
+    top: -20px;
+    left: 870px;
+    transform: translate(0%,-5%);
+    border-radius: 60px;
+    padding: 25px;
+
+}
+
+
+.main h1{
+    font-family: 'Arial';
+    color: rgb(118, 100, 1);
+    font-size: 20px;
+    letter-spacing: 5px;
+    margin-top: 30px;
+    margin-bottom:40px;
+    text-align:center;
+
+ }
+
+
+ 
+.main input{
+    width: 240px;
+    height: 35px;
+    background: transparent;
+    border: 1px solid rgb(255, 218, 9);
+    border-radius: 5px;
+    color: rgb(0, 0, 0);
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    margin-left: 20px;
+    font-family: sans-serif;
+}
 
 
 
