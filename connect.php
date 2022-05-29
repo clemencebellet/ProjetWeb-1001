@@ -122,10 +122,11 @@ if($db_found)
             $bureau = $data2["Bureau"];
         }
         
-       $sqlrdv =  "INSERT INTO rdv(id_rdv,heure,client_id,coach_id,jour,date,adresse,doc,dogicode,bool_rdv)
+       $sqlrdv =  "INSERT INTO rdv(id_rdv,heure,client_id,coach_id,jour,daterdv,adresse,doc,dogicode,bool_rdv)
         VALUES('$id_rdv','$creneau','$idclient','$idcoach','$jour','$date','$bureau','$doc','32B','1')";
         $resrdv = mysqli_query($db_handle,$sqlrdv);
-        $sqlsupr =  "DELETE FROM dispo WHERE date = '$date'"; 
+        $sqlsupr =  "DELETE FROM dispo WHERE daterdv
+         = '$date'"; 
 
          ## Définitions des deux constantes
          define('ADRESSE_WEBMASTER','martinrose632@gmail.com'); // Votre adresse qui apparaitra en tant qu'expéditeur des E-mails
@@ -141,12 +142,12 @@ if($db_found)
          ## Second appel de la fonction mail() : le visiteur reçoit cet E-mail
          ini_set('SMTP','smtp.orange.fr'); //il faut mettre le stmp qui correspond à son serveur, le lien suivant nous le donne : http://check414.free.fr/detection-smtp/
          ini_set("sendmail_from","martinrose632@gmail.com"); //donne l'expéditeur (il faut mettre une vrai addresse mail)
-         mail($_SESSION['Email'],SUJET,$message,'From: '.ADRESSE_WEBMASTER); //on envoie le mail
+         mail($mail,SUJET,$message,'From: '.ADRESSE_WEBMASTER); //on envoie le mail
 
         if($resrdv) { 
 
             echo'<script type="text/javascript">
-            alert("email de validation du rendez-vous envoyé à '.$_SESSION['Email'] .'");
+            alert("email de validation du rendez-vous envoyé à '.$mail .'");
             location="accueil.html";
             </script>';
             $ressupr = mysqli_query($db_handle,$sqlsupr);
@@ -293,7 +294,7 @@ if($db_found)
         {
             echo $j=$data["jour"] ;
             echo $cren=$data["heure"] ;
-            echo $da=$data["date"] ;
+            echo $da=$data["daterdv"] ;
             echo $idcoa=$data["coach_id"] ;
         
 
@@ -306,6 +307,21 @@ if($db_found)
             $instdispo =  "INSERT INTO disposalle (creneau,date, jour) VALUES('$cren','$da','$j')";
             $delrdv =  "DELETE FROM rdv WHERE date = '$da' and coach_id='$idcoa' and id_rdv= '$idrdv' "; 
             $resdispo = mysqli_query($db_handle,$instdispo);
+
+               ## Définitions des deux constantes
+                define('ADRESSE_WEBMASTER','martinrose632@gmail.com'); // Votre adresse qui apparaitra en tant qu'expéditeur des E-mails
+                define('SUJET','Rendez-vous annulé'); // Sujet commun aux deux E-mail
+                
+                ## Message envoyé au visiteur
+                $message = "Bonjour,\n Ceci est un mail de confirmation d'annulation du rendez-vous n°.".$idrdv."      
+               \n\nCeci est un mail automatique, Merci de ne pas y répondre.
+                 \nL'équipe Omnes Sport";
+                
+                ## Second appel de la fonction mail() : le visiteur reçoit cet E-mail
+                ini_set('SMTP','smtp.orange.fr'); //il faut mettre le stmp qui correspond à son serveur, le lien suivant nous le donne : http://check414.free.fr/detection-smtp/
+                ini_set("sendmail_from","martinrose632@gmail.com"); //donne l'expéditeur (il faut mettre une vrai addresse mail)
+                mail($_SESSION['Email'],SUJET,$message,'From: '.ADRESSE_WEBMASTER); //on envoie le mail
+
                     if($resdispo) 
                     { 
                             echo '<script type="text/javascript">
@@ -327,8 +343,23 @@ if($db_found)
              echo "on ajoute la dispo dans dispo coach ";
               //insertion dispo coach et suppr du rdv 
             $instdispocoach =  "INSERT INTO dispo (jour,id_pro,creneau,date) VALUES('$j','$idcoa','$cren','$da')";
-            $delrdvcoach =  "DELETE FROM rdv WHERE date = '$da' and coach_id='$idcoa' and id_rdv= '$idrdv' "; 
+            $delrdvcoach =  "DELETE FROM rdv WHERE daterdv = '$da' and coach_id='$idcoa' and id_rdv= '$idrdv' "; 
             $resdispocoach = mysqli_query($db_handle,$instdispocoach);
+
+            
+               ## Définitions des deux constantes
+               define('ADRESSE_WEBMASTER','martinrose632@gmail.com'); // Votre adresse qui apparaitra en tant qu'expéditeur des E-mails
+               define('SUJET','Rendez-vous annulé'); // Sujet commun aux deux E-mail
+               
+               ## Message envoyé au visiteur
+               $message = "Bonjour,\n Ceci est un mail de confirmation d'annulation du rendez-vous n°.".$idrdv."      
+              \n\nCeci est un mail automatique, Merci de ne pas y répondre.
+                \nL'équipe Omnes Sport";
+               
+               ## Second appel de la fonction mail() : le visiteur reçoit cet E-mail
+               ini_set('SMTP','smtp.orange.fr'); //il faut mettre le stmp qui correspond à son serveur, le lien suivant nous le donne : http://check414.free.fr/detection-smtp/
+               ini_set("sendmail_from","martinrose632@gmail.com"); //donne l'expéditeur (il faut mettre une vrai addresse mail)
+               mail($_SESSION['Email'],SUJET,$message,'From: '.ADRESSE_WEBMASTER); //on envoie le mail
              
                      if($resdispocoach) 
                      { 
