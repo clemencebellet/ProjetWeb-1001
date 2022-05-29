@@ -33,10 +33,10 @@ if($db_found)
             $id_coach=$data["id_coach"];
             $id_client=$data2["id"];
             echo $id_coach;
-            $sql3= "INSERT INTO rdv (heure,client_id, coach_id,jour,date,adresse,doc,dogicode)
+            $sql3= "INSERT INTO rdv (heure,client_id, coach_id,jour,daterdv,adresse,doc,dogicode)
                     VALUES('10:30:00','2','2','lundi','13 avril','23 rue du loup','ordonnace','12B')";
             $res3 = mysqli_query($db_handle,$sql3);
-            echo"tout est ok pd";
+           
         }
 
    

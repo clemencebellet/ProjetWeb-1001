@@ -101,7 +101,7 @@ $id_client= $_SESSION['id'];
     
                             echo " <strong>Rendez-vous n° " . $data2["id_rdv"] ."</strong><br>";
                             echo " ";
-                                echo "Creneau : " .$data2["jour"]." ". $data2["heure"] . " ". $data2["date"]."<br>";
+                                echo "Creneau : " .$data2["jour"]." ". $data2["heure"] . " ". $data2["daterdv"]."<br>";
                                 echo "Adresse : ".$data3["Bureau"]." Digicode : ".$data2["dogicode"]." <br> Coach : ".$data3["Nom"]." Docs : ".$data2["doc"]."<br><br>";
                             ?></label> 
                             <?php

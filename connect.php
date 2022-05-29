@@ -125,7 +125,7 @@ if($db_found)
        $sqlrdv =  "INSERT INTO rdv(id_rdv,heure,client_id,coach_id,jour,daterdv,adresse,doc,dogicode,bool_rdv)
         VALUES('$id_rdv','$creneau','$idclient','$idcoach','$jour','$date','$bureau','$doc','32B','1')";
         $resrdv = mysqli_query($db_handle,$sqlrdv);
-        $sqlsupr =  "DELETE FROM dispo WHERE daterdv
+        $sqlsupr =  "DELETE FROM dispo WHERE date
          = '$date'"; 
 
          ## Définitions des deux constantes
@@ -202,7 +202,7 @@ if($db_found)
             $bureau = $data2["Bureau"];
         }
                 
-        $sqlrdv =  "INSERT INTO rdv(id_rdv,heure,client_id,coach_id,jour,date,adresse,doc,dogicode,bool_rdv)
+        $sqlrdv =  "INSERT INTO rdv(id_rdv,heure,client_id,coach_id,jour,daterdv,adresse,doc,dogicode,bool_rdv)
         VALUES('$id_rdv','$creneau','$idclient','$idcoach','$jour','$date','$bureau','$doc','32B','1')";
         $resrdv = mysqli_query($db_handle,$sqlrdv);
         $sqlsupr =  "DELETE FROM disposalle WHERE date = '$date'"; 
@@ -305,7 +305,7 @@ if($db_found)
             echo "on ajoute la dispo dans salle de sport";
             // //insertion dispo salle et suppr du rdv 
             $instdispo =  "INSERT INTO disposalle (creneau,date, jour) VALUES('$cren','$da','$j')";
-            $delrdv =  "DELETE FROM rdv WHERE date = '$da' and coach_id='$idcoa' and id_rdv= '$idrdv' "; 
+            $delrdv =  "DELETE FROM rdv WHERE daterdv = '$da' and coach_id='$idcoa' and id_rdv= '$idrdv' "; 
             $resdispo = mysqli_query($db_handle,$instdispo);
 
                ## Définitions des deux constantes
