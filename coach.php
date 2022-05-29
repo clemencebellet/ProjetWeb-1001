@@ -79,20 +79,19 @@
     <div id="messagerie">
    
 
-    </div>
+    </div >
      <br/>
     
 
-    <form name="message" action="accueil.html">
-        
-    
-    <input name="client" type="text" id="client" value ="Nom du client"/>
-    
-        <input name="message" type="text" id="message"  />
-        <input style ="text-align:center; "name="envoyer" type="submit"  id="envoyer" value="Envoyer" />
-    </form>
+    <div id="envoyer">
+        <form name="message" action="connect.php" method="post">   
+            <input name="clientemail" type="text" id="clientemail" value ="Email du client"/>
+            <input name="objet" type="text" id="objet" value ="Objet" />
+            <input name="message" type="text" id="message" value ="Message"  />
+            <input style ="text-align:center;" type="submit" name="envoyer"  id="envoyer" value="Envoyer" />
+        </form>
+    </div>
     <?php
-
 
 ?>
 </div>

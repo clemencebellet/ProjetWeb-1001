@@ -122,20 +122,31 @@ if($db_found)
             $bureau = $data2["Bureau"];
         }
         
-
-       
-       
-        echo  $idcoach ;
-        echo  $id_rdv ;
-        
        $sqlrdv =  "INSERT INTO rdv(id_rdv,heure,client_id,coach_id,jour,date,adresse,doc,dogicode,bool_rdv)
         VALUES('$id_rdv','$creneau','$idclient','$idcoach','$jour','$date','$bureau','$doc','32B','1')";
         $resrdv = mysqli_query($db_handle,$sqlrdv);
         $sqlsupr =  "DELETE FROM dispo WHERE date = '$date'"; 
 
+         ## Définitions des deux constantes
+         define('ADRESSE_WEBMASTER','martinrose632@gmail.com'); // Votre adresse qui apparaitra en tant qu'expéditeur des E-mails
+         define('SUJET','Confirmation de votre rendez-vous'); // Sujet commun aux deux E-mail
+         
+         ## Message envoyé au visiteur
+         $message = "Bonjour,\n Ceci est un mail de confirmation pour votre rendez-vous n°.".$id_rdv."
+         RDV le ". $jour . " ". $date. " le " .$creneau. 
+         "\nLieu : " .$bureau . " Docs à amener : " .$doc ."       
+        \n\nCeci est un mail automatique, Merci de ne pas y répondre.
+          \nL'équipe Omnes Sport";
+         
+         ## Second appel de la fonction mail() : le visiteur reçoit cet E-mail
+         ini_set('SMTP','smtp.orange.fr'); //il faut mettre le stmp qui correspond à son serveur, le lien suivant nous le donne : http://check414.free.fr/detection-smtp/
+         ini_set("sendmail_from","martinrose632@gmail.com"); //donne l'expéditeur (il faut mettre une vrai addresse mail)
+         mail($_SESSION['Email'],SUJET,$message,'From: '.ADRESSE_WEBMASTER); //on envoie le mail
+
         if($resrdv) { 
-            echo '<script type="text/javascript">
-            alert("Nouveau Rendez-vous ajouté !");
+
+            echo'<script type="text/javascript">
+            alert("email de validation du rendez-vous envoyé à '.$_SESSION['Email'] .'");
             location="accueil.html";
             </script>';
             $ressupr = mysqli_query($db_handle,$sqlsupr);
@@ -143,10 +154,7 @@ if($db_found)
         }
         else {
             echo "Insert unsuccessful";
-        }
-        
-        
-    
+        }   
             
                 
     }
@@ -192,13 +200,28 @@ if($db_found)
             $idcoach = $data2["id_coach"];
             $bureau = $data2["Bureau"];
         }
-        
-
-        
-       $sqlrdv =  "INSERT INTO rdv(id_rdv,heure,client_id,coach_id,jour,date,adresse,doc,dogicode,bool_rdv)
+                
+        $sqlrdv =  "INSERT INTO rdv(id_rdv,heure,client_id,coach_id,jour,date,adresse,doc,dogicode,bool_rdv)
         VALUES('$id_rdv','$creneau','$idclient','$idcoach','$jour','$date','$bureau','$doc','32B','1')";
         $resrdv = mysqli_query($db_handle,$sqlrdv);
         $sqlsupr =  "DELETE FROM disposalle WHERE date = '$date'"; 
+
+         ## Définitions des deux constantes
+         define('ADRESSE_WEBMASTER','martinrose632@gmail.com'); // Votre adresse qui apparaitra en tant qu'expéditeur des E-mails
+         define('SUJET','Confirmation visite salle de sport OMNES'); // Sujet commun aux deux E-mail
+         
+         ## Message envoyé au visiteur
+         $message = "Bonjour,\n Ceci est un mail confirmant la visite de notre salle de sport 
+         prévue le ". $jour . " ". $date. " le " .$creneau. 
+         "\nLieu : " .$bureau . " Docs à amener : " .$doc ."       
+        \n\nCeci est un mail automatique, Merci de ne pas y répondre.
+          \nL'équipe Omnes Sport";
+         
+         ## Second appel de la fonction mail() : le visiteur reçoit cet E-mail
+         ini_set('SMTP','smtp.orange.fr'); //il faut mettre le stmp qui correspond à son serveur, le lien suivant nous le donne : http://check414.free.fr/detection-smtp/
+         ini_set("sendmail_from","martinrose632@gmail.com"); //donne l'expéditeur (il faut mettre une vrai addresse mail)
+         mail($_SESSION['Email'],SUJET,$message,'From: '.ADRESSE_WEBMASTER); //on envoie le mail
+
 
         if($resrdv) { 
             echo '<script type="text/javascript">
@@ -212,10 +235,7 @@ if($db_found)
             echo "Insert unsuccessful";
         }
         
-        
     
-            
-                
     }
     elseif(isset($_POST["btnPaiement"])) {
         
@@ -348,31 +368,53 @@ if($db_found)
         ini_set("sendmail_from","martinrose632@gmail.com"); //donne l'expéditeur (il faut mettre une vrai addresse mail)
         mail($_SESSION['Email'],SUJET,$message,'From: '.ADRESSE_WEBMASTER); //on envoie le mail*/
 
-        
 
     }
 
     elseif (isset($_POST["envoyer"])) {
-        //$client = isset($_POST["client"])? $_POST["client"] : "";
-        //$message = isset($_POST["message"])? $_POST["message"] : "";
-        //On recupere le nom du client et le message
+        $clientemail = isset($_POST["clientemail"])? $_POST["clientemail"] : "";
+        $message = isset($_POST["message"])? $_POST["message"] : "";
+        $objet = isset($_POST["objet"])? $_POST["objet"] : "";
 
-        
-        /*$sql ="SELECT * FROM client WHERE Nom = '$client'";
+        $sql4 ="SELECT * FROM client WHERE EXISTS ( SELECT * WHERE Email = '$clientemail')";
+        $res4 = mysqli_query($db_handle,$sql4);
 
-        $res = mysqli_query($db_handle,$sql);
 
-            while($data = mysqli_fetch_assoc($res)) 
+        //$sql ="SELECT * FROM client WHERE Nom = '$client'";
+
+       // $res = mysqli_query($db_handle,$sql);
+
+           /* while($data = mysqli_fetch_assoc($res)) 
             {
                 $_SESSION['EmailClient'] =$data["Email"];
-            }
-*/
-//et apres faire le mail 
+            }*/
+
+           ## Définitions des deux constantes
+          define('ADRESSE_WEBMASTER','martinrose632@gmail.com'); // Votre adresse qui apparaitra en tant qu'expéditeur des E-mails
+          define('SUJET',$objet); // Sujet commun aux deux E-mail
+          
+          ## Second appel de la fonction mail() : le visiteur reçoit cet E-mail
+          ini_set('SMTP','smtp.orange.fr'); //il faut mettre le stmp qui correspond à son serveur, le lien suivant nous le donne : http://check414.free.fr/detection-smtp/
+          ini_set("sendmail_from","martinrose632@gmail.com"); //donne l'expéditeur (il faut mettre une vrai addresse mail)
+          mail($clientemail,SUJET,$message,'From: '.ADRESSE_WEBMASTER); //on envoie le mail
+  
+          if($datatest=mysqli_fetch_assoc($res4))
+          {
+              echo'<script type="text/javascript">
+              alert("email envoyé à '.$clientemail .'");
+              location="coach.php";
+              </script>';
+          }
+          else
+          {
+              echo'<script type="text/javascript">
+              alert("Email non envoyé");
+              location="coach.php";
+              </script>';
+          }
 
 
         
-        
-
     }
     
 }
