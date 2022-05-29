@@ -70,33 +70,28 @@
 
 
     <div  id="tchat" style="display:none;text-align: center;" >
-    <div id="main">
-    <div id="menu">
-        <p class="bienvenue">Envoi de mail <b></b></p>
-        
-    </div>
-     
-    <div id="messagerie">
-   
+    <div class="main"id="main">
+            <h1> Envoyer un mail </h1>
 
-    </div >
-     <br/>
-    
-
-    <div id="envoyer">
-        <form name="message" action="connect.php" method="post">   
-            <input name="clientemail" type="text" id="clientemail" value ="Email du client"/>
-            <input name="objet" type="text" id="objet" value ="Objet" />
-            <input name="message" type="text" id="message" value ="Message"  />
-            <input style ="text-align:center;" type="submit" name="envoyer"  id="envoyer" value="Envoyer" />
-        </form>
+        <div class="envoyer" id="envoyer">
+            <form name="message" action="connect.php" method="post">   
+                <input name="clientemail" type="text" id="clientemail" value ="" placeholder="email du client" style ="width: 400px; " />
+                <input name="objet" type="text" id="objet" value ="" placeholder="Objet" style ="width: 400px;" />
+                <input name="message" type="text" id="message" value ="" placeholder="" style ="width: 1000px; height: 200px;" />
+                <input style ="text-align:center; background-color:rgb(255, 255, 255); cursor:pointer" type="submit" name="envoyer"  id="envoyer" value="Envoyer"  />
+            </form>
+        </div>
     </div>
-    <?php
+    </div>
+</div>
+
+
+<?php
 
 ?>
-</div>
-</div>
-</div>
+
+
+
 
 </body>
 </html>
@@ -209,12 +204,65 @@ padding: 25px;
 
 
 
+/**** MAIL ****/
 
+.main{
+    width: 1250px;
+    height: auto;
+    /*background: linear-gradient(to top, rgba(80, 80, 80, 0.8)50%,rgba(80, 80, 80, 0.8)50%);*/
+    background-color: rgb(244, 244, 244);
+    margin-left: 370px;
+    margin-top: 50px;
+    margin-bottom: 0px;
+    top: -20px;
+    left: 870px;
+    transform: translate(0%,-5%);
+    border-radius: 60px;
+    padding: 25px;
+
+}
+
+
+.main h1{
+    font-family: 'Arial';
+    color: rgb(7, 45, 181);
+    font-size: 20px;
+    letter-spacing: 5px;
+    margin-top: 30px;
+    margin-bottom:40px;
+    text-align:center;
+
+ }
+
+
+ 
+.main input{
+    width: 240px;
+    height: 35px;
+    background: transparent;
+    border: 1px solid rgb(122, 169, 245);
+    border-radius: 5px;
+    color: rgb(0, 0, 0);
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    margin-left: 20px;
+    font-family: sans-serif;
+}
+
+
+
+
+
+
+
+
+
+/******** ?????????????????**** */
 
 #tchat {
     font:12px arial;
     color: #222;
-    text-align:center;
     padding:35px; }
 
   
@@ -229,7 +277,8 @@ a {
 #loginform { padding-top:18px; }
   
     #loginform p { margin: 5px; }
-  
+
+  /*
 #messagerie {
     text-align:left;
     margin:auto;
@@ -244,11 +293,12 @@ a {
 #message {
     width:350px;
     border:1px solid #ACD8F0; }
+*/
+    
 #client {
     
     border:1px solid #ACD8F0; }
   
-#envoyer { width: 80px; }
   
   
 .bienvenue { position: relative;
@@ -257,16 +307,14 @@ left :10px; }
 
   
 .msgln { margin:0 0 2px 0; }
-
+/*
 #main {
     margin:auto;
     padding-bottom:25px;
     background:#EBF4FB;
     width:504px;
-    border:1px solid #ACD8F0; }
-#nom{
-    text-align : left;
-}
+    border:1px solid #ACD8F0; }*/
+
 
 </style>
 
