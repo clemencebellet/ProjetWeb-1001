@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <CV>
   <InformationsPerso>
-    <Nom>Bellet</Nom>
-    <Prenom>Thomas</Prenom>
-    <Bureau>TGGG</Bureau>
-    <Telephone>0144390600</Telephone>
-    <Mail>rosecommeprenom@gmail.com</Mail>
+    <Nom>Couet</Nom>
+    <Prenom>Amaury</Prenom>
+    <Bureau>G-230</Bureau>
+    <Telephone>09087668756</Telephone>
+    <Mail>amaury@sport-omnes.com</Mail>
   </InformationsPerso>
   <Professionnel>
-    <Adresse>101 rue du Loup Paris</Adresse>
-    <Diplome>diplome coach sportif</Diplome>
-    <Experience>coach freelance</Experience>
+    <Adresse>23 rue sauvage</Adresse>
+    <Diplome>Nageur Professionnel</Diplome>
+    <Experience>Sauveteur en mer</Experience>
   </Professionnel>
 </CV>

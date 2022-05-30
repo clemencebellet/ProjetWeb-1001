@@ -81,18 +81,24 @@ $id_coach= $_SESSION['idcoach'];
                         
                 while($datacoach = mysqli_fetch_assoc($rescoach)) 
                 {   
-                
-                    echo '<img src="'.$datacoach['Profil'].' "height = 150 px /></a>';          
-                    echo "  ID :  " . $datacoach["id_coach"] . "<br>";
+                    echo "<p style='text-align : center; font-size : 20px;'>" . " <u> Photo de Profil de votre compte : </u>";
+                    echo "<br>";
+                    echo '<img src="'.$datacoach['Profil'].' "height = 150 px /></a>';      
+                    echo "<br>";
+                    echo "<br>";
+                    echo " <b> ID :  " . $datacoach["id_coach"] . "<br>";
                     echo "  Nom :  " . $datacoach["Nom"] . "<br>";
                     echo "  Prenom :  " . $datacoach["Prenom"] . "<br>";
                     echo "  Bureau :  " . $datacoach["Bureau"] . "<br>";
                     echo "  Dispo :  " . $datacoach["Dispo"] . "<br>";
                     echo "  NumeroTel :  " . $datacoach["NumeroTel"] . "<br>";
                     echo "  Email :  " . $datacoach["Email"] . "<br>";
-                    echo "  Sport :  " . $datacoach["Sport"] . "<br>";
+                    echo "  Sport :  " . $datacoach["Sport"] . " </b> <br>" ;
+                    echo "<br>";
+                    echo " <u> Voici votre CV : </u>";
+                    echo "<br>";
                     echo '<a href="'.$datacoach['CV'].'" >';
-                    echo '<img src="'.$datacoach['CV'].' "height = 150 px /></a>';
+                    echo '<img src="'.$datacoach['CV'].' "height = 150 px /></a> </p>';
                 
                 } 
 
